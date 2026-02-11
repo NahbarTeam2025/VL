@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VisibilityLab - Intelligent SEO Engineering</title>
+    <meta name="description" content="VisibilityLab: KI-gestütztes SEO-System für maximale digitale Dominanz." />
+    
+    <!-- JSON-LD Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "VisibilityLab",
+        "image": "https://visibilitylab.de/logo.png",
+        "@id": "https://visibilitylab.de",
+        "url": "https://visibilitylab.de",
+        "description": "KI-gestütztes System für moderne SEO-, GEO- und Content-Strategien."
+      }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bg: { primary: '#020617', secondary: '#070c1d' },
+              accent: { primary: '#3b82f6', secondary: '#8b5cf6' },
+              text: { primary: '#f8fafc', secondary: '#94a3b8' }
+            },
+            animation: {
+              'logo-glow': 'logo-glow 4s ease-in-out infinite',
+              'beam': 'beam 4s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'gradient-pan': 'gradient-pan 3s ease-in-out infinite',
+            },
+            keyframes: {
+              'logo-glow': {
+                '0%, 100%': { opacity: '0.4', filter: 'blur(40px)' },
+                '50%': { opacity: '0.8', filter: 'blur(60px)' },
+              },
+              'beam': {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' }
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-8px)' }
+              },
+              'gradient-pan': {
+                '0%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+                '100%': { backgroundPosition: '0% 50%' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+      
+      body {
+        background-color: #020617;
+        color: #f8fafc;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        overflow-x: hidden;
+      }
+
+      .hero-viewport {
+        height: 100vh;
+        height: 100svh;
+      }
+
+      .glass-card {
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      .glass-card:hover {
+        border-color: rgba(59, 130, 246, 0.3);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.3);
+      }
+
+      .bg-grid {
+        background-image: linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+
+      .glow-orb {
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+      }
+
+      ::-webkit-scrollbar { width: 5px; }
+      ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "react": "https://esm.sh/react@^19.2.4",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

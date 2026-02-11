@@ -1,0 +1,159 @@
+import React, { useState, useEffect } from 'react';
+import { Hero } from './components/Hero';
+import { Problem } from './components/Problem';
+import { Solution } from './components/Solution';
+import { Agents } from './components/Agents';
+import { Methodology } from './components/Methodology';
+import { Benefits } from './components/Benefits';
+import { DetailedBenefits } from './components/DetailedBenefits';
+import { Process } from './components/Process';
+import { FAQ } from './components/FAQ';
+import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
+import { Modal } from './components/Modal';
+import { Impressum } from './components/legal/Impressum';
+import { Datenschutz } from './components/legal/Datenschutz';
+import { Menu, X, Info, ArrowUp } from 'lucide-react';
+
+const CookieBanner = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const consent = localStorage.getItem('visibility_lab_consent');
+    if (!consent) setShow(true);
+  }, []);
+
+  const accept = () => {
+    localStorage.setItem('visibility_lab_consent', 'true');
+    setShow(false);
+  };
+
+  if (!show) return null;
+
+  return (
+    <div className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-sm z-[200] bg-bg-secondary border border-white/10 p-5 rounded-3xl shadow-2xl backdrop-blur-2xl">
+      <div className="flex gap-4 items-center mb-4 text-xs text-text-secondary leading-relaxed">
+        <Info className="w-5 h-5 text-blue-500 shrink-0" />
+        <p>Wir nutzen technisch notwendige Cookies für die Systemstabilität.</p>
+      </div>
+      <button onClick={accept} className="w-full py-2 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-xl transition-all">Akzeptieren</button>
+    </div>
+  );
+};
+
+const BackToTopButton = () => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    const toggleVisibility = () => {
+        if (window.pageYOffset > 300) {
+            setIsVisible(true);
+        } else {
+            setIsVisible(false);
+        }
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', toggleVisibility);
+        return () => window.removeEventListener('scroll', toggleVisibility);
+    }, []);
+
+    return (
+        <button
+            onClick={scrollToTop}
+            className={`fixed bottom-8 right-8 z-[100] w-12 h-12 rounded-full bg-blue-600/80 backdrop-blur-sm text-white flex items-center justify-center shadow-lg hover:bg-blue-500 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            aria-label="Nach oben scrollen"
+        >
+            <ArrowUp className="w-6 h-6" />
+        </button>
+    );
+};
+
+
+export default function App() {
+  const [legalModal, setLegalModal] = useState<'impressum' | 'datenschutz' | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const menuItems = [
+    { title: 'Problem', href: '#market-inefficiency' },
+    { title: 'System', href: '#agents' },
+    { title: 'Methodik', href: '#methodology' },
+    { title: 'Prozess', href: '#process' },
+    { title: 'Kontakt', href: '#contact' }
+  ];
+  
+  const handleMenuScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    const targetId = e.currentTarget.getAttribute('href')?.substring(1);
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-bg-primary text-text-primary selection:bg-blue-600 selection:text-white scroll-smooth">
+      <nav className="fixed top-0 w-full z-[100] bg-bg-primary/50 backdrop-blur-xl border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <a href="#" className="flex items-center gap-3 group">
+             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-500 group-hover:text-blue-400 transition-colors">
+                <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                <path d="M2 7L12 12L22 7" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                <path d="M12 12V22" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+             </svg>
+            <span className="font-bold tracking-tighter text-white">VisibilityLab</span>
+          </a>
+
+          <div className="flex items-center">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-text-secondary hover:text-white transition-colors relative z-[110]">
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {isMenuOpen && (
+          <div className="fixed inset-0 bg-bg-primary h-screen z-[105] flex flex-col items-center justify-center gap-8 animate-fadeIn">
+            {menuItems.map(item => (
+              <a key={item.title} href={item.href} onClick={handleMenuScroll} className="text-4xl font-black text-white hover:text-blue-500 transition-all">{item.title}</a>
+            ))}
+            <div className="mt-12 flex gap-6 text-[10px] font-bold uppercase tracking-widest text-text-muted">
+              <button onClick={() => { setLegalModal('impressum'); setIsMenuOpen(false); }}>Impressum</button>
+              <button onClick={() => { setLegalModal('datenschutz'); setIsMenuOpen(false); }}>Datenschutz</button>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      <main>
+        <Hero />
+        <Problem />
+        <Solution />
+        <Agents />
+        <Methodology />
+        <Benefits />
+        <DetailedBenefits />
+        <Process />
+        <FAQ />
+        <Contact />
+      </main>
+
+      <Footer onOpenImpressum={() => setLegalModal('impressum')} onOpenDatenschutz={() => setLegalModal('datenschutz')} />
+      <CookieBanner />
+      <BackToTopButton />
+
+      {legalModal && (
+        <Modal onClose={() => setLegalModal(null)} title={legalModal === 'impressum' ? 'Impressum' : 'Datenschutz'}>
+          {legalModal === 'impressum' ? <Impressum /> : <Datenschutz />}
+        </Modal>
+      )}
+    </div>
+  );
+}
