@@ -23,17 +23,37 @@
           "@type": "Organization",
           "@id": "https://visibilitylab.de/#organization",
           "name": "VisibilityLab",
+          "alternateName": "Intelligent SEO Engineering",
           "url": "https://visibilitylab.de",
           "logo": "https://visibilitylab.de/logo.png",
           "description": "VisibilityLab ist ein KI-gestütztes System, das durch strukturierte Themenautorität, datengetriebene Analysen und autonome KI-Agenten nachhaltige digitale Sichtbarkeit für Unternehmen, Selbstständige und Agenturen aufbaut.",
+          "email": "roberterbach@web.de",
           "founder": {
             "@type": "Person",
-            "name": "Robert Erbach"
+            "@id": "https://visibilitylab.de/#founder",
+            "name": "Robert Erbach",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://visibilitylab.de/#organization"
+            }
           },
           "contactPoint": {
             "@type": "ContactPoint",
             "email": "roberterbach@web.de",
-            "contactType": "Kostenlose Analyse"
+            "contactType": "Kostenlose Analyse",
+            "areaServed": "DE",
+            "availableLanguage": "German"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Musterstraße 1",
+            "addressLocality": "Musterstadt",
+            "postalCode": "12345",
+            "addressCountry": "DE"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Germany"
           },
           "knowsAbout": [
             "Search Engine Optimization (SEO)",
@@ -41,32 +61,50 @@
             "Generative Engine Optimization (GEO)",
             "Topical Authority",
             "WDF*IDF Analysis",
-            "Hub-and-Spoke Model"
+            "Hub-and-Spoke Model",
+            "Artificial Intelligence in Marketing"
           ],
-          "hasOffer": {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "AI-Driven Visibility Framework",
-              "serviceType": "Search Engine Optimization Service",
-              "description": "Ein ganzheitliches Ökosystem zur Steigerung der Themenautorität durch Topical Mapping, AI Integration, skalierbare Content-Architekturen und semantische Tiefe.",
-              "provider": {
-                "@id": "https://visibilitylab.de/#organization"
-              },
-              "audience": [
-                { "@type": "Audience", "audienceType": "Unternehmen" },
-                { "@type": "Audience", "audienceType": "Selbstständige" },
-                { "@type": "Audience", "audienceType": "Agenturen" }
-              ]
+          "offers": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI-Driven Visibility Framework",
+                "serviceType": "Search Engine Optimization Service",
+                "category": "Business & Office Services",
+                "description": "Ein ganzheitliches Ökosystem zur Steigerung der Themenautorität durch Topical Mapping, AI Integration, skalierbare Content-Architekturen und semantische Tiefe.",
+                "serviceOutput": {
+                  "@type": "Thing",
+                  "name": "Erhöhte organische Sichtbarkeit und digitale Autorität"
+                },
+                "provider": {
+                  "@id": "https://visibilitylab.de/#organization"
+                },
+                "audience": [
+                  { "@type": "Audience", "audienceType": "Unternehmen" },
+                  { "@type": "Audience", "audienceType": "Selbstständige" },
+                  { "@type": "Audience", "audienceType": "Agenturen" }
+                ]
+              }
             }
-          }
+          ]
         },
         {
           "@type": "WebSite",
+          "@id": "https://visibilitylab.de/#website",
           "url": "https://visibilitylab.de",
           "name": "VisibilityLab",
+          "inLanguage": "de-DE",
           "publisher": {
             "@id": "https://visibilitylab.de/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://visibilitylab.de/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
           }
         },
         {
@@ -137,6 +175,8 @@
             'float': 'float 6s ease-in-out infinite',
             'gradient-pan': 'gradient-pan 3s ease-in-out infinite',
             'fadeIn': 'fadeIn 0.5s ease-in-out',
+            'bounce': 'bounce 1s infinite',
+            'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           },
           keyframes: {
             'logo-glow': {
@@ -160,6 +200,13 @@
               'from': { opacity: '0', transform: 'scale(0.95)' },
               'to': { opacity: '1', transform: 'scale(1)' },
             },
+            'bounce': {
+              '0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8,0,1,1)' },
+              '50%': { transform: 'none', animationTimingFunction: 'cubic-bezier(0,0,0.2,1)' },
+            },
+            'pulse': {
+              '50%': { opacity: '.5' },
+            }
           },
           boxShadow: {
             'premium': '0 0 80px -20px rgba(59, 130, 246, 0.4)',
