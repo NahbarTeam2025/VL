@@ -6,17 +6,115 @@
     <title>VisibilityLab - Intelligent SEO Engineering</title>
     <meta name="description" content="VisibilityLab: KI-gestütztes SEO-System für maximale digitale Dominanz." />
     
-    <!-- JSON-LD Schema.org -->
+    <!-- Performance: Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Comprehensive JSON-LD Schema.org -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "VisibilityLab",
-        "image": "https://visibilitylab.de/logo.png",
-        "@id": "https://visibilitylab.de",
-        "url": "https://visibilitylab.de",
-        "description": "KI-gestütztes System für moderne SEO-, GEO- und Content-Strategien."
-      }
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://visibilitylab.de/#organization",
+          "name": "VisibilityLab",
+          "url": "https://visibilitylab.de",
+          "logo": "https://visibilitylab.de/logo.png",
+          "description": "VisibilityLab ist ein KI-gestütztes System, das durch strukturierte Themenautorität, datengetriebene Analysen und autonome KI-Agenten nachhaltige digitale Sichtbarkeit für Unternehmen, Selbstständige und Agenturen aufbaut.",
+          "founder": {
+            "@type": "Person",
+            "name": "Robert Erbach"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "roberterbach@web.de",
+            "contactType": "Kostenlose Analyse"
+          },
+          "knowsAbout": [
+            "Search Engine Optimization (SEO)",
+            "Content Strategy",
+            "Generative Engine Optimization (GEO)",
+            "Topical Authority",
+            "WDF*IDF Analysis",
+            "Hub-and-Spoke Model"
+          ],
+          "hasOffer": {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI-Driven Visibility Framework",
+              "serviceType": "Search Engine Optimization Service",
+              "description": "Ein ganzheitliches Ökosystem zur Steigerung der Themenautorität durch Topical Mapping, AI Integration, skalierbare Content-Architekturen und semantische Tiefe.",
+              "provider": {
+                "@id": "https://visibilitylab.de/#organization"
+              },
+              "audience": [
+                { "@type": "Audience", "audienceType": "Unternehmen" },
+                { "@type": "Audience", "audienceType": "Selbstständige" },
+                { "@type": "Audience", "audienceType": "Agenturen" }
+              ]
+            }
+          }
+        },
+        {
+          "@type": "WebSite",
+          "url": "https://visibilitylab.de",
+          "name": "VisibilityLab",
+          "publisher": {
+            "@id": "https://visibilitylab.de/#organization"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Was unterscheidet VisibilityLab von einer klassischen SEO-Agentur?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wir setzen auf ein KI-gestütztes 3-Agenten-System. Statt manueller, oft subjektiver Arbeit liefern wir datengetriebene Präzision in Analyse, Strategie und Content – schneller und konsistenter als klassische Prozesse."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Für wen ist das System geeignet?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "VisibilityLab ist ideal für KMUs, Startups und ambitionierte Selbstständige, die ihre organische Sichtbarkeit skalieren wollen. Aber auch Agenturen nutzen unsere Technologie als White-Label-Lösung."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie schnell sehe ich Ergebnisse?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SEO ist ein Marathon. Durch unsere strukturelle Optimierung (Hub & Spoke) indexieren Suchmaschinen die Inhalte jedoch oft schneller und werten sie höher. Erste signifikante Trendänderungen sind oft nach 3-6 Monaten sichtbar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Ist das nur KI-Text oder echte Strategie?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Der Content-Agent nutzt KI für die Erstellung, aber die Basis ist rein strategisch. Der Strategie-Agent definiert die Leitplanken. Jeder Text wird zudem WDF*IDF-optimiert und geprüft. Es ist 'Augmented Intelligence', nicht nur ein Chatbot."
+              }
+            }
+          ]
+        },
+        {
+            "@type": "HowTo",
+            "name": "Der VisibilityLab Prozess zur algorithmischen Marktführerschaft",
+            "step": [
+                { "@type": "HowToStep", "name": "Audit & Analyse", "text": "Unser Analyse-Agent scannt Ihre Seite und den Markt.", "position": "1" },
+                { "@type": "HowToStep", "name": "Strategie-Entwicklung", "text": "Erstellung der Hub & Spoke Cluster und Keyword-Sets.", "position": "2" },
+                { "@type": "HowToStep", "name": "Content Creation", "text": "Produktion der optimierten Inhalte durch den Content-Agent.", "position": "3" },
+                { "@type": "HowToStep", "name": "Implementation", "text": "Integration der Inhalte und Verlinkungen auf Ihrer Plattform.", "position": "4" }
+            ]
+        }
+      ]
+    }
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -59,8 +157,6 @@
       }
     </script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-      
       body {
         background-color: #020617;
         color: #f8fafc;
