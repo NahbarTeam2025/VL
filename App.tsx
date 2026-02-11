@@ -101,7 +101,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-bg-primary text-text-primary selection:bg-blue-600 selection:text-white scroll-smooth">
-      <nav className="fixed top-0 w-full z-[100] bg-bg-primary/50 backdrop-blur-xl border-b border-white/5">
+      <nav className="fixed top-0 w-full z-[100] bg-bg-primary border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3 group">
              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-500 group-hover:text-blue-400 transition-colors">
@@ -124,7 +124,7 @@ export default function App() {
         </div>
 
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-bg-primary h-screen z-[105] flex flex-col items-center justify-center gap-8 animate-fadeIn">
+          <div className="fixed inset-0 bg-black h-screen z-[105] flex flex-col items-center justify-center gap-8 animate-fadeIn">
             {menuItems.map(item => (
               <a key={item.title} href={item.href} onClick={handleMenuScroll} className="text-4xl font-black text-white hover:text-blue-500 transition-all">{item.title}</a>
             ))}

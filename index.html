@@ -9,9 +9,10 @@
     <!-- Performance: Preconnect to Critical Origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Performance: Asynchronously load Google Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
     <!-- Comprehensive JSON-LD Schema.org -->
     <script type="application/ld+json">
@@ -118,47 +119,61 @@
       ]
     }
     </script>
-
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              bg: { primary: '#020617', secondary: '#070c1d' },
-              accent: { primary: '#3b82f6', secondary: '#8b5cf6' },
-              text: { primary: '#f8fafc', secondary: '#94a3b8' }
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#020617', secondary: '#070c1d' },
+            accent: { primary: '#3b82f6', secondary: '#8b5cf6' },
+            text: { primary: '#f8fafc', secondary: '#94a3b8', muted: '#64748b' },
+            border: 'rgba(255,255,255,0.1)',
+          },
+          animation: {
+            'logo-glow': 'logo-glow 4s ease-in-out infinite',
+            'beam': 'beam 4s linear infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'gradient-pan': 'gradient-pan 3s ease-in-out infinite',
+            'fadeIn': 'fadeIn 0.5s ease-in-out',
+          },
+          keyframes: {
+            'logo-glow': {
+              '0%, 100%': { opacity: '0.4', filter: 'blur(40px)' },
+              '50%': { opacity: '0.8', filter: 'blur(60px)' },
             },
-            animation: {
-              'logo-glow': 'logo-glow 4s ease-in-out infinite',
-              'beam': 'beam 4s linear infinite',
-              'float': 'float 6s ease-in-out infinite',
-              'gradient-pan': 'gradient-pan 3s ease-in-out infinite',
+            'beam': {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' }
             },
-            keyframes: {
-              'logo-glow': {
-                '0%, 100%': { opacity: '0.4', filter: 'blur(40px)' },
-                '50%': { opacity: '0.8', filter: 'blur(60px)' },
-              },
-              'beam': {
-                '0%': { transform: 'translateX(-100%)' },
-                '100%': { transform: 'translateX(100%)' }
-              },
-              'float': {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-8px)' }
-              },
-              'gradient-pan': {
-                '0%': { backgroundPosition: '0% 50%' },
-                '50%': { backgroundPosition: '100% 50%' },
-                '100%': { backgroundPosition: '0% 50%' },
-              }
-            }
+            'float': {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-8px)' }
+            },
+            'gradient-pan': {
+              '0%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+              '100%': { backgroundPosition: '0% 50%' },
+            },
+            'fadeIn': {
+              'from': { opacity: '0', transform: 'scale(0.95)' },
+              'to': { opacity: '1', transform: 'scale(1)' },
+            },
+          },
+          boxShadow: {
+            'premium': '0 0 80px -20px rgba(59, 130, 246, 0.4)',
+            'card': '0 10px 30px -10px rgba(0, 0, 0, 0.3)'
           }
         }
       }
+    }
     </script>
-    <style>
+    <style type="text/tailwindcss">
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
       body {
         background-color: #020617;
         color: #f8fafc;
@@ -198,6 +213,7 @@
       ::-webkit-scrollbar { width: 5px; }
       ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
     </style>
+
     <script type="importmap">
     {
       "imports": {
