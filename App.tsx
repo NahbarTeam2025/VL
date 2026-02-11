@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Hero } from './components/Hero';
-import { Problem } from './components/Problem';
-import { Solution } from './components/Solution';
-import { Agents } from './components/Agents';
-import { Methodology } from './components/Methodology';
-import { Benefits } from './components/Benefits';
-import { DetailedBenefits } from './components/DetailedBenefits';
-import { Process } from './components/Process';
-import { FAQ } from './components/FAQ';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
-import { Modal } from './components/Modal';
-import { Impressum } from './components/legal/Impressum';
-import { Datenschutz } from './components/legal/Datenschutz';
 import { Menu, X, Info, ArrowUp } from 'lucide-react';
+
+// Lazy-load components that are not immediately visible
+const Problem = lazy(() => import('./components/Problem').then(module => ({ default: module.Problem })));
+const Solution = lazy(() => import('./components/Solution').then(module => ({ default: module.Solution })));
+const Agents = lazy(() => import('./components/Agents').then(module => ({ default: module.Agents })));
+const Methodology = lazy(() => import('./components/Methodology').then(module => ({ default: module.Methodology })));
+const Benefits = lazy(() => import('./components/Benefits').then(module => ({ default: module.Benefits })));
+const DetailedBenefits = lazy(() => import('./components/DetailedBenefits').then(module => ({ default: module.DetailedBenefits })));
+const Process = lazy(() => import('./components/Process').then(module => ({ default: module.Process })));
+const FAQ = lazy(() => import('./components/FAQ').then(module => ({ default: module.FAQ })));
+const Contact = lazy(() => import('./components/Contact').then(module => ({ default: module.Contact })));
+const Footer = lazy(() => import('./components/Footer').then(module => ({ default: module.Footer })));
+const Modal = lazy(() => import('./components/Modal').then(module => ({ default: module.Modal })));
+const Impressum = lazy(() => import('./components/legal/Impressum').then(module => ({ default: module.Impressum })));
+const Datenschutz = lazy(() => import('./components/legal/Datenschutz').then(module => ({ default: module.Datenschutz })));
+
+const Loader = () => (
+  <div className="flex justify-center items-center py-20 text-text-secondary">
+    Lade Sektion...
+  </div>
+);
 
 const CookieBanner = () => {
   const [show, setShow] = useState(false);
@@ -138,25 +146,32 @@ export default function App() {
 
       <main>
         <Hero />
-        <Problem />
-        <Solution />
-        <Agents />
-        <Methodology />
-        <Benefits />
-        <DetailedBenefits />
-        <Process />
-        <FAQ />
-        <Contact />
+        <Suspense fallback={<Loader />}>
+          <Problem />
+          <Solution />
+          <Agents />
+          <Methodology />
+          <Benefits />
+          <DetailedBenefits />
+          <Process />
+          <FAQ />
+          <Contact />
+        </Suspense>
       </main>
 
-      <Footer onOpenImpressum={() => setLegalModal('impressum')} onOpenDatenschutz={() => setLegalModal('datenschutz')} />
+      <Suspense fallback={null}>
+        <Footer onOpenImpressum={() => setLegalModal('impressum')} onOpenDatenschutz={() => setLegalModal('datenschutz')} />
+      </Suspense>
+
       <CookieBanner />
       <BackToTopButton />
 
       {legalModal && (
-        <Modal onClose={() => setLegalModal(null)} title={legalModal === 'impressum' ? 'Impressum' : 'Datenschutz'}>
-          {legalModal === 'impressum' ? <Impressum /> : <Datenschutz />}
-        </Modal>
+        <Suspense fallback={null}>
+          <Modal onClose={() => setLegalModal(null)} title={legalModal === 'impressum' ? 'Impressum' : 'Datenschutz'}>
+            {legalModal === 'impressum' ? <Impressum /> : <Datenschutz />}
+          </Modal>
+        </Suspense>
       )}
     </div>
   );
