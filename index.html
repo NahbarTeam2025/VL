@@ -20,7 +20,7 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Organization",
+          "@type": "ProfessionalService",
           "@id": "https://visibilitylab.de/#organization",
           "name": "VisibilityLab",
           "alternateName": "Intelligent SEO Engineering",
@@ -49,7 +49,10 @@
             "streetAddress": "Musterstraße 1",
             "addressLocality": "Musterstadt",
             "postalCode": "12345",
-            "addressCountry": "DE"
+            "addressCountry": {
+              "@type": "Country",
+              "name": "DE"
+            }
           },
           "areaServed": {
             "@type": "Country",
