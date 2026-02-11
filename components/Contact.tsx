@@ -51,7 +51,7 @@ export const Contact: React.FC = () => {
                       id="name"
                       required
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-blue-500 focus:bg-white/[0.08] transition-all"
-                      placeholder="Elon Musk"
+                      placeholder="Max Mustermann"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                     />
@@ -64,7 +64,7 @@ export const Contact: React.FC = () => {
                       id="email"
                       required
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-blue-500 focus:bg-white/[0.08] transition-all"
-                      placeholder="elon@spacex.com"
+                      placeholder="maxmustermann@web.de"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                     />

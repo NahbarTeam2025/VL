@@ -14,7 +14,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative hero-viewport flex flex-col items-center justify-between pt-24 pb-12 overflow-hidden bg-grid">
+    <section className="relative hero-viewport flex flex-col items-center justify-evenly pt-24 pb-12 overflow-hidden bg-grid">
       {/* Background Orbs */}
       <div className="absolute top-[-25%] left-1/2 -translate-x-1/2 w-[100%] h-[100%] lg:w-[80%] lg:h-[80%] glow-orb pointer-events-none"></div>
       <div className="absolute bottom-[-25%] left-1/2 -translate-x-1/2 w-[100%] h-[100%] lg:w-[80%] lg:h-[80%] glow-orb pointer-events-none opacity-50"></div>

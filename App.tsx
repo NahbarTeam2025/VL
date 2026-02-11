@@ -24,11 +24,7 @@ const Loader = () => (
 );
 
 const CookieBanner = () => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const consent = localStorage.getItem('visibility_lab_consent');
-    if (!consent) setShow(true);
-  }, []);
+  const [show, setShow] = useState(() => !localStorage.getItem('visibility_lab_consent'));
 
   const accept = () => {
     localStorage.setItem('visibility_lab_consent', 'true');
@@ -109,7 +105,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-bg-primary text-text-primary selection:bg-blue-600 selection:text-white scroll-smooth">
-      <nav className="fixed top-0 w-full z-[100] bg-bg-primary border-b border-white/5">
+      <nav className="fixed top-0 w-full z-[100] bg-bg-primary/75 backdrop-blur-sm border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3 group">
              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-500 group-hover:text-blue-400 transition-colors">
