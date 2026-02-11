@@ -33,7 +33,7 @@ export const Solution: React.FC = () => {
                     <CheckCircle2 className="w-4 h-4 text-blue-400" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white mb-1 tracking-tight">{item.t}</h4>
+                  <strong className="text-sm font-bold text-white mb-1 tracking-tight">{item.t}</strong>
                   <p className="text-text-muted text-xs leading-relaxed">{item.d}</p>
                 </div>
               </div>

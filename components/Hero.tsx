@@ -22,8 +22,14 @@ export const Hero: React.FC = () => {
       {/* Top/Center Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-5xl mx-auto">
         <div className="relative mb-16">
-          <div className="absolute -inset-8 bg-accent-primary animate-logo-glow rounded-full -z-10"></div>
-          <span className="text-5xl md:text-7xl font-black tracking-tighter bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent animate-float animate-gradient-pan [background-size:200%_auto]">
+          <div 
+            className="absolute -inset-8 bg-accent-primary animate-logo-glow rounded-full -z-10"
+            style={{ willChange: 'opacity, filter' }}
+          ></div>
+          <span 
+            className="text-5xl md:text-7xl font-black tracking-tighter bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent animate-float animate-gradient-pan [background-size:200%_auto]"
+            style={{ willChange: 'transform, background-position' }}
+          >
              VisibilityLab
           </span>
         </div>

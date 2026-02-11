@@ -113,7 +113,11 @@ export default function App() {
           </a>
 
           <div className="flex items-center">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-text-secondary hover:text-white transition-colors relative z-[110]">
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)} 
+              className="p-2 text-text-secondary hover:text-white transition-colors relative z-[110]"
+              aria-label={isMenuOpen ? "Menü schließen" : "Menü öffnen"}
+            >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>

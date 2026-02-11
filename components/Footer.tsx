@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenImpressum, onOpenDatenschu
           {/* Column 2 & 3: Links */}
           <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8">
             <div>
-              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">Navigation</h4>
+              <p className="text-sm font-bold text-white uppercase tracking-wider mb-4">Navigation</p>
               <ul className="space-y-3">
                 {links.map(link => (
                   <li key={link.title}>
@@ -57,7 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenImpressum, onOpenDatenschu
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">Rechtliches</h4>
+              <p className="text-sm font-bold text-white uppercase tracking-wider mb-4">Rechtliches</p>
               <ul className="space-y-3">
                 <li><button onClick={onOpenImpressum} className="text-sm text-text-secondary hover:text-white transition-colors text-left">Impressum</button></li>
                 <li><button onClick={onOpenDatenschutz} className="text-sm text-text-secondary hover:text-white transition-colors text-left">Datenschutz</button></li>
