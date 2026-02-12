@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
             onClick={handleScroll}
             className="w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl text-white font-bold text-lg shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:shadow-[0_0_60px_rgba(59,130,246,0.6)] transition-all flex items-center justify-center gap-3 group active:scale-95 whitespace-nowrap"
           >
-            Kostenlose Analyse starten
+            Kostenlose Visibility-Analyse starten
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>

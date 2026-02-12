@@ -6,6 +6,7 @@ import { Menu, X, Info, ArrowUp } from 'lucide-react';
 const Problem = lazy(() => import('./components/Problem').then(module => ({ default: module.Problem })));
 const Solution = lazy(() => import('./components/Solution').then(module => ({ default: module.Solution })));
 const Agents = lazy(() => import('./components/Agents').then(module => ({ default: module.Agents })));
+const CaseStudy = lazy(() => import('./components/CaseStudy').then(module => ({ default: module.CaseStudy })));
 const Methodology = lazy(() => import('./components/Methodology').then(module => ({ default: module.Methodology })));
 const Benefits = lazy(() => import('./components/Benefits').then(module => ({ default: module.Benefits })));
 const DetailedBenefits = lazy(() => import('./components/DetailedBenefits').then(module => ({ default: module.DetailedBenefits })));
@@ -152,6 +153,7 @@ export default function App() {
           <Problem />
           <Solution />
           <Agents />
+          <CaseStudy />
           <Methodology />
           <Benefits />
           <DetailedBenefits />

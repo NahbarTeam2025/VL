@@ -1,5 +1,18 @@
 import React from 'react';
-import { CheckCircle2, Activity, ShieldCheck, Zap, Globe, Cpu } from 'lucide-react';
+import { CheckCircle2, Activity, Info } from 'lucide-react';
+
+const Tooltip = ({ text, content }: { text: React.ReactNode; content: string }) => (
+  <span className="group relative inline-block cursor-help">
+    <span className="border-b border-dotted border-text-muted/50 group-hover:border-text-muted transition-colors flex items-center gap-1.5">
+      {text}
+    </span>
+    <span className="invisible opacity-0 group-hover:visible group-hover:opacity-100 absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-3 bg-bg-secondary border border-white/10 rounded-xl text-xs text-text-primary shadow-xl z-50 transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
+      {content}
+      <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-white/10"></span>
+    </span>
+  </span>
+);
+
 
 export const Solution: React.FC = () => {
   return (
@@ -10,8 +23,7 @@ export const Solution: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-20">
         <div className="flex-1 order-2 lg:order-1">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[10px] font-black uppercase tracking-widest mb-8 border border-blue-500/20">
-            <Zap className="w-3 h-3" />
-            Engineering Excellence
+            ENGINEERING EXCELLENCE
           </div>
           <h2 className="text-4xl md:text-6xl font-black mb-8 leading-[1.1]">
             Automatisierte <br />
@@ -68,7 +80,15 @@ export const Solution: React.FC = () => {
                  {/* Progress Bar */}
                  <div className="space-y-3">
                     <div className="flex justify-between text-[10px] font-black text-text-muted uppercase tracking-widest">
-                        <span>RELEVANCE SCORE</span>
+                        <Tooltip 
+                            text={
+                                <span className="flex items-center gap-1.5">
+                                    RELEVANCE SCORE
+                                    <Info className="w-3 h-3 opacity-50 group-hover:opacity-100" />
+                                </span>
+                            }
+                            content="Relevance Score: Misst, wie vollständig Ihre Website einen Themenraum abdeckt. Skala von 0 bis 100."
+                        />
                         <span className="text-white">84 %</span>
                     </div>
                     <div className="h-2.5 w-full bg-white/5 rounded-full overflow-hidden">
