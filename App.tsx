@@ -24,7 +24,13 @@ const Loader = () => (
 );
 
 const CookieBanner = () => {
-  const [show, setShow] = useState(() => !localStorage.getItem('visibility_lab_consent'));
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (!localStorage.getItem('visibility_lab_consent')) {
+      setShow(true);
+    }
+  }, []);
 
   const accept = () => {
     localStorage.setItem('visibility_lab_consent', 'true');
@@ -34,7 +40,7 @@ const CookieBanner = () => {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-sm z-[200] bg-bg-secondary border border-white/10 p-5 rounded-3xl shadow-2xl backdrop-blur-2xl">
+    <div className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-sm z-[200] bg-bg-secondary border border-white/10 p-5 rounded-3xl shadow-2xl backdrop-blur-2xl animate-fadeIn">
       <div className="flex gap-4 items-center mb-4 text-xs text-text-secondary leading-relaxed">
         <Info className="w-5 h-5 text-blue-500 shrink-0" />
         <p>Wir nutzen technisch notwendige Cookies für die Systemstabilität.</p>
@@ -151,7 +157,7 @@ export default function App() {
           <DetailedBenefits />
           <Process />
           <FAQ />
-          <Contact />
+          <Contact onOpenDatenschutz={() => setLegalModal('datenschutz')} />
         </Suspense>
       </main>
 

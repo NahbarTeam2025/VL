@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Scroll Hint */}
-        <a href="#market-inefficiency" onClick={handleScroll} className="flex flex-col items-center gap-2 text-text-muted opacity-50 hover:text-white transition-colors duration-300 cursor-pointer">
+        <a href="#market-inefficiency" onClick={handleScroll} className="flex flex-col items-center gap-2 text-text-muted hover:text-white transition-colors duration-300 cursor-pointer">
           <span className="text-[10px] uppercase tracking-[0.2em] font-bold">Discover</span>
           <ChevronDown className="w-4 h-4 animate-bounce" />
         </a>

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle, ArrowUpRight } from 'lucide-react';
 
-export const Contact: React.FC = () => {
+interface ContactProps {
+  onOpenDatenschutz: () => void;
+}
+
+export const Contact: React.FC<ContactProps> = ({ onOpenDatenschutz }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,17 +25,17 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-bg-primary border-t border-white/5 relative overflow-hidden">
+    <section id="contact" className="py-16 lg:py-24 bg-bg-primary border-t border-white/5 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-blue-500/5 blur-[150px] pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-20">
-          <h2 className="text-5xl md:text-7xl font-black mb-8">Bereit für den <br /> <span className="text-blue-500">Durchbruch?</span></h2>
-          <p className="text-text-secondary text-xl font-light">Lassen Sie uns Ihre Architektur gemeinsam validieren. Starten Sie jetzt Ihre kostenfreie Erst-Analyse.</p>
+        <div className="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 lg:mb-8">Bereit für den <br /> <span className="text-blue-500">Durchbruch?</span></h2>
+          <p className="text-lg sm:text-xl text-text-secondary font-light">Lassen Sie uns Ihre Architektur gemeinsam validieren. Starten Sie jetzt Ihre kostenfreie Erst-Analyse.</p>
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <div className="glass-card p-10 md:p-16 rounded-[2.5rem] shadow-premium">
+          <div className="glass-card p-8 md:p-16 rounded-[2.5rem] shadow-premium">
             {status === 'success' ? (
               <div className="text-center py-20 animate-fadeIn">
                 <div className="w-24 h-24 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-8 text-blue-400">
@@ -42,8 +46,8 @@ export const Contact: React.FC = () => {
                 <button onClick={() => setStatus('idle')} className="text-blue-400 font-bold uppercase tracking-widest text-sm hover:text-white transition-colors">Formular zurücksetzen</button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                   <div className="group">
                     <label htmlFor="name" className="block text-xs font-black text-text-muted uppercase mb-3 tracking-[0.2em] group-focus-within:text-blue-400 transition-colors">Vollständiger Name</label>
                     <input
@@ -109,7 +113,15 @@ export const Contact: React.FC = () => {
                     />
                   </div>
                   <label htmlFor="agreement" className="text-xs text-text-secondary leading-relaxed cursor-pointer select-none">
-                    Ich willige ein, dass meine Angaben zur Kontaktaufnahme gespeichert werden. <a href="#privacy" className="text-blue-400 underline font-bold">Privacy Policy</a>.*
+                    Ich willige ein, dass meine Angaben zur Kontaktaufnahme gespeichert werden.{" "}
+                    <button 
+                      type="button" 
+                      onClick={onOpenDatenschutz} 
+                      className="text-blue-400 underline font-bold bg-transparent border-none p-0 cursor-pointer hover:text-blue-300 transition-colors"
+                    >
+                      Datenschutz
+                    </button>
+                    .*
                   </label>
                 </div>
 
