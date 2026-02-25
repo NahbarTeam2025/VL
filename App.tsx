@@ -13,6 +13,9 @@ const DetailedBenefits = lazy(() => import('./components/DetailedBenefits').then
 const Process = lazy(() => import('./components/Process').then(module => ({ default: module.Process })));
 const FAQ = lazy(() => import('./components/FAQ').then(module => ({ default: module.FAQ })));
 const Contact = lazy(() => import('./components/Contact').then(module => ({ default: module.Contact })));
+const Testimonials = lazy(() => import('./components/Testimonials').then(module => ({ default: module.Testimonials })));
+const DownloadCTA = lazy(() => import('./components/DownloadCTA').then(module => ({ default: module.DownloadCTA })));
+const AboutMe = lazy(() => import('./components/AboutMe').then(module => ({ default: module.AboutMe })));
 const Footer = lazy(() => import('./components/Footer').then(module => ({ default: module.Footer })));
 const Modal = lazy(() => import('./components/Modal').then(module => ({ default: module.Modal })));
 const Impressum = lazy(() => import('./components/legal/Impressum').then(module => ({ default: module.Impressum })));
@@ -92,9 +95,15 @@ export default function App() {
 
   const menuItems = [
     { title: 'Problem', href: '#market-inefficiency' },
+    { title: 'Lösung', href: '#solution' },
     { title: 'System', href: '#agents' },
+    { title: 'Case Study', href: '#case-study' },
     { title: 'Methodik', href: '#methodology' },
+    { title: 'Vorteile', href: '#benefits' },
     { title: 'Prozess', href: '#process' },
+    { title: 'Über mich', href: '#about' },
+    { title: 'FAQ', href: '#faq' },
+    { title: 'Testimonials', href: '#testimonials' },
     { title: 'Kontakt', href: '#contact' }
   ];
   
@@ -120,7 +129,7 @@ export default function App() {
                 <path d="M2 7L12 12L22 7" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
                 <path d="M12 12V22" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
              </svg>
-            <span className="font-bold tracking-tighter text-white">VisibilityLab</span>
+            <span className="font-bold tracking-tighter brand-gradient">VisibilityLab</span>
           </a>
 
           <div className="flex items-center">
@@ -158,7 +167,10 @@ export default function App() {
           <Benefits />
           <DetailedBenefits />
           <Process />
+          <AboutMe />
           <FAQ />
+          <Testimonials />
+          <DownloadCTA />
           <Contact onOpenDatenschutz={() => setLegalModal('datenschutz')} />
         </Suspense>
       </main>

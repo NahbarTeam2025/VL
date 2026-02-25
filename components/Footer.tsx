@@ -8,10 +8,16 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ onOpenImpressum, onOpenDatenschutz }) => {
   const links = [
     { title: 'Problem', href: '#market-inefficiency' },
+    { title: 'Lösung', href: '#solution' },
     { title: 'System', href: '#agents' },
+    { title: 'Case Study', href: '#case-study' },
     { title: 'Methodik', href: '#methodology' },
+    { title: 'Vorteile', href: '#benefits' },
     { title: 'Prozess', href: '#process' },
-    { title: 'FAQ', href: '#faq' }
+    { title: 'Über mich', href: '#about' },
+    { title: 'FAQ', href: '#faq' },
+    { title: 'Testimonials', href: '#testimonials' },
+    { title: 'Kontakt', href: '#contact' }
   ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -37,7 +43,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenImpressum, onOpenDatenschu
                   <path d="M2 7L12 12L22 7" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
                   <path d="M12 12V22" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
                </svg>
-              <span className="font-bold text-xl text-white">VisibilityLab</span>
+              <span className="font-bold text-xl brand-gradient">VisibilityLab</span>
             </div>
             <p className="text-text-secondary text-sm leading-relaxed pr-8">
               KI-gestütztes System für moderne SEO-, GEO- und Content-Strategien.

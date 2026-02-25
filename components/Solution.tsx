@@ -16,7 +16,7 @@ const Tooltip = ({ text, content }: { text: React.ReactNode; content: string }) 
 
 export const Solution: React.FC = () => {
   return (
-    <section className="py-32 bg-bg-secondary/40 border-y border-white/5 relative overflow-hidden">
+    <section id="solution" className="py-32 bg-bg-secondary/40 border-y border-white/5 relative overflow-hidden">
       {/* Background radial glow */}
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full pointer-events-none"></div>
 
@@ -25,10 +25,13 @@ export const Solution: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[10px] font-black uppercase tracking-widest mb-8 border border-blue-500/20">
             ENGINEERING EXCELLENCE
           </div>
-          <h2 className="text-4xl md:text-6xl font-black mb-8 leading-[1.1]">
+          <h2 className="text-4xl md:text-6xl font-black mb-6 leading-[1.1]">
             Automatisierte <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500">Themen-Autorität.</span>
+            <span className="text-blue-500">Themen-Autorität.</span>
           </h2>
+          <p className="text-blue-400/80 text-sm md:text-base font-bold uppercase tracking-widest mb-8">
+            Algorithmische Präzision trifft auf kreative Exzellenz.
+          </p>
           <p className="text-text-secondary text-lg md:text-xl mb-10 leading-relaxed font-light">
             Wir ersetzen isolierte Optimierung durch ein <span className="text-white font-medium">ganzheitliches Ökosystem</span>. VisibilityLab verwandelt Ihre Website in einen Magneten für qualifizierten Traffic, indem es semantische Netze knüpft, die KI-Modelle und klassische Algorithmen gleichermaßen verstehen.
           </p>
@@ -97,23 +100,23 @@ export const Solution: React.FC = () => {
                  </div>
 
                  {/* Secondary Metrics */}
-                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                        <span className="text-[10px] text-text-muted uppercase font-bold tracking-wider">Topical Coverage</span>
-                        <p className="text-2xl font-black text-white tracking-tighter mt-1">92 %</p>
+                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
+                    <div className="p-3 md:p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                        <span className="text-[9px] md:text-[10px] text-text-muted uppercase font-bold tracking-wider">Topical Coverage</span>
+                        <p className="text-xl md:text-2xl font-black text-white tracking-tighter mt-1">92 %</p>
                     </div>
-                    <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                        <span className="text-[10px] text-text-muted uppercase font-bold tracking-wider">Entity Density</span>
-                        <p className="text-2xl font-black text-white tracking-tighter mt-1 leading-tight">38 <span className="text-sm font-normal text-text-muted">geprüfte Entitäten</span></p>
+                    <div className="p-3 md:p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                        <span className="text-[9px] md:text-[10px] text-text-muted uppercase font-bold tracking-wider">Entity Density</span>
+                        <p className="text-xl md:text-2xl font-black text-white tracking-tighter mt-1 leading-tight">38 <span className="text-[10px] md:text-sm font-normal text-text-muted">Entitäten</span></p>
                     </div>
-                    <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5">
-                        <span className="text-[10px] text-text-muted uppercase font-bold tracking-wider">Content Nodes</span>
-                        <p className="text-2xl font-black text-white tracking-tighter mt-1 leading-tight">14 <span className="text-sm font-normal text-text-muted">aktive Cluster</span></p>
+                    <div className="p-3 md:p-4 rounded-xl bg-white/[0.03] border border-white/5 col-span-2 sm:col-span-1">
+                        <span className="text-[9px] md:text-[10px] text-text-muted uppercase font-bold tracking-wider">Content Nodes</span>
+                        <p className="text-xl md:text-2xl font-black text-white tracking-tighter mt-1 leading-tight">14 <span className="text-[10px] md:text-sm font-normal text-text-muted">Cluster</span></p>
                     </div>
                  </div>
 
                  {/* Technical Details Footer */}
-                 <div className="border-t border-white/5 pt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                 <div className="border-t border-white/5 pt-4 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 text-center">
                     <div>
                         <span className="text-[9px] text-text-muted uppercase font-bold tracking-wider">WDF*IDF Balance</span>
                         <p className="text-sm font-semibold text-emerald-400 mt-1">optimal</p>

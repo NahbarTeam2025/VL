@@ -121,7 +121,7 @@ export const CaseStudy: React.FC = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <p className="text-lg text-text-secondary mb-6">Sie möchten sehen, wie dieses System auf Ihre Website angewendet wird?</p>
+            <p className="text-xl text-white mb-6 font-bold text-glow">Sie möchten sehen, wie dieses System auf Ihre Website angewendet wird?</p>
             <a 
                 href="#contact"
                 onClick={handleScroll}

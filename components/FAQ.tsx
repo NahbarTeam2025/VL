@@ -28,28 +28,34 @@ export const FAQ: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-bg-primary">
+    <section id="faq" className="py-24 bg-bg-secondary" aria-labelledby="faq-title">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Häufige Fragen</h2>
+        <h2 id="faq-title" className="text-3xl md:text-5xl font-black mb-16 text-center text-white">Häufige Fragen</h2>
         
-        <div className="space-y-4">
+        <div className="space-y-6">
           {faqs.map((faq, idx) => (
             <div 
               key={idx} 
-              className={`rounded-xl transition-all duration-300 ${openIndex === idx ? 'bg-bg-secondary border border-blue-500/30' : 'bg-bg-secondary/50 border border-transparent hover:border-white/10'}`}
+              className={`rounded-2xl transition-all duration-300 bg-bg-primary border ${openIndex === idx ? 'border-blue-500/50 shadow-premium' : 'border-border hover:border-white/10'}`}
             >
               <button 
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full flex items-start justify-between p-5 text-left gap-4"
+                className="w-full flex items-start justify-between p-6 md:p-8 text-left gap-4 group"
+                aria-expanded={openIndex === idx}
+                aria-controls={`faq-answer-${idx}`}
+                id={`faq-question-${idx}`}
               >
-                <span className={`font-semibold transition-colors text-base ${openIndex === idx ? 'text-white' : 'text-text-primary'}`}>{faq.q}</span>
-                <ChevronDown className={`w-5 h-5 text-text-muted transition-transform duration-300 shrink-0 ml-2 mt-1 ${openIndex === idx ? 'transform rotate-180 text-blue-400' : ''}`} />
+                <span className={`font-bold transition-colors text-lg md:text-xl ${openIndex === idx ? 'text-white' : 'text-text-secondary group-hover:text-white'}`}>{faq.q}</span>
+                <ChevronDown className={`w-6 h-6 text-blue-400 transition-transform duration-300 shrink-0 ${openIndex === idx ? 'rotate-180' : 'opacity-50'}`} />
               </button>
               <div 
+                id={`faq-answer-${idx}`}
+                role="region"
+                aria-labelledby={`faq-question-${idx}`}
                 className={`grid transition-all duration-300 ease-in-out ${openIndex === idx ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
               >
                   <div className="overflow-hidden">
-                      <div className="px-5 pb-5 pt-0 text-text-secondary leading-relaxed">
+                      <div className="px-6 md:px-8 pb-8 pt-0 text-text-secondary leading-relaxed text-lg font-light">
                           {faq.a}
                       </div>
                   </div>
