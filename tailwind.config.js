@@ -7,10 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: { primary: '#020617', secondary: '#070c1d' },
+        bg: { primary: 'var(--bg-primary)', secondary: 'var(--bg-secondary)' },
         accent: { primary: '#3b82f6', secondary: '#8b5cf6' },
-        text: { primary: '#f8fafc', secondary: '#a1afc9', muted: '#a1afc9' },
-        border: 'rgba(255,255,255,0.1)',
+        text: { primary: 'var(--text-primary)', secondary: 'var(--text-secondary)', muted: '#94a3b8' },
+        border: 'var(--border-color)',
+      },
+      backgroundImage: {
+        'grid-pattern': "linear-gradient(to right, #1f2937 1px, transparent 1px), linear-gradient(to bottom, #1f2937 1px, transparent 1px)",
+        'dot-pattern': "radial-gradient(#1f2937 1px, transparent 1px)",
+      },
+      backgroundSize: {
+        'grid-pattern': '4rem 4rem',
+        'dot-pattern': '2rem 2rem',
       },
       animation: {
         'logo-glow': 'logo-glow 4s ease-in-out infinite',

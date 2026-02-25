@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScanSearch, DraftingCompass, FileSignature, Rocket } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 export const Process: React.FC = () => {
   const steps = [
@@ -11,6 +12,8 @@ export const Process: React.FC = () => {
 
   return (
     <section id="process" className="py-24 bg-bg-secondary relative overflow-hidden">
+      <ParticlesBackground color="#6366f1" count={25} />
+      <div className="absolute inset-0 bg-dots-subtle opacity-20 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Der Prozess</h2>

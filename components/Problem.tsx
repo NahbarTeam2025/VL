@@ -1,9 +1,13 @@
 import React from 'react';
 import { Box, FileText, Network } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 export const Problem: React.FC = () => {
   return (
     <section id="market-inefficiency" className="py-32 bg-bg-primary relative overflow-hidden">
+      <ParticlesBackground color="#f87171" count={30} />
+      <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary via-transparent to-bg-primary pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-20 text-center">
           <div className="text-blue-400 text-xs font-black uppercase tracking-[0.3em] mb-4">

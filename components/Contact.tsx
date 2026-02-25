@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle, ArrowUpRight } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 interface ContactProps {
   onOpenDatenschutz: () => void;
@@ -26,6 +27,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenDatenschutz }) => {
 
   return (
     <section id="contact" className="py-24 bg-bg-secondary border-t border-border relative overflow-hidden" aria-labelledby="contact-title">
+      <ParticlesBackground color="#3b82f6" count={30} />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-blue-500/10 blur-[150px] pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -35,9 +37,10 @@ export const Contact: React.FC<ContactProps> = ({ onOpenDatenschutz }) => {
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white border border-slate-200 p-8 md:p-16 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            {status === 'success' ? (
+          <div className="relative group rounded-[2.5rem] p-[2px] bg-gradient-to-br from-blue-500 via-purple-500 to-blue-500 animate-gradient-pan">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+            <div className="relative bg-white p-8 md:p-16 rounded-[2.4rem] shadow-2xl overflow-hidden">
+              {status === 'success' ? (
               <div className="text-center py-20 animate-fadeInUp relative z-10">
                 <div className="w-24 h-24 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-8 text-blue-600">
                   <CheckCircle className="w-12 h-12" />
@@ -142,6 +145,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenDatenschutz }) => {
                 </button>
               </form>
             )}
+            </div>
           </div>
         </div>
       </div>

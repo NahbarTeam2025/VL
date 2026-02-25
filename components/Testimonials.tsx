@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 const testimonials = [
   {
@@ -30,7 +31,9 @@ const testimonials = [
 
 export const Testimonials: React.FC = () => {
   return (
-    <section id="testimonials" className="py-24 px-6 max-w-7xl mx-auto" aria-labelledby="testimonials-title">
+    <section id="testimonials" className="py-24 px-6 max-w-7xl mx-auto relative" aria-labelledby="testimonials-title">
+      <ParticlesBackground color="#eab308" count={25} />
+      <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none -z-10"></div>
       <h2 id="testimonials-title" className="text-3xl md:text-5xl font-black mb-16 text-center">
         Was unsere Partner sagen
       </h2>

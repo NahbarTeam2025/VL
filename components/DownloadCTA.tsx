@@ -1,10 +1,12 @@
 import React from 'react';
 import { FileDown } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 export const DownloadCTA: React.FC = () => {
   return (
-    <section id="download" className="py-20 px-6" aria-labelledby="download-title">
-      <div className="max-w-4xl mx-auto glass-morphism p-12 rounded-[2.5rem] text-center relative overflow-hidden">
+    <section id="download" className="py-20 px-6 relative" aria-labelledby="download-title">
+      <ParticlesBackground color="#3b82f6" count={20} />
+      <div className="max-w-4xl mx-auto glass-morphism p-12 rounded-[2.5rem] text-center relative overflow-hidden z-10">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent-blue to-transparent opacity-50"></div>
         
         <h2 id="download-title" className="text-2xl md:text-3xl font-bold mb-6">

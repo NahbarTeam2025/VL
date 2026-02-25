@@ -1,5 +1,6 @@
 import React from 'react';
 import { Target, GitMerge, BarChart, Info } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 const Tooltip = ({ text, content }: { text: string; content: string }) => (
   <span className="group relative inline-block cursor-help">
@@ -16,7 +17,9 @@ const Tooltip = ({ text, content }: { text: string; content: string }) => (
 
 export const Methodology: React.FC = () => {
   return (
-    <section id="methodology" className="py-24 bg-bg-secondary border-t border-border">
+    <section id="methodology" className="py-24 bg-bg-secondary border-t border-border relative overflow-hidden">
+      <ParticlesBackground color="#c084fc" count={25} />
+      <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>

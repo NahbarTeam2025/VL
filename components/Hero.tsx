@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 export const Hero: React.FC = () => {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -18,6 +19,7 @@ export const Hero: React.FC = () => {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-10 sm:pt-24"
       aria-label="Hero Sektion"
     >
+      <ParticlesBackground color="#60a5fa" count={50} speed={0.3} />
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 z-0"

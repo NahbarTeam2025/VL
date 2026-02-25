@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search, Compass, PenTool, Check } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 export const Agents: React.FC = () => {
   const agents = [
@@ -43,6 +44,9 @@ export const Agents: React.FC = () => {
 
   return (
     <section id="agents" className="py-32 bg-bg-primary relative overflow-hidden">
+      <ParticlesBackground color="#22d3ee" count={30} />
+      <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary via-transparent to-bg-primary pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-black mb-6">Das Triaden-System für algorithmische Autorität.</h2>

@@ -1,9 +1,12 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 export const AboutMe: React.FC = () => {
   return (
-    <section id="about" className="py-32 px-6 max-w-7xl mx-auto" aria-labelledby="about-title">
+    <section id="about" className="py-32 px-6 max-w-7xl mx-auto relative" aria-labelledby="about-title">
+      <ParticlesBackground color="#14b8a6" count={25} />
+      <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none -z-10"></div>
       <div className="flex flex-col lg:flex-row items-center gap-16">
         {/* Left Column: Image */}
         <div className="flex-1 w-full max-w-md lg:max-w-none">

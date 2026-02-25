@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 interface CaseStudyBlockProps {
   title: string;
@@ -19,7 +20,7 @@ const CaseStudyBlock: React.FC<CaseStudyBlockProps> = ({ title, children }) => (
 
 const BulletPoint: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <li className="flex items-start gap-3">
-    <span className="text-blue-500 mt-1.5 shrink-0">•</span>
+    <span className="text-blue-500 mt-2 shrink-0 text-xs">•</span>
     <span>{children}</span>
   </li>
 );
@@ -32,8 +33,10 @@ export const CaseStudy: React.FC = () => {
     };
 
   return (
-    <section id="case-study" className="py-24 bg-bg-secondary/40 border-t border-white/5 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="case-study" className="py-24 bg-bg-secondary border-t border-white/5 relative overflow-hidden">
+      <ParticlesBackground color="#8b5cf6" count={40} />
+      <div className="absolute inset-0 bg-dots-subtle opacity-20 pointer-events-none"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <header className="text-center mb-16 relative">
             <span className="absolute top-0 left-1/2 -translate-x-1/2 -mt-8 text-[10px] font-bold uppercase tracking-[0.2em] text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Case Study</span>
@@ -43,8 +46,8 @@ export const CaseStudy: React.FC = () => {
             </p>
           </header>
 
-          <div className="bg-bg-primary p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl">
-            <p className="text-center text-text-secondary mb-12 italic">
+          <div className="bg-slate-900 p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl text-slate-300">
+            <p className="text-center text-slate-400 mb-12 italic">
               Diese Fallstudie zeigt exemplarisch, wie Analyse, Architektur und Content-Systeme zusammenspielen, um Sichtbarkeit für Suchmaschinen und KI-Systeme gleichermaßen aufzubauen.
             </p>
 
@@ -81,11 +84,11 @@ export const CaseStudy: React.FC = () => {
             <CaseStudyBlock title="Strategische Themencluster">
                 <p>Die Sichtbarkeit wurde nicht über einzelne Keywords, sondern über thematische Vollständigkeit geplant.</p>
                 <div className="space-y-3">
-                    <p className="font-bold text-text-primary">Hauptthemen:</p>
+                    <p className="font-bold text-white">Hauptthemen:</p>
                     <p>Kiebitz-See, Falkenberg Elster, Eisenbahnmuseum, Verwaltung & Bürgerservice</p>
-                    <p className="font-bold text-text-primary">Secondary & Longtail:</p>
+                    <p className="font-bold text-white">Secondary & Longtail:</p>
                     <p>Camping Brandenburg, Wandern Elbe-Elster-Land, Bürgerservice online, Workation am See</p>
-                     <p className="font-bold text-text-primary">GEO-Bezug:</p>
+                     <p className="font-bold text-white">GEO-Bezug:</p>
                     <p>Ausflugsziele in meiner Nähe, Badesee Südbrandenburg</p>
                 </div>
             </CaseStudyBlock>
@@ -93,9 +96,9 @@ export const CaseStudy: React.FC = () => {
             <CaseStudyBlock title="Architektur: Hub-and-Spoke-Modell">
                 <p>Die neue Struktur basiert auf einer zentralen Pillar-Page mit thematisch klar getrennten, aber logisch vernetzten Unterseiten.</p>
                  <div className="space-y-3">
-                    <p><strong className="text-text-primary">Hub:</strong> „Falkenberg/Elster: Wo Geschichte auf Erholung trifft“</p>
-                    <p><strong className="text-text-primary">Spokes:</strong> Abenteuer Kiebitz-See, Digitale Verwaltung & Bürgerservice, Wirtschaftsstandort & Wohnen</p>
-                    <p><strong className="text-text-primary">Zusatz:</strong> Integration kurzer Video-Touchpoints (Reels, Shorts) zur emotionalen Verstärkung</p>
+                    <p><strong className="text-white">Hub:</strong> „Falkenberg/Elster: Wo Geschichte auf Erholung trifft“</p>
+                    <p><strong className="text-white">Spokes:</strong> Abenteuer Kiebitz-See, Digitale Verwaltung & Bürgerservice, Wirtschaftsstandort & Wohnen</p>
+                    <p><strong className="text-white">Zusatz:</strong> Integration kurzer Video-Touchpoints (Reels, Shorts) zur emotionalen Verstärkung</p>
                 </div>
             </CaseStudyBlock>
 

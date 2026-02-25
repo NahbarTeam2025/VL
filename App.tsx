@@ -1,6 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Hero } from './components/Hero';
-import { Menu, X, Info, ArrowUp } from 'lucide-react';
+import { Menu, X, Info, ArrowUp, Sun, Moon } from 'lucide-react';
+import { useTheme } from './components/ThemeContext';
 
 // Lazy-load components that are not immediately visible
 const Problem = lazy(() => import('./components/Problem').then(module => ({ default: module.Problem })));
@@ -92,6 +93,7 @@ const BackToTopButton = () => {
 export default function App() {
   const [legalModal, setLegalModal] = useState<'impressum' | 'datenschutz' | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const menuItems = [
     { title: 'Problem', href: '#market-inefficiency' },
@@ -132,7 +134,15 @@ export default function App() {
             <span className="font-bold tracking-tighter brand-gradient">VisibilityLab</span>
           </a>
 
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-text-secondary hover:text-white transition-all duration-300 border border-white/5"
+              aria-label={theme === 'dark' ? 'Light Mode aktivieren' : 'Dark Mode aktivieren'}
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)} 
               className="p-2 text-text-secondary hover:text-white transition-colors relative z-[110]"

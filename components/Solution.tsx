@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle2, Activity, Info } from 'lucide-react';
+import { ParticlesBackground } from './ParticlesBackground';
 
 const Tooltip = ({ text, content }: { text: React.ReactNode; content: string }) => (
   <span className="group relative inline-block cursor-help">
@@ -16,7 +17,9 @@ const Tooltip = ({ text, content }: { text: React.ReactNode; content: string }) 
 
 export const Solution: React.FC = () => {
   return (
-    <section id="solution" className="py-32 bg-bg-secondary/40 border-y border-white/5 relative overflow-hidden">
+    <section id="solution" className="py-32 bg-bg-secondary border-y border-white/5 relative overflow-hidden">
+      <ParticlesBackground color="#34d399" count={30} />
+      <div className="absolute inset-0 bg-dots-subtle opacity-20 pointer-events-none"></div>
       {/* Background radial glow */}
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full pointer-events-none"></div>
 
