@@ -27,10 +27,10 @@ export const Benefits: React.FC = () => {
             <div className="p-8 text-center h-full flex flex-col items-center">
               <Building2 className="w-10 h-10 text-accent-primary mb-6" />
               <h3 className="text-xl font-bold text-text-primary mb-4">Für Unternehmen</h3>
-              <ul className="space-y-3 text-text-secondary text-sm text-left w-full">
-                <li className="flex gap-2"><span className="text-accent-primary shrink-0">•</span> Skalierbare Sichtbarkeit ohne Ad-Spend</li>
-                <li className="flex gap-2"><span className="text-accent-primary shrink-0">•</span> Dominanz in der Marktnische</li>
-                <li className="flex gap-2"><span className="text-accent-primary shrink-0">•</span> Langfristiger Markenaufbau</li>
+              <ul className="space-y-3 text-text-secondary text-sm text-left w-full list-disc list-inside">
+                <li>Skalierbare Sichtbarkeit ohne Ad-Spend</li>
+                <li>Dominanz in der Marktnische</li>
+                <li>Langfristiger Markenaufbau</li>
               </ul>
             </div>
           </GradientCard>
@@ -39,10 +39,10 @@ export const Benefits: React.FC = () => {
             <div className="p-8 text-center h-full flex flex-col items-center">
               <User className="w-10 h-10 text-accent-secondary mb-6" />
               <h3 className="text-xl font-bold text-text-primary mb-4">Für Selbstständige</h3>
-              <ul className="space-y-3 text-text-secondary text-sm text-left w-full">
-                <li className="flex gap-2"><span className="text-accent-secondary shrink-0">•</span> Zeitersparnis durch Automation</li>
-                <li className="flex gap-2"><span className="text-accent-secondary shrink-0">•</span> Expertenstatus in der Branche</li>
-                <li className="flex gap-2"><span className="text-accent-secondary shrink-0">•</span> Bezahlbare High-End Strategie</li>
+              <ul className="space-y-3 text-text-secondary text-sm text-left w-full list-disc list-inside">
+                <li>Zeitersparnis durch Automation</li>
+                <li>Expertenstatus in der Branche</li>
+                <li>Bezahlbare High-End Strategie</li>
               </ul>
             </div>
           </GradientCard>
@@ -51,10 +51,10 @@ export const Benefits: React.FC = () => {
             <div className="p-8 text-center h-full flex flex-col items-center">
               <Briefcase className="w-10 h-10 text-purple-400 mb-6" />
               <h3 className="text-xl font-bold text-text-primary mb-4">Für Agenturen</h3>
-              <ul className="space-y-3 text-text-secondary text-sm text-left w-full">
-                <li className="flex gap-2"><span className="text-purple-400 shrink-0">•</span> White-Label Lösungen</li>
-                <li className="flex gap-2"><span className="text-purple-400 shrink-0">•</span> Schnellere Delivery für Kunden</li>
-                <li className="flex gap-2"><span className="text-purple-400 shrink-0">•</span> Wissenschaftlich fundierte Reports</li>
+              <ul className="space-y-3 text-text-secondary text-sm text-left w-full list-disc list-inside">
+                <li>White-Label Lösungen</li>
+                <li>Schnellere Delivery für Kunden</li>
+                <li>Wissenschaftlich fundierte Reports</li>
               </ul>
             </div>
           </GradientCard>

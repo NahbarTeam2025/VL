@@ -1,5 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Hero } from './components/Hero';
+import { Separator } from './src/components/Separator';
 import { Menu, X, Info, ArrowUp, Sun, Moon } from 'lucide-react';
 import { useTheme } from './components/ThemeContext';
 
@@ -45,7 +46,7 @@ const CookieBanner = () => {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-sm z-[200] bg-bg-secondary border border-white/10 p-5 rounded-3xl shadow-2xl backdrop-blur-2xl animate-fadeIn">
+    <div className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-sm z-[200] bg-black/40 border border-white/10 p-5 rounded-3xl shadow-2xl backdrop-blur-2xl animate-fadeIn">
       <div className="flex gap-4 items-center mb-4 text-xs text-text-secondary leading-relaxed">
         <Info className="w-5 h-5 text-blue-500 shrink-0" />
         <p>Wir nutzen technisch notwendige Cookies für die Systemstabilität.</p>
@@ -131,7 +132,7 @@ export default function App() {
                 <path d="M2 7L12 12L22 7" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
                 <path d="M12 12V22" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
              </svg>
-            <span className="font-bold tracking-tighter brand-gradient">VisibilityLab</span>
+            <span className="font-bold tracking-tighter brand-gradient pb-1">VisibilityLab</span>
           </a>
 
           <div className="flex items-center gap-4">
@@ -172,15 +173,25 @@ export default function App() {
           <Problem />
           <Solution />
           <Agents />
+          <Separator />
           <CaseStudy />
+          <Separator />
           <Methodology />
+          <Separator />
           <Benefits />
+          <Separator />
           <DetailedBenefits />
+          <Separator />
           <Process />
+          <Separator />
           <AboutMe />
+          <Separator />
           <FAQ />
+          <Separator />
           <Testimonials />
+          <Separator />
           <DownloadCTA />
+          <Separator />
           <Contact onOpenDatenschutz={() => setLegalModal('datenschutz')} />
         </Suspense>
       </main>

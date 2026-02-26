@@ -46,7 +46,7 @@ export const CaseStudy: React.FC = () => {
             </p>
           </header>
 
-          <div className="bg-slate-900 p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl text-slate-300">
+          <div className="bg-gradient-to-br from-slate-900/80 via-purple-900/20 to-slate-900/80 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl text-slate-300">
             <p className="text-center text-slate-400 mb-12 italic">
               Diese Fallstudie zeigt exemplarisch, wie Analyse, Architektur und Content-Systeme zusammenspielen, um Sichtbarkeit für Suchmaschinen und KI-Systeme gleichermaßen aufzubauen.
             </p>

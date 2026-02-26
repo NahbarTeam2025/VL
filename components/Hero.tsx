@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
           <div 
             className="absolute -inset-16 bg-blue-600/20 blur-[80px] rounded-full -z-10 animate-logo-glow"
           ></div>
-          <span className="inline-block text-5xl md:text-8xl font-black tracking-tighter brand-gradient">
+          <span className="inline-block text-5xl md:text-8xl font-black tracking-tighter brand-gradient pb-1">
              VisibilityLab
           </span>
         </div>
@@ -50,7 +50,7 @@ export const Hero: React.FC = () => {
 
         <h1 className="text-4xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.1] mb-6 sm:mb-8">
           <span className="text-white block mb-2">Digitale Autorität.</span>
-          <span className="inline-block gradient-text-multi sm:whitespace-nowrap">
+          <span className="inline-block gradient-text-multi sm:whitespace-nowrap pb-1">
             Systematisch konstruiert.
           </span>
         </h1>
@@ -70,7 +70,7 @@ export const Hero: React.FC = () => {
             className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-500 rounded-xl text-white font-bold text-base shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all flex items-center justify-center gap-3 group active:scale-95 whitespace-nowrap focus-visible:outline-white"
           >
             Kostenlose Analyse starten
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-5 h-5 animate-bounce-x" />
           </a>
         </div>
 

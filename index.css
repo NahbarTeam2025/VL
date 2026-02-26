@@ -101,25 +101,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gradient-text-multi {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600;
-  background-size: 200% auto;
-  animation: gradient-pan 3s linear infinite;
+  @apply text-white;
 }
 
 .brand-gradient {
   background: linear-gradient(
     to right,
-    #60a5fa,
-    #c084fc,
-    #3b82f6,
-    #a855f7,
-    #60a5fa
+    #00FFFF,
+    #00BFFF,
+    #8A2BE2,
+    #4B0082,
+    #00FFFF
   );
   background-size: 300% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: brand-flow 10s linear infinite;
+  animation: brand-flow 30s linear infinite;
+}
+
+@keyframes bounce-x {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(25%); }
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1s infinite;
 }
 
 .text-glow {
