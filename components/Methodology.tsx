@@ -17,7 +17,7 @@ const Tooltip = ({ text, content }: { text: string; content: string }) => (
 
 export const Methodology: React.FC = () => {
   return (
-    <section id="methodology" className="py-24 bg-bg-secondary border-t border-border relative overflow-hidden">
+    <section id="methodology" className="py-24 bg-bg-secondary relative overflow-hidden">
       <ParticlesBackground color="#c084fc" count={25} />
       <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

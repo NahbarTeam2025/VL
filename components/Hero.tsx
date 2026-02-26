@@ -16,21 +16,23 @@ export const Hero: React.FC = () => {
 
   return (
     <section 
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-10 sm:pt-24"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-10 sm:pt-24 bg-bg-primary"
       aria-label="Hero Sektion"
     >
       <ParticlesBackground color="#60a5fa" count={50} speed={0.3} />
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1464802686167-b939a6910659?auto=format&fit=crop&q=80&w=1920")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/95 via-[#050505]/80 to-[#050505]/95 z-10"></div>
-        <div className="absolute inset-0 bg-black/90 z-0"></div>
+
+      {/* Background Elements for Wow Factor */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Subtle Grid */}
+        <div className="absolute inset-0 bg-grid-subtle opacity-[0.03]"></div>
+        
+        {/* Glowing Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-purple-600/10 rounded-full blur-[150px] mix-blend-screen animate-pulse" style={{ animationDuration: '12s', animationDelay: '2s' }}></div>
+        
+        {/* Vignette to keep edges dark */}
+        <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/50 via-transparent to-bg-primary"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#050505_100%)] opacity-80"></div>
       </div>
 
       {/* Top/Center Content */}
@@ -67,10 +69,9 @@ export const Hero: React.FC = () => {
           <a 
             href="#contact"
             onClick={handleScroll}
-            className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-500 rounded-xl text-white font-bold text-base shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all flex items-center justify-center gap-3 group active:scale-95 whitespace-nowrap focus-visible:outline-white"
+            className="w-fit px-8 py-3.5 bg-blue-600 hover:bg-blue-500 rounded-xl text-white font-bold text-base shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all inline-flex items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white"
           >
             Kostenlose Analyse starten
-            <ArrowRight className="w-5 h-5 animate-bounce-x" />
           </a>
         </div>
 

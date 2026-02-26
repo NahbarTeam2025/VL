@@ -43,7 +43,7 @@ export const DetailedBenefits: React.FC = () => {
   ];
 
   return (
-    <section id="detailed-benefits" className="py-20 bg-bg-secondary border-t border-border relative overflow-hidden">
+    <section id="detailed-benefits" className="py-20 bg-bg-secondary relative overflow-hidden">
       <ParticlesBackground color="#3b82f6" count={30} />
       <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
