@@ -54,19 +54,19 @@ export const Hero: React.FC = () => {
               Ein gutes SEO KI System verbindet klare Themenstruktur, echte Daten und automatische Lernprozesse.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 mb-2">
+            <div className="flex flex-col gap-2 mb-10 w-fit">
               <a 
                 href="#contact"
                 onClick={handleScroll}
-                className="relative overflow-hidden w-fit px-8 py-4 bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] rounded-xl text-white font-bold text-lg shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all duration-500 inline-flex items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white"
+                className="relative overflow-hidden w-full px-8 py-4 bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] rounded-xl text-white font-bold text-lg shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all duration-500 inline-flex items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white"
               >
                 <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12"></div>
                 <span className="relative z-10">Analyse kostenlos starten</span>
               </a>
+              <p className="text-[10px] text-text-secondary/60 pl-1 text-center sm:text-left">
+                * Ergebnisse können je nach individueller Ausgangslage variieren.
+              </p>
             </div>
-            <p className="text-[10px] text-text-secondary/60 mb-10 pl-1">
-              * Ergebnisse können je nach individueller Ausgangslage variieren.
-            </p>
 
             <div className="flex flex-wrap gap-4">
               <motion.div 

@@ -120,21 +120,7 @@ export const Navbar: React.FC = () => {
                 </span>
               </a>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                {sections.map((section) => (
-                  <NavLink 
-                    key={section.id} 
-                    href={`#${section.id}`} 
-                    onClick={handleScroll}
-                    isActive={activeSection === section.id}
-                  >
-                    {section.title}
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-            <div className="-mr-2 flex md:hidden">
+            <div className="flex">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -171,7 +157,7 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <div className={`${isOpen ? 'block' : 'hidden'} md:hidden bg-bg-primary border-t border-border`} id="mobile-menu">
+        <div className={`${isOpen ? 'block' : 'hidden'} bg-bg-primary border-t border-border`} id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
             {sections.map((section) => (
               <NavLink 
