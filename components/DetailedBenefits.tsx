@@ -9,7 +9,7 @@ export const DetailedBenefits: React.FC = () => {
       icon: TrendingUp,
       color: "text-accent-primary",
       benefits: [
-        "Unabhängigkeit von steigenden Ad-Kosten (CPC)",
+        "Unabhängigkeit von steigenden Ad-Kosten CPC",
         "Steigerung des Unternehmenswertes durch digitale Assets",
         "Messbarer ROI und transparente KPIs",
         "Dominanz in lokalen und globalen Märkten",

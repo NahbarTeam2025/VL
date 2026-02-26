@@ -1,21 +1,12 @@
 import React, { useState } from 'react';
-import { ChevronDown, Loader2 } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { ParticlesBackground } from './ParticlesBackground';
 
 export const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [loadingIndex, setLoadingIndex] = useState<number | null>(null);
 
   const handleToggle = (idx: number) => {
-    if (openIndex === idx) {
-      setOpenIndex(null);
-      return;
-    }
-    setLoadingIndex(idx);
-    setTimeout(() => {
-      setLoadingIndex(null);
-      setOpenIndex(idx);
-    }, 400);
+    setOpenIndex(openIndex === idx ? null : idx);
   };
 
   const faqs = [
@@ -29,7 +20,7 @@ export const FAQ: React.FC = () => {
     },
     {
       q: "Wie schnell sehe ich Ergebnisse?",
-      a: "SEO ist ein Marathon. Durch unsere strukturelle Optimierung (Hub & Spoke) indexieren Suchmaschinen die Inhalte jedoch oft schneller und werten sie höher. Erste signifikante Trendänderungen sind oft nach 3-6 Monaten sichtbar."
+      a: "SEO ist ein Marathon. Durch unsere strukturelle Optimierung Hub & Spoke indexieren Suchmaschinen die Inhalte jedoch oft schneller und werten sie höher. Erste signifikante Trendänderungen sind oft nach 3-6 Monaten sichtbar."
     },
     {
       q: "Ist das nur KI-Text oder echte Strategie?",
@@ -52,23 +43,19 @@ export const FAQ: React.FC = () => {
           {faqs.map((faq, idx) => (
             <div 
               key={idx} 
-              className={`relative group rounded-2xl p-[1px] transition-all duration-500 ${openIndex === idx ? 'bg-gradient-to-r from-blue-500 to-purple-500' : 'bg-gradient-to-r from-white/10 to-white/5 hover:from-blue-500/50 hover:to-purple-500/50'}`}
+              className={`relative group rounded-2xl p-[1px] transition-all duration-500 ${openIndex === idx ? 'bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]' : 'bg-gradient-to-r from-white/10 to-white/5 hover:from-[#4FD1FF]/50 hover:to-[#2F80FF]/50'}`}
             >
-              <div className={`absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl transition-opacity duration-500 ${openIndex === idx ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'}`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-r from-[#4FD1FF]/20 to-[#2F80FF]/20 blur-xl transition-opacity duration-500 ${openIndex === idx ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'}`}></div>
               <div className="relative bg-bg-primary rounded-2xl overflow-hidden">
                 <button 
                   onClick={() => handleToggle(idx)}
-                  className="w-full flex items-start justify-between p-6 md:p-8 text-left gap-4 group"
+                  className="w-full flex items-start justify-between p-6 md:p-8 text-left gap-4 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4FD1FF] rounded-2xl"
                   aria-expanded={openIndex === idx}
                   aria-controls={`faq-answer-${idx}`}
                   id={`faq-question-${idx}`}
                 >
                   <span className={`font-bold transition-colors text-lg md:text-xl ${openIndex === idx ? 'text-white' : 'text-text-secondary group-hover:text-white'}`}>{faq.q}</span>
-                  {loadingIndex === idx ? (
-                    <Loader2 className="w-6 h-6 text-blue-400 animate-spin shrink-0" />
-                  ) : (
-                    <ChevronDown className={`w-6 h-6 text-blue-400 transition-transform duration-300 shrink-0 ${openIndex === idx ? 'rotate-180' : 'opacity-50'}`} />
-                  )}
+                  <ChevronDown className={`w-6 h-6 text-[#4FD1FF] transition-transform duration-300 shrink-0 ${openIndex === idx ? 'rotate-180' : 'opacity-50 group-hover:opacity-100'}`} />
                 </button>
                 <div 
                   id={`faq-answer-${idx}`}

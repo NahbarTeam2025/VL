@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { Send, CheckCircle, ArrowUpRight } from 'lucide-react';
 import { ParticlesBackground } from './ParticlesBackground';
 
-interface ContactProps {
-  onOpenDatenschutz: () => void;
-}
-
-export const Contact: React.FC<ContactProps> = ({ onOpenDatenschutz }) => {
+export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -84,7 +80,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenDatenschutz }) => {
                 </div>
 
                 <div className="group/field">
-                  <label htmlFor="website" className="block text-xs font-black text-black uppercase mb-3 tracking-[0.2em] group-focus-within/field:text-blue-600 transition-colors">Unternehmens-Webseite (URL)</label>
+                  <label htmlFor="website" className="block text-xs font-black text-black uppercase mb-3 tracking-[0.2em] group-focus-within/field:text-blue-600 transition-colors">Unternehmens-Webseite URL</label>
                   <input
                     type="url"
                     id="website"
@@ -127,7 +123,6 @@ export const Contact: React.FC<ContactProps> = ({ onOpenDatenschutz }) => {
                     Ich willige ein, dass meine Angaben zur Kontaktaufnahme gespeichert werden.{" "}
                     <button 
                       type="button" 
-                      onClick={onOpenDatenschutz} 
                       className="text-blue-600 underline font-bold bg-transparent border-none p-0 cursor-pointer hover:text-blue-800 transition-colors focus-visible:outline-blue-600"
                     >
                       Datenschutz

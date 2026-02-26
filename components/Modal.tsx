@@ -9,10 +9,10 @@ interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = ({ children, onClose, title }) => {
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-sm">
-      <div className="bg-black w-full max-w-2xl max-h-[90vh] rounded-2xl border border-border shadow-2xl flex flex-col">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+      <div className="bg-bg-primary w-full max-w-2xl max-h-[90vh] rounded-2xl border border-border shadow-2xl flex flex-col">
         <div className="flex items-center justify-between p-6 border-b border-border">
-          <h3 className="text-xl font-bold text-white">{title}</h3>
+          <h3 className="text-xl font-bold text-text-primary">{title}</h3>
           <button onClick={onClose} className="text-text-secondary hover:text-white transition-colors">
             <X className="w-6 h-6" />
           </button>

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Building2, User, Briefcase } from 'lucide-react';
+import { Bot, Sparkles, Search } from 'lucide-react';
 import { ParticlesBackground } from './ParticlesBackground';
+import { motion } from 'framer-motion';
 
 const GradientCard = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
-  <div className={`relative group rounded-2xl p-[1px] bg-gradient-to-br from-white/10 to-white/5 hover:from-blue-500 hover:to-purple-500 transition-all duration-500 ${className}`}>
-    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    <div className="relative h-full bg-bg-secondary rounded-2xl overflow-hidden">
+  <div className={`relative group rounded-2xl p-[1px] bg-gradient-to-br from-white/10 to-white/5 hover:from-[#4FD1FF] hover:to-[#2F80FF] transition-all duration-500 ${className}`}>
+    <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/20 to-[#2F80FF]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div className="relative h-full bg-bg-secondary rounded-2xl overflow-hidden node-glow">
       {children}
     </div>
   </div>
@@ -13,51 +14,60 @@ const GradientCard = ({ children, className = "" }: { children: React.ReactNode,
 
 export const Benefits: React.FC = () => {
   return (
-    <section id="benefits" className="py-20 bg-bg-primary relative overflow-hidden">
-      <ParticlesBackground color="#3b82f6" count={30} />
+    <section id="benefit" className="py-24 bg-bg-primary relative overflow-hidden">
+      <ParticlesBackground color="#4FD1FF" count={30} />
       <div className="absolute inset-0 bg-dots-subtle opacity-20 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Ihr Vorteil</h2>
-          <p className="text-text-secondary">Maßgeschneiderter Impact für jede Unternehmensgröße.</p>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-5xl font-black mb-6 text-white">
+            Messbare Präsenz in der Ära der Künstlichen Intelligenz
+          </h2>
+          <p className="text-text-secondary text-lg max-w-3xl mx-auto">
+            Wir positionieren Ihre Marke dort, wo Entscheidungen heute getroffen werden.
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
-          <GradientCard>
-            <div className="p-8 text-center h-full flex flex-col items-center">
-              <Building2 className="w-10 h-10 text-accent-primary mb-6" />
-              <h3 className="text-xl font-bold text-text-primary mb-4">Für Unternehmen</h3>
-              <ul className="space-y-3 text-text-secondary text-sm text-left w-full list-disc list-inside">
-                <li>Skalierbare Sichtbarkeit ohne Ad-Spend</li>
-                <li>Dominanz in der Marktnische</li>
-                <li>Langfristiger Markenaufbau</li>
-              </ul>
-            </div>
-          </GradientCard>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+            <GradientCard>
+              <div className="p-8 text-center h-full flex flex-col items-center">
+                <Bot className="w-12 h-12 text-[#4FD1FF] mb-6 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-xl font-bold text-white mb-4">Sichtbarkeit in ChatGPT</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  Ihre Inhalte werden so strukturiert, dass ChatGPT sie als verlässliche Quelle zitiert. Wir optimieren gezielt für AEO Answer Engine Optimization.
+                </p>
+              </div>
+            </GradientCard>
+          </motion.div>
 
-          <GradientCard>
-            <div className="p-8 text-center h-full flex flex-col items-center">
-              <User className="w-10 h-10 text-accent-secondary mb-6" />
-              <h3 className="text-xl font-bold text-text-primary mb-4">Für Selbstständige</h3>
-              <ul className="space-y-3 text-text-secondary text-sm text-left w-full list-disc list-inside">
-                <li>Zeitersparnis durch Automation</li>
-                <li>Expertenstatus in der Branche</li>
-                <li>Bezahlbare High-End Strategie</li>
-              </ul>
-            </div>
-          </GradientCard>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
+            <GradientCard>
+              <div className="p-8 text-center h-full flex flex-col items-center">
+                <Sparkles className="w-12 h-12 text-[#2F80FF] mb-6 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-xl font-bold text-white mb-4">Präsenz in Google Gemini</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  Durch den Aufbau von Topical Authority erkennt Gemini Ihre Expertise. Sie werden Teil der generierten KI-Antworten in der Google Suche.
+                </p>
+              </div>
+            </GradientCard>
+          </motion.div>
 
-          <GradientCard>
-            <div className="p-8 text-center h-full flex flex-col items-center">
-              <Briefcase className="w-10 h-10 text-purple-400 mb-6" />
-              <h3 className="text-xl font-bold text-text-primary mb-4">Für Agenturen</h3>
-              <ul className="space-y-3 text-text-secondary text-sm text-left w-full list-disc list-inside">
-                <li>White-Label Lösungen</li>
-                <li>Schnellere Delivery für Kunden</li>
-                <li>Wissenschaftlich fundierte Reports</li>
-              </ul>
-            </div>
-          </GradientCard>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+            <GradientCard>
+              <div className="p-8 text-center h-full flex flex-col items-center">
+                <Search className="w-12 h-12 text-white mb-6 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-xl font-bold text-white mb-4">Google Top 5 Rankings</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  Klassische Suchanfragen bleiben relevant. Mit datenbasierten WDF*IDF-Analysen sichern wir Ihnen nachhaltige Top-Rankings für kaufbereite Suchbegriffe.
+                </p>
+              </div>
+            </GradientCard>
+          </motion.div>
         </div>
       </div>
     </section>

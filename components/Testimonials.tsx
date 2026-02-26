@@ -1,74 +1,76 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import { ParticlesBackground } from './ParticlesBackground';
+import { motion } from 'framer-motion';
 
 const testimonials = [
   {
-    name: "Dr. Sarah Schmidt",
-    role: "CEO, TechFlow Solutions",
-    text: "Die algorithmische Themenautorität hat unsere organische Reichweite in nur 4 Monaten verdreifacht. Ein absoluter Gamechanger für unser B2B-Marketing.",
-    image: "https://picsum.photos/seed/sarah/100/100"
+    name: "Michael S.",
+    role: "Geschäftsführer, SaaS Startup",
+    text: "Endlich ein System, das man versteht. Unsere Sichtbarkeit hat sich in 3 Monaten verdoppelt."
   },
   {
-    name: "Markus Weber",
-    role: "Head of SEO, Global Retail",
-    text: "Endlich ein System, das KI nicht nur als Spielerei nutzt, sondern echte strategische Tiefe bietet. Die Ergebnisse sprechen für sich.",
-    image: "https://picsum.photos/seed/markus/100/100"
+    name: "Sarah K.",
+    role: "Marketing Leitung, B2B",
+    text: "Die Kombination aus technischem SEO und echtem Content-Fokus ist unschlagbar."
   },
   {
-    name: "Elena Petrova",
-    role: "Gründerin, CreativeHub",
-    text: "Die Hub-and-Spoke Architektur ist genial. Unsere Conversion Rate ist signifikant gestiegen, da wir nun genau die richtigen Nutzer ansprechen.",
-    image: "https://picsum.photos/seed/elena/100/100"
-  },
-  {
-    name: "Thomas Meyer",
-    role: "Marketing Director, FinLeap",
-    text: "VisibilityLab hat uns geholfen, in einem extrem kompetitiven Markt Fuß zu fassen. Die KI-Agenten arbeiten präziser als jede Agentur.",
-    image: "https://picsum.photos/seed/thomas/100/100"
+    name: "Thomas M.",
+    role: "Gründer, E-Commerce",
+    text: "Wir ranken jetzt für Begriffe, die vorher unerreichbar schienen. Absolute Empfehlung."
   }
 ];
 
 export const Testimonials: React.FC = () => {
   return (
-    <section id="testimonials" className="py-24 px-6 max-w-7xl mx-auto relative" aria-labelledby="testimonials-title">
-      <ParticlesBackground color="#eab308" count={25} />
-      <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none -z-10"></div>
-      <h2 id="testimonials-title" className="text-3xl md:text-5xl font-black mb-16 text-center">
-        Was unsere Partner sagen
-      </h2>
+    <section id="testimonials" className="py-24 bg-bg-secondary relative overflow-hidden">
+      <ParticlesBackground color="#4FD1FF" count={20} />
+      <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {testimonials.map((t, i) => (
-          <div 
-            key={i} 
-            className="glass-morphism p-8 rounded-2xl flex flex-col justify-between transition-all hover:scale-[1.02] border border-white/10"
-          >
-            <div>
-              <div className="flex gap-1 mb-6" aria-label="5 von 5 Sternen">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-500 text-yellow-500" />
-                ))}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-5xl font-black mb-6 text-white">Das sagen unsere Kunden</h2>
+          <p className="text-text-secondary text-lg max-w-3xl mx-auto">
+            Messbare Ergebnisse und nachhaltiges Wachstum.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="glass-morphism p-8 rounded-2xl border border-border hover:border-[#4FD1FF]/30 transition-colors relative overflow-hidden group"
+            >
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                initial={{ y: "10%" }}
+                whileInView={{ y: "-10%" }}
+                transition={{ duration: 3, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+              ></motion.div>
+              <div className="relative z-10">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-[#4FD1FF] text-[#4FD1FF]" />
+                  ))}
+                </div>
+                <p className="text-text-secondary italic mb-6">"{testimonial.text}"</p>
+                <div>
+                  <p className="text-white font-bold">{testimonial.name}</p>
+                  <p className="text-text-muted text-sm">{testimonial.role}</p>
+                </div>
               </div>
-              <blockquote className="text-lg italic mb-8 text-text-main">
-                "{t.text}"
-              </blockquote>
-            </div>
-            
-            <div className="flex items-center gap-4">
-              <img 
-                src={t.image} 
-                alt={`Profilbild von ${t.name}`} 
-                className="w-12 h-12 rounded-full border-2 border-accent-blue/30"
-                referrerPolicy="no-referrer"
-              />
-              <div>
-                <p className="font-bold text-white">{t.name}</p>
-                <cite className="text-sm text-text-secondary not-italic">{t.role}</cite>
-              </div>
-            </div>
-          </div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
