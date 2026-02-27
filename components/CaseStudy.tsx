@@ -49,7 +49,7 @@ export const CaseStudy: React.FC = () => {
                 <div className="absolute -inset-4 bg-[#4FD1FF]/20 blur-2xl rounded-full -z-10"></div>
                 {/* Image Prompt: Photorealistic visualization of dashboard, 3D nodes, dark tech background, cinematic lighting, colors #0B1020, #2F80FF, #4FD1FF. */}
                 <img 
-                  src="https://picsum.photos/seed/chart/600/400" 
+                  src="https://picsum.photos/seed/chart/600/400.webp" 
                   alt="Wachstumschart der organischen Sichtbarkeit" 
                   width="600"
                   height="400"

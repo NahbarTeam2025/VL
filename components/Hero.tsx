@@ -114,11 +114,12 @@ export const Hero: React.FC = () => {
           >
             <div className="absolute -inset-4 bg-[#4FD1FF]/20 blur-3xl rounded-full -z-10"></div>
             <img 
-              src="https://picsum.photos/seed/neural-network/800/600" 
+              src="https://picsum.photos/seed/neural-network/800/600.webp" 
               alt="Visualisierung neuronaler Netzwerke und KI-Datenströme" 
               width="800"
               height="600"
               loading="eager"
+              fetchPriority="high"
               className="w-full h-auto rounded-2xl border border-white/10 shadow-2xl"
               referrerPolicy="no-referrer"
             />

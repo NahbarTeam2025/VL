@@ -14,7 +14,7 @@ export const AboutMe: React.FC = () => {
             <div className="absolute -inset-4 bg-accentBlue/20 blur-2xl rounded-full"></div>
             <div className="relative glass-morphism p-2 rounded-[2.5rem] overflow-hidden">
               <img 
-                src="https://picsum.photos/seed/expert/800/1000" 
+                src="https://picsum.photos/seed/expert/800/1000.webp" 
                 alt="Porträt von Robert Erbach, Experte für KI-Sichtbarkeit" 
                 width="800"
                 height="1000"

@@ -2,7 +2,8 @@ import React, { lazy, Suspense } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroMenu } from './components/HeroMenu';
 import { ScrollToTop } from './components/ScrollToTop';
-const Hero = lazy(() => import('./components/Hero').then(m => ({ default: m.Hero })));
+import { Hero } from './components/Hero';
+
 const USP = lazy(() => import('./components/USP').then(m => ({ default: m.USP })));
 const Benefits = lazy(() => import('./components/Benefits').then(m => ({ default: m.Benefits })));
 const Methodology = lazy(() => import('./components/Methodology').then(m => ({ default: m.Methodology })));
@@ -20,9 +21,9 @@ const App: React.FC = () => {
       <Navbar />
       <ScrollToTop />
       <main>
-        <Suspense fallback={<div>Loading sections...</div>}>
-          <Hero id="hero" />
-          <HeroMenu />
+        <Hero id="hero" />
+        <HeroMenu />
+        <Suspense fallback={<div className="min-h-screen bg-bg-primary"></div>}>
           <USP id="usp" /> {/* USP */}
           <Benefits id="benefit" /> {/* Benefit */}
           <Methodology id="leistung" /> {/* Leistungsspektrum */}
@@ -34,7 +35,7 @@ const App: React.FC = () => {
           <Contact id="contact" />
         </Suspense>
       </main>
-      <Suspense fallback={<div>Loading footer...</div>}>
+      <Suspense fallback={null}>
         <Footer id="agb-sitemap" />
       </Suspense>
     </div>
