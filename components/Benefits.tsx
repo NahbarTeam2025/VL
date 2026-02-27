@@ -33,8 +33,8 @@ export const Benefits: React.FC = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-            <GradientCard>
+          <motion.div className="h-full" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+            <GradientCard className="h-full">
               <div className="p-8 text-center h-full flex flex-col items-center">
                 <Bot className="w-12 h-12 text-[#4FD1FF] mb-6 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="text-xl font-bold text-white mb-4">Sichtbarkeit in ChatGPT</h3>
@@ -45,8 +45,8 @@ export const Benefits: React.FC = () => {
             </GradientCard>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-            <GradientCard>
+          <motion.div className="h-full" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
+            <GradientCard className="h-full">
               <div className="p-8 text-center h-full flex flex-col items-center">
                 <Sparkles className="w-12 h-12 text-[#2F80FF] mb-6 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="text-xl font-bold text-white mb-4">Präsenz in Google Gemini</h3>
@@ -57,8 +57,8 @@ export const Benefits: React.FC = () => {
             </GradientCard>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-            <GradientCard>
+          <motion.div className="h-full" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+            <GradientCard className="h-full">
               <div className="p-8 text-center h-full flex flex-col items-center">
                 <Search className="w-12 h-12 text-white mb-6 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="text-xl font-bold text-white mb-4">Google Top 5 Rankings</h3>

@@ -13,16 +13,18 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick, isActive }) 
   <a
     href={href}
     onClick={onClick}
-    className={`group relative transition-all duration-300 py-2 px-3 text-sm font-medium block w-full text-center md:text-left md:inline-block md:w-auto ${
+    className={`group relative transition-all duration-300 py-2 px-3 text-sm font-medium block w-full text-center ${
       isActive 
         ? 'text-[#4FD1FF] drop-shadow-[0_0_8px_rgba(79,209,255,0.5)]' 
         : 'text-text-secondary hover:text-white'
     }`}
   >
-    {children}
-    <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF] transition-transform duration-300 hidden md:block ${
-      isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-    }`}></span>
+    <span className="relative inline-block">
+      {children}
+      <span className={`absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF] transition-transform duration-300 ${
+        isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+      }`}></span>
+    </span>
   </a>
 );
 
