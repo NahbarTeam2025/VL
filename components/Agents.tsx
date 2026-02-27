@@ -48,9 +48,9 @@ export const Agents: React.FC = () => {
       <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-bg-primary via-transparent to-bg-primary pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-black mb-6">Das Triaden-System für algorithmische Autorität.</h2>
-          <p className="text-text-secondary max-w-3xl mx-auto text-lg font-light leading-relaxed">
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-[clamp(1.75rem,5vw,3rem)] font-black mb-4 md:mb-6 leading-tight">Das Triaden-System für algorithmische Autorität.</h2>
+          <p className="text-text-secondary max-w-3xl mx-auto text-base md:text-lg font-light leading-relaxed">
             Drei spezialisierte Agenten arbeiten synchron, um Themenautorität systematisch aufzubauen, abzusichern und zu skalieren.
           </p>
         </div>
@@ -60,7 +60,7 @@ export const Agents: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             {agents.map((agent) => (
-              <div key={agent.title} className="glass-card p-8 rounded-[2.5rem] flex flex-col">
+              <div key={agent.title} className="bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 backdrop-blur-xl border border-[#4FD1FF]/30 shadow-[0_8px_32px_rgba(79,209,255,0.1)] p-8 rounded-[2.5rem] flex flex-col node-glow">
                 <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
                         <agent.icon className={`w-6 h-6 ${agent.color}`} />

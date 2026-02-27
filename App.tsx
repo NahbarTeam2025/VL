@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from 'react';
 import { Navbar } from './components/Navbar';
-import { HeroMenu } from './components/HeroMenu';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Hero } from './components/Hero';
 
@@ -20,17 +19,16 @@ const App: React.FC = () => {
     <div className="bg-bg-primary text-text-primary min-h-screen">
       <Navbar />
       <ScrollToTop />
-      <main>
+      <main className="flex flex-col gap-y-8 md:gap-y-12">
         <Hero id="hero" />
-        <HeroMenu />
         <Suspense fallback={<div className="min-h-screen bg-bg-primary"></div>}>
           <USP id="usp" /> {/* USP */}
           <Benefits id="benefit" /> {/* Benefit */}
           <Methodology id="leistung" /> {/* Leistungsspektrum */}
           <CaseStudy id="case-study" />
-          <Testimonials id="testimonials" />
           <DownloadCTA id="download" /> {/* PDF Download */}
           <AboutMe id="about-me" />
+          <Testimonials id="testimonials" />
           <FAQ id="faq" />
           <Contact id="contact" />
         </Suspense>

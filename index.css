@@ -2,13 +2,13 @@
 
 :root {
   /* Default Dark Mode Variables */
-  --bg-primary: #0B1020;
-  --bg-secondary: #0f172a;
+  --bg-primary: #000000;
+  --bg-secondary: #000000;
   --text-primary: #E6ECFF;
   --text-secondary: #a1afc9;
   --border-color: rgba(79,209,255,0.1);
   
-  --bg-dark: #0B1020;
+  --bg-dark: #000000;
   --text-main: #E6ECFF;
   --text-head: #FFFFFF;
   --accent-blue: #4FD1FF;

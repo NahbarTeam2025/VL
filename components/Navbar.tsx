@@ -99,7 +99,7 @@ export const Navbar: React.FC = () => {
       >
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4FD1FF]/50 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
+          <div className="flex justify-between h-16 md:h-20 items-center">
             <div className="flex-shrink-0 flex items-center">
               <a href="#hero" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer group">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform group-hover:scale-110 transition-transform duration-300">
@@ -126,59 +126,73 @@ export const Navbar: React.FC = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-text-secondary hover:text-white hover:bg-bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg-primary focus:ring-[#4FD1FF]"
+                className="relative z-50 inline-flex items-center justify-center p-2 rounded-full text-text-secondary hover:text-white hover:bg-white/5 focus:outline-none transition-colors"
                 aria-controls="mobile-menu"
-                aria-expanded="false"
+                aria-expanded={isOpen}
               >
                 <span className="sr-only">Open main menu</span>
-                {!isOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                )}
+                <div className="w-6 h-6 flex flex-col justify-center items-center gap-1.5">
+                  <span className={`block w-5 h-0.5 bg-current transform transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                  <span className={`block w-5 h-0.5 bg-current transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+                  <span className={`block w-5 h-0.5 bg-current transform transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                </div>
               </button>
             </div>
           </div>
         </div>
 
-        <div className={`${isOpen ? 'block' : 'hidden'} bg-bg-primary border-t border-border`} id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
-            {sections.map((section) => (
-              <NavLink 
-                key={section.id} 
-                href={`#${section.id}`} 
-                onClick={handleScroll}
-                isActive={activeSection === section.id}
+        {/* Mobile Menu Overlay */}
+        <motion.div 
+          initial={false}
+          animate={{ 
+            opacity: isOpen ? 1 : 0,
+            pointerEvents: isOpen ? 'auto' : 'none'
+          }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-40 bg-bg-primary/95 backdrop-blur-2xl flex flex-col justify-center items-center overflow-y-auto"
+        >
+          <div className="w-full max-w-sm px-6 py-24 flex flex-col gap-4 min-h-screen justify-center">
+            {sections.map((section, i) => (
+              <motion.div
+                key={section.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ 
+                  opacity: isOpen ? 1 : 0, 
+                  y: isOpen ? 0 : 20 
+                }}
+                transition={{ duration: 0.3, delay: isOpen ? i * 0.05 : 0 }}
               >
-                {section.title}
-              </NavLink>
+                <a
+                  href={`#${section.id}`}
+                  onClick={handleScroll}
+                  className={`block text-2xl font-bold text-center py-2 transition-colors ${
+                    activeSection === section.id 
+                      ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]' 
+                      : 'text-text-secondary hover:text-white'
+                  }`}
+                >
+                  {section.title}
+                </a>
+              </motion.div>
             ))}
-            <button 
-              onClick={() => { setIsGlossaryOpen(true); setIsOpen(false); }}
-              className="relative text-text-primary hover:text-[#4FD1FF] transition-colors py-2 px-3 text-sm font-medium block w-full text-center"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: isOpen ? 1 : 0, 
+                y: isOpen ? 0 : 20 
+              }}
+              transition={{ duration: 0.3, delay: isOpen ? sections.length * 0.05 : 0 }}
+              className="mt-4 pt-4 border-t border-white/10"
             >
-              Glossar
-            </button>
+              <button 
+                onClick={() => { setIsGlossaryOpen(true); setIsOpen(false); }}
+                className="block w-full text-xl font-medium text-center py-2 text-text-muted hover:text-[#4FD1FF] transition-colors"
+              >
+                Glossar
+              </button>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </motion.nav>
 
       {isGlossaryOpen && (

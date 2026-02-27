@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Award, Zap } from 'lucide-react';
 import { ParticlesBackground } from './ParticlesBackground';
+import { NeuralNetwork } from './NeuralNetwork';
 import { motion } from 'framer-motion';
 
 export const Hero: React.FC = () => {
@@ -18,7 +19,7 @@ export const Hero: React.FC = () => {
   return (
     <section 
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-10 sm:pt-24 bg-bg-primary"
+      className="relative min-h-[100svh] flex flex-col justify-start lg:justify-center overflow-hidden pt-24 pb-12 lg:pt-24 lg:pb-12 bg-bg-primary"
       aria-label="Hero Sektion"
     >
       <ParticlesBackground color="#4FD1FF" count={50} speed={0.3} />
@@ -26,10 +27,8 @@ export const Hero: React.FC = () => {
       {/* Background Elements for Wow Factor */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-grid-subtle opacity-[0.03]"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#2F80FF]/10 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }}></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-[#4FD1FF]/10 rounded-full blur-[150px] mix-blend-screen animate-pulse" style={{ animationDuration: '12s', animationDelay: '2s' }}></div>
         <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/50 via-transparent to-bg-primary"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#0B1020_100%)] opacity-80"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#000000_100%)] opacity-80"></div>
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -40,89 +39,99 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex-1 text-left"
+            className="flex-1 w-full text-left mt-0 lg:-mt-8"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#4FD1FF] text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6">
-              VisibilityLab System
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-white">
-              Was macht ein gutes <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]">SEO KI System</span> aus?
+            <h1 className="text-[clamp(1.75rem,6vw,4.5rem)] font-extrabold tracking-tight leading-[1.15] mb-4 md:mb-6 text-white">
+              Was macht ein gutes <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]">SEO KI System</span> aus?
             </h1>
             
-            <p className="text-[#E6ECFF] text-lg md:text-xl max-w-2xl font-light leading-relaxed mb-10">
+            <p className="text-[#E6ECFF] text-base md:text-xl max-w-2xl font-light leading-relaxed mb-6 md:mb-8">
               Ein gutes SEO KI System verbindet klare Themenstruktur, echte Daten und automatische Lernprozesse.
             </p>
+
+            <ul className="flex flex-col gap-2 md:gap-3 mb-6 md:mb-10 text-text-secondary text-sm md:text-base">
+              <li className="flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-[#4FD1FF]" />
+                <span><strong>Effizienzsteigerung:</strong> Automatisierte Prozesse sparen wertvolle Zeit.</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Zap className="w-5 h-5 text-[#4FD1FF]" />
+                <span><strong>Kosten senken:</strong> Weniger manueller Aufwand, mehr Output.</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Award className="w-5 h-5 text-[#4FD1FF]" />
+                <span><strong>Sichtbarkeit:</strong> Dominieren Sie Suchmaschinen und KI-Antworten.</span>
+              </li>
+            </ul>
             
-            <div className="flex flex-col gap-2 mb-10 w-fit">
+            <div className="flex flex-col gap-2 mb-6 md:mb-10 w-fit">
               <a 
                 href="#contact"
                 onClick={handleScroll}
-                className="relative overflow-hidden w-full px-8 py-4 bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] rounded-xl text-white font-bold text-lg shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all duration-500 inline-flex items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white"
+                className="relative overflow-hidden w-full px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] rounded-xl text-white font-bold text-base md:text-lg shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all duration-500 inline-flex items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white"
               >
                 <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12"></div>
                 <span className="relative z-10">Analyse kostenlos starten</span>
               </a>
-              <p className="text-[10px] text-text-secondary/60 pl-1 text-center sm:text-left">
-                * Ergebnisse können je nach individueller Ausgangslage variieren.
-              </p>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4">
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.6 }}
-                className="flex items-center gap-3 px-4 py-2 bg-gradient-to-br from-[#0B1020] to-[#1a2333] rounded-full border border-[#4FD1FF]/30 shadow-[0_0_15px_rgba(79,209,255,0.15)]"
+                className="flex items-center gap-1.5 md:gap-3 px-2 py-1 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] rounded-full border border-[#4FD1FF]/30 shadow-[0_0_15px_rgba(79,209,255,0.15)]"
               >
-                <div className="w-8 h-8 rounded-full bg-[#4FD1FF]/10 flex items-center justify-center border border-[#4FD1FF]/20">
-                  <ShieldCheck className="w-4 h-4 text-[#4FD1FF]" />
+                <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-[#4FD1FF]/10 flex items-center justify-center border border-[#4FD1FF]/20">
+                  <ShieldCheck className="w-2.5 h-2.5 md:w-4 md:h-4 text-[#4FD1FF]" />
                 </div>
-                <span className="text-xs font-bold text-white uppercase tracking-wider">DSGVO Konform</span>
+                <span className="text-[9px] md:text-xs font-bold text-white uppercase tracking-wider">DSGVO Konform</span>
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.7 }}
-                className="flex items-center gap-3 px-4 py-2 bg-gradient-to-br from-[#0B1020] to-[#1a2333] rounded-full border border-[#F59E0B]/30 shadow-[0_0_15px_rgba(245,158,11,0.15)]"
+                className="flex items-center gap-1.5 md:gap-3 px-2 py-1 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] rounded-full border border-[#F59E0B]/30 shadow-[0_0_15px_rgba(245,158,11,0.15)]"
               >
-                <div className="w-8 h-8 rounded-full bg-[#F59E0B]/10 flex items-center justify-center border border-[#F59E0B]/20">
-                  <Award className="w-4 h-4 text-[#F59E0B]" />
+                <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-[#F59E0B]/10 flex items-center justify-center border border-[#F59E0B]/20">
+                  <Award className="w-2.5 h-2.5 md:w-4 md:h-4 text-[#F59E0B]" />
                 </div>
-                <span className="text-xs font-bold text-white uppercase tracking-wider">Marktführer</span>
+                <span className="text-[9px] md:text-xs font-bold text-white uppercase tracking-wider">Marktführer</span>
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.8 }}
-                className="flex items-center gap-3 px-4 py-2 bg-gradient-to-br from-[#0B1020] to-[#1a2333] rounded-full border border-[#10B981]/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+                className="flex items-center gap-1.5 md:gap-3 px-2 py-1 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] rounded-full border border-[#10B981]/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]"
               >
-                <div className="w-8 h-8 rounded-full bg-[#10B981]/10 flex items-center justify-center border border-[#10B981]/20">
-                  <Zap className="w-4 h-4 text-[#10B981]" />
+                <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-[#10B981]/10 flex items-center justify-center border border-[#10B981]/20">
+                  <Zap className="w-2.5 h-2.5 md:w-4 md:h-4 text-[#10B981]" />
                 </div>
-                <span className="text-xs font-bold text-white uppercase tracking-wider">High-Performance</span>
+                <span className="text-[9px] md:text-xs font-bold text-white uppercase tracking-wider">High-Performance</span>
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.9 }}
+                className="flex items-center gap-1.5 md:gap-3 px-2 py-1 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] rounded-full border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+              >
+                <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                  <ShieldCheck className="w-2.5 h-2.5 md:w-4 md:h-4 text-white" />
+                </div>
+                <span className="text-[9px] md:text-xs font-bold text-white uppercase tracking-wider">Lokal gehostet</span>
               </motion.div>
             </div>
           </motion.div>
 
-          {/* Right: Image */}
+          {/* Right: Image / Animation */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-1 w-full max-w-lg lg:max-w-none relative"
+            className="flex-1 w-full max-w-lg lg:max-w-none relative aspect-square md:aspect-[4/3]"
           >
-            <div className="absolute -inset-4 bg-[#4FD1FF]/20 blur-3xl rounded-full -z-10"></div>
-            <img 
-              src="https://picsum.photos/seed/neural-network/800/600.webp" 
-              alt="Visualisierung neuronaler Netzwerke und KI-Datenströme" 
-              width="800"
-              height="600"
-              loading="eager"
-              fetchPriority="high"
-              className="w-full h-auto rounded-2xl border border-white/10 shadow-2xl"
-              referrerPolicy="no-referrer"
-            />
+            <NeuralNetwork />
           </motion.div>
           
         </div>

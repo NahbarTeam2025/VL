@@ -28,14 +28,14 @@ export const Solution: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[10px] font-black uppercase tracking-widest mb-8 border border-blue-500/20">
             ENGINEERING EXCELLENCE
           </div>
-          <h2 className="text-4xl md:text-6xl font-black mb-6 leading-[1.1]">
+          <h2 className="text-[clamp(2rem,6vw,4rem)] font-black mb-4 md:mb-6 leading-[1.1]">
             Automatisierte <br />
             <span className="text-blue-500">Themen-Autorität.</span>
           </h2>
-          <p className="text-blue-400/80 text-sm md:text-base font-bold uppercase tracking-widest mb-8">
+          <p className="text-blue-400/80 text-xs md:text-sm font-bold uppercase tracking-widest mb-6 md:mb-8">
             Algorithmische Präzision trifft auf kreative Exzellenz.
           </p>
-          <p className="text-text-secondary text-lg md:text-xl mb-10 leading-relaxed font-light">
+          <p className="text-text-secondary text-base md:text-xl mb-8 md:mb-10 leading-relaxed font-light">
             Wir ersetzen isolierte Optimierung durch ein <span className="text-white font-medium">ganzheitliches Ökosystem</span>. VisibilityLab verwandelt Ihre Website in einen Magneten für qualifizierten Traffic, indem es semantische Netze knüpft, die KI-Modelle und klassische Algorithmen gleichermaßen verstehen.
           </p>
           
@@ -61,7 +61,7 @@ export const Solution: React.FC = () => {
         
         <div className="flex-1 w-full order-1 lg:order-2 relative group">
           <div className="relative p-px bg-gradient-to-br from-blue-500/40 via-white/10 to-purple-500/40 rounded-[2.5rem] overflow-hidden shadow-2xl">
-            <div className="bg-bg-primary/90 backdrop-blur-2xl rounded-[2.45rem] p-6 md:p-8 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-[#15305b]/90 via-[#0d1f3d]/90 to-[#050b14]/90 backdrop-blur-2xl rounded-[2.45rem] p-6 md:p-8 relative overflow-hidden border border-[#4FD1FF]/30 shadow-[0_8px_32px_rgba(79,209,255,0.1)]">
               {/* Scanline effect */}
               <div className="absolute top-0 inset-x-0 h-20 w-full bg-gradient-to-b from-blue-500/10 to-transparent animate-beam pointer-events-none opacity-50"></div>
               

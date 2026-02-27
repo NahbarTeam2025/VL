@@ -4,7 +4,7 @@ import { ParticlesBackground } from './ParticlesBackground';
 
 export const AboutMe: React.FC = () => {
   return (
-    <section id="about" className="py-24 px-6 max-w-7xl mx-auto relative" aria-labelledby="about-title">
+    <section id="about" className="py-28 md:py-32 px-6 max-w-7xl mx-auto relative" aria-labelledby="about-title">
       <ParticlesBackground color="#14b8a6" count={25} />
       <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none -z-10"></div>
       <div className="flex flex-col lg:flex-row items-center gap-16">
@@ -16,6 +16,7 @@ export const AboutMe: React.FC = () => {
               <img 
                 src="https://picsum.photos/seed/expert/800/1000.webp" 
                 alt="Porträt von Robert Erbach, Experte für KI-Sichtbarkeit" 
+                title="Porträt von Robert Erbach"
                 width="800"
                 height="1000"
                 loading="lazy"
@@ -28,16 +29,12 @@ export const AboutMe: React.FC = () => {
 
         {/* Right Column: Content */}
         <div className="flex-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accentBlue/10 text-accentBlue text-[10px] font-black uppercase tracking-widest mb-8 border border-accentBlue/20">
-            DER EXPERTE HINTER DER TECHNIK
-          </div>
-          
-          <h2 id="about-title" className="text-4xl md:text-6xl font-black mb-8 leading-tight">
-            Über den <span className="text-accentBlue">Experten</span>
+          <h2 id="about-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight">
+            KI <span className="text-accentBlue">mehr als nur</span> eine Passion
           </h2>
           
           <p className="text-text-secondary text-lg md:text-xl mb-10 leading-relaxed font-light">
-            Als Senior Frontend Engineer und KI-Strategist verbinde ich tiefes technisches Verständnis mit modernsten Marketing-Methoden. Mein Ziel ist es, Unternehmen dabei zu helfen, in der Ära der generativen Suche nicht nur gefunden zu werden, sondern als unangefochtene Autorität wahrgenommen zu werden.
+            Für mich ist Künstliche Intelligenz nicht nur ein Werkzeug, sondern eine grundlegende Veränderung unserer digitalen Welt. Ich brenne dafür, komplexe Algorithmen und Datenstrukturen so zu formen, dass sie echten Mehrwert schaffen. Als Senior Frontend Engineer und KI-Strategist verbinde ich dieses tiefe technische Verständnis mit modernsten Marketing-Methoden. Mein Ziel ist es, Unternehmen dabei zu helfen, in der Ära der generativen Suche nicht nur gefunden zu werden, sondern als unangefochtene Autorität wahrgenommen zu werden.
           </p>
           
           <ul className="space-y-6" role="list">

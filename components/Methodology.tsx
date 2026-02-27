@@ -10,7 +10,7 @@ export const Methodology: React.FC = () => {
   };
 
   return (
-    <section id="leistung" className="py-24 bg-bg-secondary relative overflow-hidden">
+    <section id="leistung" className="py-28 md:py-32 bg-bg-secondary relative overflow-hidden">
       <ParticlesBackground color="#2F80FF" count={25} />
       <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -20,7 +20,7 @@ export const Methodology: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-black mb-6 text-white">Leistungsspektrum</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-6 text-white whitespace-nowrap overflow-hidden text-ellipsis">Das VisibilityLab System im Detail</h2>
           <p className="text-text-secondary text-lg max-w-3xl mx-auto">
             Ganzheitliche Optimierung für die Suchsysteme von heute und morgen.
           </p>
@@ -29,27 +29,27 @@ export const Methodology: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {[
             {
-              icon: Target,
-              title: "Generative Engine Optimization GEO",
-              desc: "Wir optimieren Ihre Inhalte gezielt für KI-Suchmaschinen wie Google AI Overviews. So werden Sie als primäre Quelle in generierten Antworten zitiert.",
-              tooltip: "Optimierung für generative KI-Modelle"
-            },
-            {
               icon: Search,
               title: "Answer Engine Optimization AEO",
-              desc: "Strukturierung von Daten für Chatbots und Sprachassistenten. Wir machen Ihr Wissen für ChatGPT, Claude und Co. maschinenlesbar und verständlich.",
+              desc: "Wir optimieren Ihre Inhalte gezielt für KI-Suchmaschinen wie Google AI Overviews. So werden Sie als primäre Quelle in generierten Antworten zitiert. Ihr Vorteil: Sie erreichen Nutzer genau in dem Moment, in dem sie nach Lösungen suchen.",
               tooltip: "Optimierung für Antwortmaschinen"
+            },
+            {
+              icon: Target,
+              title: "Generative Engine Optimization GEO",
+              desc: "Strukturierung von Daten für Chatbots und Sprachassistenten. Wir machen Ihr Wissen für ChatGPT, Claude und Co. maschinenlesbar und verständlich. Ihr Vorteil: Ihre Marke wird Teil des KI-Wissens und gewinnt massiv an Reichweite.",
+              tooltip: "Optimierung für generative KI-Modelle"
             },
             {
               icon: FileText,
               title: "Skalierbare Content-Systeme",
-              desc: "Aufbau von Topical Authority durch vernetzte Hub-and-Spoke Architekturen. Wir erstellen Inhalte, die semantische Tiefe und Relevanz beweisen.",
+              desc: "Aufbau von Topical Authority durch vernetzte Hub-and-Spoke Architekturen. Wir erstellen Inhalte, die semantische Tiefe und Relevanz beweisen. Ihr Vorteil: Durch Hub and Spoke werden Sie sichtbar und bauen echten Expertenstatus auf.",
               tooltip: "Systematische Inhaltserstellung"
             },
             {
               icon: Code,
               title: "Technical SEO & Performance",
-              desc: "Fehlerfreie technische Basis für maximale Crawlbarkeit. Wir optimieren Ladezeiten, Core Web Vitals und strukturierte Daten JSON-LD.",
+              desc: "Fehlerfreie technische Basis für maximale Crawlbarkeit. Wir optimieren Ladezeiten, Core Web Vitals und strukturierte Daten JSON-LD. Ihr Vorteil: Bessere Rankings und eine perfekte Nutzererfahrung, die Besucher zu Kunden macht.",
               tooltip: "Technische Webseitenoptimierung"
             }
           ].map((item, idx) => (
@@ -59,7 +59,7 @@ export const Methodology: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="relative group glass-morphism p-8 rounded-2xl border border-border hover:border-[#4FD1FF]/50 transition-all duration-300 node-glow overflow-hidden"
+              className="relative group bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 backdrop-blur-xl p-8 rounded-2xl border border-[#4FD1FF]/30 hover:border-[#4FD1FF]/60 shadow-[0_8px_32px_rgba(79,209,255,0.1)] transition-all duration-300 node-glow overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
@@ -88,7 +88,7 @@ export const Methodology: React.FC = () => {
             onClick={handleScroll}
             className="w-fit px-8 py-3.5 bg-[#2F80FF] hover:bg-[#4FD1FF] rounded-xl text-white font-bold text-base shadow-[0_0_30px_rgba(47,128,255,0.3)] transition-all inline-flex items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white"
           >
-            Jetzt sichtbar werden
+            Be Visibility
           </a>
         </motion.div>
       </div>

@@ -47,10 +47,10 @@ export const DetailedBenefits: React.FC = () => {
       <ParticlesBackground color="#3b82f6" count={30} />
       <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Warum VisibilityLab?</h2>
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-[clamp(1.75rem,5vw,2.5rem)] font-bold mb-4">Warum VisibilityLab?</h2>
           <div className="w-20 h-1 bg-accent-primary rounded-full mx-auto mb-6"></div>
-          <p className="text-text-secondary max-w-2xl mx-auto">
+          <p className="text-text-secondary text-base md:text-lg max-w-2xl mx-auto">
             Tiefergehende Vorteile für jeden Anspruch. Wir liefern nicht nur Traffic, sondern Geschäftswert.
           </p>
         </div>
@@ -59,7 +59,7 @@ export const DetailedBenefits: React.FC = () => {
           {groups.map((group, idx) => (
             <div key={idx} className="relative group rounded-2xl p-[1px] bg-gradient-to-br from-white/10 to-white/5 hover:from-blue-500 hover:to-purple-500 transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative h-full bg-bg-primary rounded-2xl p-8 overflow-hidden">
+              <div className="relative h-full bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 backdrop-blur-xl rounded-2xl p-6 md:p-8 overflow-hidden border border-[#4FD1FF]/30 shadow-[0_8px_32px_rgba(79,209,255,0.1)]">
                 <div className={`flex items-center gap-3 mb-6 ${group.color}`}>
                   <div className="p-3 bg-white/5 rounded-lg group-hover:bg-white/10 transition-colors">
                       <group.icon className="w-6 h-6" />

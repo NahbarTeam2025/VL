@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const GradientCard = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
   <div className={`relative group rounded-2xl p-[1px] bg-gradient-to-br from-white/10 to-white/5 hover:from-[#4FD1FF] hover:to-[#2F80FF] transition-all duration-500 ${className}`}>
     <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/20 to-[#2F80FF]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    <div className="relative h-full bg-bg-secondary rounded-2xl overflow-hidden node-glow">
+    <div className="relative h-full bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 backdrop-blur-xl rounded-2xl overflow-hidden border border-[#4FD1FF]/30 shadow-[0_8px_32px_rgba(79,209,255,0.1)] node-glow">
       {children}
     </div>
   </div>
@@ -14,7 +14,7 @@ const GradientCard = ({ children, className = "" }: { children: React.ReactNode,
 
 export const Benefits: React.FC = () => {
   return (
-    <section id="benefit" className="py-24 bg-bg-primary relative overflow-hidden">
+    <section id="benefit" className="py-28 md:py-32 bg-bg-primary relative overflow-hidden">
       <ParticlesBackground color="#4FD1FF" count={30} />
       <div className="absolute inset-0 bg-dots-subtle opacity-20 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -24,10 +24,10 @@ export const Benefits: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-black mb-6 text-white">
+          <h2 className="text-[clamp(1.75rem,5vw,3rem)] font-black mb-4 md:mb-6 text-white leading-tight">
             Messbare Präsenz in der Ära der Künstlichen Intelligenz
           </h2>
-          <p className="text-text-secondary text-lg max-w-3xl mx-auto">
+          <p className="text-text-secondary text-base md:text-lg max-w-3xl mx-auto">
             Wir positionieren Ihre Marke dort, wo Entscheidungen heute getroffen werden.
           </p>
         </motion.div>
@@ -49,9 +49,9 @@ export const Benefits: React.FC = () => {
             <GradientCard className="h-full">
               <div className="p-8 text-center h-full flex flex-col items-center">
                 <Sparkles className="w-12 h-12 text-[#2F80FF] mb-6 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-xl font-bold text-white mb-4">Präsenz in Google Gemini</h3>
+                <h3 className="text-xl font-bold text-white mb-4">Präsenz in AEO</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
-                  Durch den Aufbau von Topical Authority erkennt Gemini Ihre Expertise. Sie werden Teil der generierten KI-Antworten in der Google Suche.
+                  Durch den Aufbau von Topical Authority erkennt AEO Ihre Expertise. Sie werden Teil der generierten KI-Antworten in der Google Suche.
                 </p>
               </div>
             </GradientCard>

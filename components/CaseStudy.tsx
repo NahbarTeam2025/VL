@@ -10,7 +10,7 @@ export const CaseStudy: React.FC = () => {
   };
 
   return (
-    <section id="case-study" className="py-24 bg-bg-primary relative overflow-hidden">
+    <section id="case-study" className="py-28 md:py-32 bg-bg-primary relative overflow-hidden">
       <ParticlesBackground color="#2F80FF" count={40} />
       <div className="absolute inset-0 bg-dots-subtle opacity-20 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -32,25 +32,26 @@ export const CaseStudy: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-[#0B1020]/80 via-[#2F80FF]/10 to-[#0B1020]/80 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-border shadow-2xl text-text-primary node-glow"
+            className="bg-gradient-to-br from-[#000000]/80 via-[#2F80FF]/10 to-[#000000]/80 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-border shadow-2xl text-text-primary node-glow"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
               <div>
-                <h3 className="text-2xl font-bold text-white mb-4">Das Problem</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Status Quo</h3>
                 <p className="text-text-secondary mb-6 text-sm leading-relaxed">
                   Die Stadt Falkenberg Elster hatte eine klassische Website ohne klare thematische Ausrichtung. Weder Suchmaschinen noch moderne KI-Systeme konnten die Relevanz für wichtige lokale Themen wie den Kiebitz-See oder touristische Angebote erkennen. Die digitale Sichtbarkeit war minimal, und wichtige Informationen erreichten die Bürger nicht effektiv.
                 </p>
-                <h3 className="text-2xl font-bold text-white mb-4">Die Lösung</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Unser Ergebnis</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
                   Wir implementierten ein umfassendes Hub-and-Spoke Modells. Durch tiefe, semantisch verknüpfte Inhalte entstand echte Topical Authority. Wir strukturierten Daten neu, optimierten für Voice Search und KI-Antworten. Das Ergebnis: 1.800% mehr organische Sichtbarkeit in nur 6 Monaten und eine signifikante Steigerung der Bürgerinteraktion.
                 </p>
               </div>
               <div className="relative">
                 <div className="absolute -inset-4 bg-[#4FD1FF]/20 blur-2xl rounded-full -z-10"></div>
-                {/* Image Prompt: Photorealistic visualization of dashboard, 3D nodes, dark tech background, cinematic lighting, colors #0B1020, #2F80FF, #4FD1FF. */}
+                {/* Image Prompt: Photorealistic visualization of dashboard, 3D nodes, dark tech background, cinematic lighting, colors #000000, #2F80FF, #4FD1FF. */}
                 <img 
                   src="https://picsum.photos/seed/chart/600/400.webp" 
                   alt="Wachstumschart der organischen Sichtbarkeit" 
+                  title="Wachstumschart der organischen Sichtbarkeit"
                   width="600"
                   height="400"
                   loading="lazy"
