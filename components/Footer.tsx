@@ -46,17 +46,17 @@ export const Footer: React.FC = () => {
                </svg>
               <span className="font-bold text-xl brand-gradient">VisibilityLab</span>
             </div>
-            <p className="text-text-secondary text-sm leading-relaxed max-w-sm">
+            <p className="text-slate-300 text-sm leading-relaxed max-w-sm">
               KI-gestütztes System für moderne SEO-, GEO- und Content-Strategien.
             </p>
             <div className="flex gap-4 mt-2">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-accentBlue hover:text-text-primary transition-all duration-300">
+              <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-accentBlue hover:text-text-primary transition-all duration-300">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-red-600 hover:text-text-primary transition-all duration-300">
+              <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-red-600 hover:text-text-primary transition-all duration-300">
                 <Youtube className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-pink-600 hover:text-text-primary transition-all duration-300">
+              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-pink-600 hover:text-text-primary transition-all duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -64,12 +64,12 @@ export const Footer: React.FC = () => {
 
           {/* Right: Legals */}
           <div className="flex flex-wrap gap-6">
-            <button onClick={() => setIsImpressumOpen(true)} className="text-sm text-text-secondary hover:text-text-primary transition-colors">Impressum</button>
-            <button onClick={() => setIsDatenschutzOpen(true)} className="text-sm text-text-secondary hover:text-text-primary transition-colors">Datenschutz</button>
-            <button onClick={() => setIsAgbOpen(true)} className="text-sm text-text-secondary hover:text-text-primary transition-colors">AGB KI-Klauseln</button>
+            <button onClick={() => setIsImpressumOpen(true)} className="text-sm text-slate-300 hover:text-white transition-colors">Impressum</button>
+            <button onClick={() => setIsDatenschutzOpen(true)} className="text-sm text-slate-300 hover:text-white transition-colors">Datenschutz</button>
+            <button onClick={() => setIsAgbOpen(true)} className="text-sm text-slate-300 hover:text-white transition-colors">AGB KI-Klauseln</button>
           </div>
         </div>
-        <div className="text-center text-[10px] text-text-secondary/30 mt-8 font-light tracking-widest uppercase">
+        <div className="text-center text-[10px] text-slate-500 mt-8 font-light tracking-widest uppercase">
           by Robert
         </div>
       </div>

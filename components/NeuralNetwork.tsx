@@ -23,14 +23,34 @@ export const NeuralNetwork: React.FC = () => {
     let particles: Particle[] = [];
     let pulses: { start: number; end: number; progress: number; speed: number }[] = [];
     
-    // Resize handler
+    // Resize handler with debounce and stability check
+    let lastWidth = 0;
+    let lastHeight = 0;
+
     const resize = () => {
       const parent = canvas.parentElement;
-      if (parent) {
-        canvas.width = parent.clientWidth;
-        canvas.height = parent.clientHeight;
+      if (!parent) return;
+
+      const newWidth = parent.clientWidth;
+      const newHeight = parent.clientHeight;
+
+      // Only resize if dimensions actually changed
+      if (newWidth === lastWidth && newHeight === lastHeight) return;
+
+      canvas.width = newWidth;
+      canvas.height = newHeight;
+
+      // Only re-initialize particles if width changed significantly or if it's the first time
+      // This prevents "jumping" on mobile scroll when the address bar hides/shows
+      const widthChangedSignificantly = Math.abs(newWidth - lastWidth) > 50;
+      const isFirstInit = lastWidth === 0;
+
+      if (widthChangedSignificantly || isFirstInit) {
         initParticles();
       }
+
+      lastWidth = newWidth;
+      lastHeight = newHeight;
     };
 
     const initParticles = () => {

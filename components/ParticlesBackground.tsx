@@ -33,10 +33,33 @@ export const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
       parallaxFactor: number;
     }> = [];
 
+    // Resize handler with stability check
+    let lastWidth = 0;
+    let lastHeight = 0;
+
     const resizeCanvas = () => {
-      canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
-      canvas.height = canvas.parentElement?.clientHeight || window.innerHeight;
-      initParticles();
+      const parent = canvas.parentElement;
+      if (!parent) return;
+
+      const newWidth = parent.clientWidth || window.innerWidth;
+      const newHeight = parent.clientHeight || window.innerHeight;
+
+      // Only resize if dimensions actually changed
+      if (newWidth === lastWidth && newHeight === lastHeight) return;
+
+      canvas.width = newWidth;
+      canvas.height = newHeight;
+
+      // Only re-initialize particles if width changed significantly or if it's the first time
+      const widthChangedSignificantly = Math.abs(newWidth - lastWidth) > 50;
+      const isFirstInit = lastWidth === 0;
+
+      if (widthChangedSignificantly || isFirstInit) {
+        initParticles();
+      }
+
+      lastWidth = newWidth;
+      lastHeight = newHeight;
     };
 
     const initParticles = () => {
