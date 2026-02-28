@@ -6,16 +6,7 @@
     <title>VisibilityLab - Intelligent SEO Engineering</title>
     <meta name="description" content="VisibilityLab: Das KI-gestützte System für maximale digitale Dominanz. Wir optimieren Ihre Sichtbarkeit durch modernste SEO, GEO (Generative Engine Optimization) und AEO (Answer Engine Optimization) Strategien, damit Sie in Suchmaschinen und KI-Antworten ganz oben stehen." />
     
-    <!-- Performance Optimization -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link rel="dns-prefetch" href="https://fonts.bunny.net">
-    <link rel="preconnect" href="https://fastly.picsum.photos">
-    <link rel="dns-prefetch" href="https://fastly.picsum.photos">
-    
-    <!-- Preload critical fonts for LCP -->
-    <link rel="preload" href="https://fonts.bunny.net/inter/files/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="https://fonts.bunny.net/inter/files/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="https://fonts.bunny.net/inter/files/inter-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <!-- GDPR: External resources removed from initial load -->
 
     <!-- Comprehensive JSON-LD Schema.org -->
     <script type="application/ld+json">
@@ -63,7 +54,7 @@
           "name": "Robert Erbach",
           "jobTitle": "KI-Sichtbarkeitsexperte & Strategist",
           "description": "Experte für KI-Sichtbarkeit und Entwickler des VisibilityLab Frameworks. Spezialisiert auf die Transformation digitaler Präsenz in der Ära generativer KI.",
-          "image": "https://picsum.photos/seed/expert/800/1000.webp",
+          "data-image": "https://picsum.photos/seed/expert/800/1000.webp",
           "worksFor": { "@id": "https://visibilitylab.de/#organization" }
         },
         {
@@ -139,7 +130,7 @@
           "author": { "@id": "https://visibilitylab.de/#person" },
           "publisher": { "@id": "https://visibilitylab.de/#organization" },
           "description": "Wie wir durch den systematischen Aufbau von Topical Authority die digitale Präsenz einer Stadtplattform transformiert haben.",
-          "image": "https://picsum.photos/seed/chart/600/400.webp",
+          "data-image": "https://picsum.photos/seed/chart/600/400.webp",
           "datePublished": "2024-01-01",
           "dateModified": "2024-05-20",
           "mainEntityOfPage": { "@type": "WebPage", "@id": "https://visibilitylab.de/#case-study" }
@@ -176,11 +167,54 @@
     }
     </script>
     
-    <!-- Bunny Fonts (DSGVO-konform) - Optimiert auf Latin-Subset & spezifische Zeichen -->
-    <link href="https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;900&family=Mrs+Saint+Delafield&text=Robert%20Erbach&display=swap&subset=latin" rel="stylesheet">
+    <!-- GDPR: Font link will be injected by JS -->
 </head>
   <body>
+    <div id="gdpr-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(10px);">
+      <div style="background: #111; border: 1px solid #333; padding: 40px; border-radius: 24px; max-width: 500px; text-align: center; color: white; font-family: sans-serif;">
+        <h2 style="margin-top: 0; font-size: 24px; margin-bottom: 20px;">Datenschutz-Einwilligung</h2>
+        <p style="color: #999; line-height: 1.6; margin-bottom: 30px;">Wir nutzen externe Schriften und Bilder von Drittanbietern (Bunny Fonts, Picsum/Fastly). Mit Klick auf "Akzeptieren" stimmst du der Übertragung deiner IP-Adresse an diese Anbieter zu.</p>
+        <button id="accept-gdpr" style="background: #4FD1FF; color: black; border: none; padding: 14px 32px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px; transition: transform 0.2s;">Alles akzeptieren</button>
+      </div>
+    </div>
     <div id="root"></div>
-    <script type="module" src="/index.tsx" async></script>
+    <script type="text/plain" data-src="/index.tsx" data-type="module" id="main-script"></script>
+    <script>
+      (function() {
+        const overlay = document.getElementById('gdpr-overlay');
+        const acceptBtn = document.getElementById('accept-gdpr');
+        const mainScript = document.getElementById('main-script');
+
+        function activateSite() {
+          overlay.style.display = 'none';
+          
+          // Inject Fonts
+          const fontLink = document.createElement('link');
+          fontLink.rel = 'stylesheet';
+          fontLink.href = 'https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;900&family=Mrs+Saint+Delafield&text=Robert%20Erbach&display=swap&subset=latin';
+          document.head.appendChild(fontLink);
+
+          // Swap data-src for images
+          document.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.getAttribute('data-src');
+          });
+
+          // Activate Main Script
+          const script = document.createElement('script');
+          script.type = mainScript.getAttribute('data-type');
+          script.src = mainScript.getAttribute('data-src');
+          document.body.appendChild(script);
+        }
+
+        if (localStorage.getItem('gdpr_accepted') === 'true') {
+          activateSite();
+        } else {
+          acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('gdpr_accepted', 'true');
+            activateSite();
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

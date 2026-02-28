@@ -117,7 +117,7 @@ export const CaseStudy: React.FC = () => {
                 </p>
                 <footer className="flex items-center gap-4">
                   <img 
-                    src="https://picsum.photos/seed/person1/80/80" 
+                    data-src="https://picsum.photos/seed/person1/80/80" 
                     alt="Stadtverwaltung Falkenberg/Elster" 
                     className="w-10 h-10 rounded-full object-cover border border-[#4FD1FF]/30"
                     referrerPolicy="no-referrer"
