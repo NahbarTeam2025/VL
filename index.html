@@ -178,12 +178,11 @@
       </div>
     </div>
     <div id="root"></div>
-    <script type="text/plain" data-src="/index.tsx" data-type="module" id="main-script"></script>
+    <script type="module" src="/index.tsx"></script>
     <script>
       (function() {
         const overlay = document.getElementById('gdpr-overlay');
         const acceptBtn = document.getElementById('accept-gdpr');
-        const mainScript = document.getElementById('main-script');
 
         function activateSite() {
           overlay.style.display = 'none';
@@ -199,14 +198,14 @@
             img.src = img.getAttribute('data-src');
           });
 
-          // Activate Main Script
-          const script = document.createElement('script');
-          script.type = mainScript.getAttribute('data-type');
-          script.src = mainScript.getAttribute('data-src');
-          document.body.appendChild(script);
+          // Dispatch event for React to mount
+          window.dispatchEvent(new Event('GDPR_CONSENT_GIVEN'));
         }
 
         if (localStorage.getItem('gdpr_accepted') === 'true') {
+          // If already accepted, we still need to inject fonts/images, 
+          // but we might run before React or after. 
+          // React will check localStorage itself, but we need to handle the non-React parts.
           activateSite();
         } else {
           acceptBtn.addEventListener('click', () => {

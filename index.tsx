@@ -10,10 +10,19 @@ if (!rootElement) {
 }
 
 const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>
-);
+
+const renderApp = () => {
+  root.render(
+    <React.StrictMode>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </React.StrictMode>
+  );
+};
+
+if (localStorage.getItem('gdpr_accepted') === 'true') {
+  renderApp();
+} else {
+  window.addEventListener('GDPR_CONSENT_GIVEN', renderApp, { once: true });
+}
