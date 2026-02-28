@@ -76,7 +76,7 @@ export const Hero: React.FC = () => {
               </a>
             </div>
 
-            <div className="flex flex-wrap gap-2 md:gap-4">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 md:gap-4">
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -92,17 +92,6 @@ export const Hero: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.7 }}
-                className="flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] rounded-full border border-[#F59E0B]/30 shadow-[0_0_15px_rgba(245,158,11,0.15)]"
-              >
-                <div className="w-4 h-4 md:w-8 md:h-8 rounded-full bg-[#F59E0B]/10 flex items-center justify-center border border-[#F59E0B]/20">
-                  <Award className="w-2.5 h-2.5 md:w-4 md:h-4 text-[#F59E0B]" />
-                </div>
-                <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Marktführer</span>
-              </motion.div>
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.8 }}
                 className="flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] rounded-full border border-[#10B981]/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]"
               >
                 <div className="w-4 h-4 md:w-8 md:h-8 rounded-full bg-[#10B981]/10 flex items-center justify-center border border-[#10B981]/20">
@@ -113,7 +102,7 @@ export const Hero: React.FC = () => {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.9 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.8 }}
                 className="flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] rounded-full border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
               >
                 <div className="w-4 h-4 md:w-8 md:h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">

@@ -56,7 +56,7 @@ export const NeuralNetwork: React.FC = () => {
     const initParticles = () => {
       particles = [];
       pulses = [];
-      const numParticles = Math.floor((canvas.width * canvas.height) / 8000); // Responsive particle count
+      const numParticles = Math.floor((canvas.width * canvas.height) / 7000); // Slightly more particles
       
       for (let i = 0; i < numParticles; i++) {
         particles.push({
@@ -64,7 +64,7 @@ export const NeuralNetwork: React.FC = () => {
           y: Math.random() * canvas.height,
           vx: (Math.random() - 0.5) * 0.5,
           vy: (Math.random() - 0.5) * 0.5,
-          radius: Math.random() * 2 + 1,
+          radius: Math.random() * 2.5 + 1.2, // Slightly larger particles
           color: Math.random() > 0.5 ? '#4FD1FF' : '#2F80FF'
         });
       }
@@ -98,7 +98,7 @@ export const NeuralNetwork: React.FC = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Randomly create pulses
-      if (Math.random() < 0.08 && pulses.length < 15) {
+      if (Math.random() < 0.1 && pulses.length < 20) { // More frequent pulses
         createPulse();
       }
 
@@ -130,15 +130,17 @@ export const NeuralNetwork: React.FC = () => {
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
           const distSq = dx * dx + dy * dy;
+          const maxDist = 130;
+          const maxDistSq = maxDist * maxDist;
 
-          if (distSq < 14400) { // 120 * 120
+          if (distSq < maxDistSq) {
             const dist = Math.sqrt(distSq);
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
             // Opacity based on distance
-            const opacity = 1 - dist / 120;
-            ctx.strokeStyle = `rgba(79, 209, 255, ${opacity * 0.3})`;
+            const opacity = 1 - dist / maxDist;
+            ctx.strokeStyle = `rgba(79, 209, 255, ${opacity * 0.4})`; // Slightly more visible
             ctx.lineWidth = 1;
             ctx.stroke();
           }

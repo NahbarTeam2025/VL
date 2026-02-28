@@ -28,9 +28,9 @@ export const Contact: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-10">
           <h2 id="contact-title" className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-white leading-tight">Bereit für den <br /> <span className="text-blue-500">nächsten Schritt?</span></h2>
-          <p className="text-base md:text-lg text-text-secondary font-light space-y-2 flex flex-col">
-            <span>Wir analysieren Ihre bestehende Struktur und zeigen Ihnen konkret, wo Optimierung möglich ist.</span>
-            <span>Die Erst-Analyse ist kostenfrei und unverbindlich.</span>
+          <p className="text-base md:text-lg text-text-secondary font-light">
+            <span className="lg:whitespace-nowrap block">Wir analysieren Ihre bestehende Struktur und zeigen Ihnen konkret, wo Optimierung möglich ist.</span>
+            <span className="block mt-2">Die Erst-Analyse ist kostenfrei und unverbindlich.</span>
           </p>
         </div>
 
