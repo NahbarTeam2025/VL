@@ -4,15 +4,15 @@ import { ParticlesBackground } from './ParticlesBackground';
 
 export const AboutMe: React.FC = () => {
   return (
-    <section id="about-me" className="py-28 md:py-32 px-6 max-w-7xl mx-auto relative" aria-labelledby="about-title">
+    <section id="about-me" className="py-20 md:py-24 px-6 max-w-6xl mx-auto relative" aria-labelledby="about-title">
       <ParticlesBackground color="#14b8a6" count={25} />
       <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none -z-10"></div>
-      <div className="flex flex-col lg:flex-row items-center gap-16">
+      <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12">
         {/* Left Column: Image */}
-        <div className="flex-1 w-full max-w-md lg:max-w-none">
-          <div className="relative">
+        <div className="flex-1 w-full max-w-md lg:max-w-none mx-auto lg:mx-0">
+          <div className="relative h-full">
             <div className="absolute -inset-4 bg-accentBlue/20 blur-2xl rounded-full"></div>
-            <div className="relative glass-morphism p-2 rounded-[2.5rem] overflow-hidden">
+            <div className="relative glass-morphism p-2 rounded-[2rem] overflow-hidden h-full flex flex-col">
               <img 
                 src="https://picsum.photos/seed/expert/800/1000.webp" 
                 alt="Porträt von Robert Erbach, Experte für KI-Sichtbarkeit" 
@@ -21,7 +21,7 @@ export const AboutMe: React.FC = () => {
                 height="1000"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-auto rounded-[2.2rem] object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full min-h-[300px] lg:min-h-[450px] rounded-[1.8rem] object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -29,33 +29,45 @@ export const AboutMe: React.FC = () => {
         </div>
 
         {/* Right Column: Content */}
-        <div className="flex-1">
-          <h2 id="about-title" className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight">
-            KI <span className="text-accentBlue">mehr als nur</span> eine Passion
-          </h2>
-          
-          <p className="text-text-secondary text-lg md:text-xl mb-6 leading-relaxed font-light">
-            Für mich ist Künstliche Intelligenz nicht nur ein Werkzeug, sondern eine grundlegende Veränderung unserer digitalen Welt. Ich brenne dafür, komplexe Algorithmen und Datenstrukturen so zu formen, dass sie echten Mehrwert schaffen. Als Senior Frontend Engineer und KI-Strategist verbinde ich dieses tiefe technische Verständnis mit modernsten Marketing-Methoden. Mein Ziel ist es, Unternehmen dabei zu helfen, in der Ära der generativen Suche nicht nur gefunden zu werden, sondern als unangefochtene Autorität wahrgenommen zu werden.
-          </p>
-          
-          <div className="mb-10 -mt-2">
-            <span className="font-signature text-2xl md:text-3xl text-accentBlue/80 select-none">Robert Erbach</span>
+        <div className="flex-1 flex flex-col justify-between py-2 lg:py-4">
+          <div>
+            <h2 id="about-title" className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight">
+              KI ist für mich <span className="text-accentBlue">mehr als ein Trend</span>
+            </h2>
+            
+            <div className="text-text-secondary text-base md:text-lg mb-8 leading-relaxed font-light space-y-4">
+              <p>
+                Für mich ist Künstliche Intelligenz kein Hype und kein Buzzword. Sie ist eine technologische Entwicklung, die unsere Art zu suchen, zu entscheiden und sichtbar zu werden grundlegend verändert.
+              </p>
+              <p>
+                Ich habe mich in den letzten zwei Jahren intensiv und praxisnah mit KI-Systemen, Suchmaschinenlogik und Content-Strukturen beschäftigt. Nicht aus einer Pflicht heraus – sondern aus echter Begeisterung. Was als persönliches Interesse begann, wurde zu einem strukturierten System.
+              </p>
+              <p>
+                Ich teste, analysiere und optimiere kontinuierlich. Jede Strategie basiert auf praktischer Anwendung, nicht auf Theorie. Aus dieser Arbeit ist das VisibilityLab System entstanden – mit einem klaren Ziel: Unternehmen dabei zu helfen, in der Ära der KI-Suche nicht nur präsent, sondern relevant zu sein.
+              </p>
+            </div>
           </div>
           
-          <ul className="space-y-6" role="list">
-            {[
-              "Über 3 Jahre Erfahrung in Full-Stack Engineering",
-              "Spezialisierung auf GEO Generative Engine Optimization",
-              "Entwickler des VisibilityLab Frameworks"
-            ].map((item, i) => (
-              <li key={i} className="flex items-center gap-4">
-                <div className="p-1 bg-accentBlue/10 rounded-lg shrink-0">
-                  <CheckCircle2 className="w-5 h-5 text-accentBlue" />
-                </div>
-                <span className="text-text-primary font-medium">{item}</span>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <div className="mb-6">
+              <span className="font-signature text-xl md:text-2xl text-accentBlue/80 select-none">Robert Erbach</span>
+            </div>
+            
+            <ul className="space-y-3" role="list">
+              {[
+                "Seit über 2 Jahren intensive Praxis mit KI- und Suchsystemen",
+                "Entwicklung eines eigenen, strukturierten Visibility-Frameworks",
+                "Fokus auf umsetzbare Strategien statt Marketing-Floskeln"
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3">
+                  <div className="p-1 bg-accentBlue/10 rounded-lg shrink-0">
+                    <CheckCircle2 className="w-4 h-4 text-accentBlue" />
+                  </div>
+                  <span className="text-text-primary text-sm md:text-base font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

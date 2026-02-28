@@ -56,7 +56,7 @@ export const NeuralNetwork: React.FC = () => {
     const initParticles = () => {
       particles = [];
       pulses = [];
-      const numParticles = Math.floor((canvas.width * canvas.height) / 10000); // Responsive particle count
+      const numParticles = Math.floor((canvas.width * canvas.height) / 8000); // Responsive particle count
       
       for (let i = 0; i < numParticles; i++) {
         particles.push({
@@ -107,9 +107,11 @@ export const NeuralNetwork: React.FC = () => {
         p.x += p.vx;
         p.y += p.vy;
 
-        // Bounce off walls
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        // Wrap around instead of bouncing
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
 
         // Draw particle
         ctx.beginPath();

@@ -6,18 +6,28 @@
     <title>VisibilityLab - Intelligent SEO Engineering</title>
     <meta name="description" content="VisibilityLab: Das KI-gestützte System für maximale digitale Dominanz. Wir optimieren Ihre Sichtbarkeit durch modernste SEO, GEO (Generative Engine Optimization) und AEO (Answer Engine Optimization) Strategien, damit Sie in Suchmaschinen und KI-Antworten ganz oben stehen." />
     
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="dns-prefetch" href="https://fonts.bunny.net">
+
     <!-- Comprehensive JSON-LD Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Organization",
+          "@type": "ProfessionalService",
           "@id": "https://visibilitylab.de/#organization",
           "name": "VisibilityLab",
           "url": "https://visibilitylab.de",
-          "logo": "https://visibilitylab.de/logo.png",
-          "description": "VisibilityLab ist ein KI-gestütztes System für SEO, GEO und AEO.",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://visibilitylab.de/#logo",
+            "url": "https://visibilitylab.de/logo.png",
+            "contentUrl": "https://visibilitylab.de/logo.png",
+            "caption": "VisibilityLab Logo"
+          },
+          "description": "VisibilityLab ist ein KI-gestütztes System für SEO, GEO und AEO. Wir helfen Unternehmen, in der Ära der KI-Suche sichtbar und relevant zu sein.",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Musterstraße 1",
@@ -29,20 +39,23 @@
             "@type": "ContactPoint",
             "telephone": "+49-123-456789",
             "contactType": "customer service",
-            "email": "info@visibilitylab.de"
+            "email": "info@visibilitylab.de",
+            "availableLanguage": ["German", "English"]
           },
           "sameAs": [
             "https://www.linkedin.com/",
             "https://www.youtube.com/",
             "https://www.instagram.com/"
-          ]
+          ],
+          "areaServed": "DACH",
+          "priceRange": "$$$"
         },
         {
           "@type": "Person",
           "@id": "https://visibilitylab.de/#person",
           "name": "Robert Erbach",
-          "jobTitle": "Senior Frontend Engineer & KI-Strategist",
-          "description": "Experte für KI-Sichtbarkeit und Entwickler des VisibilityLab Frameworks mit über 3 Jahren Erfahrung.",
+          "jobTitle": "KI-Sichtbarkeitsexperte & Strategist",
+          "description": "Experte für KI-Sichtbarkeit und Entwickler des VisibilityLab Frameworks. Spezialisiert auf die Transformation digitaler Präsenz in der Ära generativer KI.",
           "image": "https://picsum.photos/seed/expert/800/1000.webp",
           "worksFor": { "@id": "https://visibilitylab.de/#organization" }
         },
@@ -76,7 +89,7 @@
               "name": "Was unterscheidet VisibilityLab von einer klassischen SEO-Agentur?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Wir setzen auf ein KI-gestütztes 3-Agenten-System. Statt manueller, oft subjektiver Arbeit liefern wir datengetriebene Präzision in Analyse, Strategie und Content – schneller und konsistenter als klassische Prozesse."
+                "text": "Wir setzen auf ein KI-gestütztes System. Statt manueller, oft subjektiver Arbeit liefern wir datengetriebene Präzision in Analyse, Strategie und Content – optimiert für klassische Suchmaschinen und moderne KI-Antwort-Systeme (GEO/AEO)."
               }
             },
             {
@@ -84,7 +97,7 @@
               "name": "Für wen ist das System geeignet?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "VisibilityLab ist ideal für KMUs, Startups und ambitionierte Selbstständige, die ihre organische Sichtbarkeit skalieren wollen. Aber auch Agenturen nutzen unsere Technologie als White-Label-Lösung."
+                "text": "VisibilityLab ist ideal für KMUs, Startups und ambitionierte Selbstständige, die ihre organische Sichtbarkeit skalieren wollen und den Anschluss an die KI-Suche nicht verlieren möchten."
               }
             },
             {
@@ -92,7 +105,7 @@
               "name": "Wie schnell sehe ich Ergebnisse?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "SEO ist ein Marathon. Durch unsere strukturelle Optimierung Hub & Spoke indexieren Suchmaschinen die Inhalte jedoch oft schneller und werten sie höher. Erste signifikante Trendänderungen sind oft nach 3-6 Monaten sichtbar."
+                "text": "SEO ist ein Marathon. Durch unsere strukturelle Optimierung (Hub & Spoke) indexieren Suchmaschinen die Inhalte jedoch oft schneller. Erste signifikante Trendänderungen sind oft nach 3-6 Monaten sichtbar."
               }
             },
             {
@@ -100,7 +113,7 @@
               "name": "Ist das nur KI-Text oder echte Strategie?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Der Content-Agent nutzt KI für die Erstellung, aber die Basis ist rein strategisch. Der Strategie-Agent definiert die Leitplanken. Jeder Text wird zudem WDF*IDF-optimiert und geprüft."
+                "text": "Die Basis ist rein strategisch. Wir nutzen KI für die Skalierung, aber die Themenarchitektur und Topical Authority werden durch unser Framework definiert und kontinuierlich optimiert."
               }
             },
             {
@@ -121,31 +134,36 @@
           "description": "Wie wir durch den systematischen Aufbau von Topical Authority die digitale Präsenz einer Stadtplattform transformiert haben.",
           "image": "https://picsum.photos/seed/chart/600/400.webp",
           "datePublished": "2024-01-01",
+          "dateModified": "2024-05-20",
           "mainEntityOfPage": { "@type": "WebPage", "@id": "https://visibilitylab.de/#case-study" }
         },
         {
           "@type": "Service",
           "name": "Answer Engine Optimization (AEO)",
           "provider": { "@id": "https://visibilitylab.de/#organization" },
-          "description": "Optimierung von Inhalten für KI-Suchmaschinen wie Google AI Overviews, um als primäre Quelle zitiert zu werden."
+          "description": "Optimierung von Inhalten für KI-Suchmaschinen wie Google AI Overviews, um als primäre Quelle zitiert zu werden.",
+          "serviceType": "SEO Consulting"
         },
         {
           "@type": "Service",
           "name": "Generative Engine Optimization (GEO)",
           "provider": { "@id": "https://visibilitylab.de/#organization" },
-          "description": "Strukturierung von Daten für Chatbots wie ChatGPT und Claude, um die Reichweite in KI-Modellen zu erhöhen."
+          "description": "Strukturierung von Daten für Chatbots wie ChatGPT und Claude, um die Reichweite in KI-Modellen zu erhöhen.",
+          "serviceType": "AI Visibility"
         },
         {
           "@type": "Service",
           "name": "Skalierbare Content-Systeme",
           "provider": { "@id": "https://visibilitylab.de/#organization" },
-          "description": "Aufbau von Topical Authority durch vernetzte Hub-and-Spoke Architekturen."
+          "description": "Aufbau von Topical Authority durch vernetzte Hub-and-Spoke Architekturen.",
+          "serviceType": "Content Marketing"
         },
         {
           "@type": "Service",
           "name": "Technical SEO & Performance",
           "provider": { "@id": "https://visibilitylab.de/#organization" },
-          "description": "Technische Webseitenoptimierung für maximale Crawlbarkeit und perfekte Nutzererfahrung."
+          "description": "Technische Webseitenoptimierung für maximale Crawlbarkeit und perfekte Nutzererfahrung.",
+          "serviceType": "Technical SEO"
         }
       ]
     }

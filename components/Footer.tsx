@@ -2,6 +2,9 @@ import React from 'react';
 import { Linkedin, Youtube, Instagram } from 'lucide-react';
 import { ParticlesBackground } from './ParticlesBackground';
 import { Modal } from './Modal';
+import { ImpressumContent } from './ImpressumContent';
+import { DatenschutzContent } from './DatenschutzContent';
+import { AgbContent } from './AgbContent';
 
 export const Footer: React.FC = () => {
   const links = [
@@ -32,73 +35,56 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="agb" className="bg-bg-secondary border-t border-border pt-8 pb-4 relative overflow-hidden">
+    <footer id="agb" className="bg-bg-secondary border-t border-border pt-6 pb-4 relative overflow-hidden">
       <ParticlesBackground color="#ffffff" count={20} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
           {/* Left: Logo and description */}
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-accentBlue">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-2">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-accentBlue">
                   <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
                   <path d="M2 7L12 12L22 7" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
                   <path d="M12 12V22" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
                </svg>
-              <span className="font-bold text-xl brand-gradient">VisibilityLab</span>
+              <span className="font-bold text-lg brand-gradient">VisibilityLab</span>
             </div>
-            <p className="text-slate-300 text-sm leading-relaxed max-w-sm">
+            <p className="text-slate-300 text-xs leading-relaxed max-w-sm">
               KI-gestütztes System für moderne SEO-, GEO- und Content-Strategien.
             </p>
-            <div className="flex gap-4 mt-2">
-              <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-accentBlue hover:text-text-primary transition-all duration-300">
-                <Linkedin className="w-5 h-5" />
+            <div className="flex gap-3 mt-1">
+              <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-accentBlue hover:text-text-primary transition-all duration-300">
+                <Linkedin className="w-4 h-4" />
               </a>
-              <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-red-600 hover:text-text-primary transition-all duration-300">
-                <Youtube className="w-5 h-5" />
+              <a href="#" aria-label="YouTube" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-red-600 hover:text-text-primary transition-all duration-300">
+                <Youtube className="w-4 h-4" />
               </a>
-              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-pink-600 hover:text-text-primary transition-all duration-300">
-                <Instagram className="w-5 h-5" />
+              <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-pink-600 hover:text-text-primary transition-all duration-300">
+                <Instagram className="w-4 h-4" />
               </a>
             </div>
           </div>
 
           {/* Right: Legals */}
-          <div className="flex flex-wrap gap-6">
-            <button onClick={() => setIsImpressumOpen(true)} className="text-sm text-slate-300 hover:text-white transition-colors">Impressum</button>
-            <button onClick={() => setIsDatenschutzOpen(true)} className="text-sm text-slate-300 hover:text-white transition-colors">Datenschutz</button>
-            <button onClick={() => setIsAgbOpen(true)} className="text-sm text-slate-300 hover:text-white transition-colors">AGB KI-Klauseln</button>
+          <div className="flex flex-wrap gap-4">
+            <button onClick={() => setIsImpressumOpen(true)} className="text-xs text-slate-300 hover:text-white transition-colors">Impressum</button>
+            <button onClick={() => setIsDatenschutzOpen(true)} className="text-xs text-slate-300 hover:text-white transition-colors">Datenschutz</button>
+            <button onClick={() => setIsAgbOpen(true)} className="text-xs text-slate-300 hover:text-white transition-colors">AGB KI-Klauseln</button>
           </div>
         </div>
-        <div className="text-center text-[10px] text-slate-500 mt-8 font-light tracking-widest uppercase">
+        <div className="text-center text-[10px] text-slate-500 mt-6 font-light tracking-widest uppercase">
           by Robert
         </div>
       </div>
 
       {isImpressumOpen && <Modal title="Impressum" onClose={() => setIsImpressumOpen(false)}>
-        <div className="space-y-4">
-          <p className="font-bold text-white">Angaben gemäß § 5 TMG</p>
-          <p>Robert Erbach<br />Musterstraße 1<br />12345 Musterstadt</p>
-          <p className="font-bold text-white mt-4">Kontakt</p>
-          <p>Telefon: +49 123 456789<br />E-Mail: info@visibilitylab.de</p>
-          <p className="text-xs text-text-muted mt-4">Dies ist ein Platzhalter-Impressum.</p>
-        </div>
+        <ImpressumContent />
       </Modal>}
       {isDatenschutzOpen && <Modal title="Datenschutz" onClose={() => setIsDatenschutzOpen(false)}>
-        <div className="space-y-4">
-          <h4 className="font-bold text-white">1. Datenschutz auf einen Blick</h4>
-          <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
-          <h4 className="font-bold text-white">2. Datenerfassung auf unserer Website</h4>
-          <p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten beispielsweise Name, Anschrift oder E-Mail-Adressen erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</p>
-          <p className="text-xs text-text-muted mt-4">Dies ist eine Platzhalter-Datenschutzerklärung.</p>
-        </div>
+        <DatenschutzContent />
       </Modal>}
-      {isAgbOpen && <Modal title="AGB KI-Klauseln" onClose={() => setIsAgbOpen(false)}>
-        <div className="space-y-4">
-          <h4 className="font-bold text-white">Allgemeine Geschäftsbedingungen mit besonderen Klauseln für KI-Dienstleistungen</h4>
-          <p><span className="font-bold text-white">1. Geltungsbereich</span><br />Diese Bedingungen gelten für alle Verträge zwischen VisibilityLab und dem Auftraggeber.</p>
-          <p><span className="font-bold text-white">2. KI-Leistungen</span><br />Der Anbieter nutzt modernste KI-Technologien. Der Kunde ist sich bewusst, dass KI-generierte Inhalte einer Überprüfung bedürfen.</p>
-          <p className="text-xs text-text-muted mt-4">Dies sind Platzhalter-AGB.</p>
-        </div>
+      {isAgbOpen && <Modal title="AGB" onClose={() => setIsAgbOpen(false)}>
+        <AgbContent />
       </Modal>}
     </footer>
   );

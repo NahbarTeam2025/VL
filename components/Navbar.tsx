@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Modal } from './Modal';
+import { ImpressumContent } from './ImpressumContent';
+import { DatenschutzContent } from './DatenschutzContent';
+import { AgbContent } from './AgbContent';
 
 interface NavLinkProps {
   href: string;
@@ -258,36 +261,19 @@ export const Navbar: React.FC = () => {
 
       {isImpressumOpen && (
         <Modal title="Impressum" onClose={() => setIsImpressumOpen(false)}>
-          <div className="space-y-4">
-            <p className="font-bold text-white">Angaben gemäß § 5 TMG</p>
-            <p>Robert Erbach<br />Musterstraße 1<br />12345 Musterstadt</p>
-            <p className="font-bold text-white mt-4">Kontakt</p>
-            <p>Telefon: +49 123 456789<br />E-Mail: info@visibilitylab.de</p>
-            <p className="text-xs text-text-muted mt-4">Dies ist ein Platzhalter-Impressum.</p>
-          </div>
+          <ImpressumContent />
         </Modal>
       )}
 
       {isDatenschutzOpen && (
         <Modal title="Datenschutz" onClose={() => setIsDatenschutzOpen(false)}>
-          <div className="space-y-4">
-            <h4 className="font-bold text-white">1. Datenschutz auf einen Blick</h4>
-            <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
-            <h4 className="font-bold text-white">2. Datenerfassung auf unserer Website</h4>
-            <p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten beispielsweise Name, Anschrift oder E-Mail-Adressen erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</p>
-            <p className="text-xs text-text-muted mt-4">Dies ist eine Platzhalter-Datenschutzerklärung.</p>
-          </div>
+          <DatenschutzContent />
         </Modal>
       )}
 
       {isAgbOpen && (
-        <Modal title="AGB KI-Klauseln" onClose={() => setIsAgbOpen(false)}>
-          <div className="space-y-4">
-            <h4 className="font-bold text-white">Allgemeine Geschäftsbedingungen mit besonderen Klauseln für KI-Dienstleistungen</h4>
-            <p><span className="font-bold text-white">1. Geltungsbereich</span><br />Diese Bedingungen gelten für alle Verträge zwischen VisibilityLab und dem Auftraggeber.</p>
-            <p><span className="font-bold text-white">2. KI-Leistungen</span><br />Der Anbieter nutzt modernste KI-Technologien. Der Kunde ist sich bewusst, dass KI-generierte Inhalte einer Überprüfung bedürfen.</p>
-            <p className="text-xs text-text-muted mt-4">Dies sind Platzhalter-AGB.</p>
-          </div>
+        <Modal title="AGB" onClose={() => setIsAgbOpen(false)}>
+          <AgbContent />
         </Modal>
       )}
     </>

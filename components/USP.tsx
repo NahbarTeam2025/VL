@@ -5,22 +5,24 @@ import { motion } from 'framer-motion';
 
 export const USP: React.FC = () => {
   return (
-    <section id="usp" className="py-28 md:py-32 bg-bg-secondary relative overflow-hidden">
+    <section id="usp" className="py-20 md:py-24 bg-bg-secondary relative overflow-hidden">
       <ParticlesBackground color="#4FD1FF" count={30} />
       <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 md:mb-16 text-center"
+          className="mb-10 text-center"
         >
-          <h2 className="text-[clamp(1.75rem,5vw,3rem)] font-black mb-4 md:mb-6 text-white leading-tight">
-            Verlieren Sie gerade den Anschluss an die KI-Revolution?
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-white leading-tight">
+            Verlieren Sie Sichtbarkeit an KI-Systeme?
           </h2>
-          <p className="text-text-secondary text-base md:text-lg max-w-4xl mx-auto leading-relaxed">
-            Wer heute nicht für KI-Suchmaschinen optimiert, wird morgen nicht mehr gefunden. Stellen Sie sich vor, wo Ihr Unternehmen in einem Jahr steht, wenn Ihre Mitbewerber alle KI-Antworten dominieren und Sie unsichtbar bleiben. Sichern Sie sich jetzt Ihren Platz in der Zukunft der Suche.
+          <p className="text-text-secondary text-base max-w-3xl mx-auto leading-relaxed space-y-3 flex flex-col">
+            <span>KI-Suchsysteme wie GPT, Gemini oder Perplexity verändern gerade, wie Informationen gefunden werden. Unternehmen, die ihre Inhalte nicht strukturiert und KI-lesbar aufbauen, verlieren schrittweise digitale Reichweite.</span>
+            <span>Während klassische SEO allein nicht mehr ausreicht, kombinieren wir strategische Themenarchitektur, strukturierte Daten und KI-Optimierung zu einem ganzheitlichen SEO KI System.</span>
+            <strong className="text-white font-medium">So sichern Sie sich nachhaltige Sichtbarkeit – in Suchmaschinen und in KI-Antworten.</strong>
           </p>
         </motion.div>
 
@@ -60,17 +62,17 @@ export const USP: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-10 text-center"
         >
-          <p className="text-text-secondary text-base md:text-lg mb-6">
-            Ob es wirklich was bringt, können Sie hier herausfinden:
+          <p className="text-text-secondary text-sm md:text-base mb-4">
+            Ob Ihr Unternehmen bereits KI-ready ist, zeigt unser kurzer Visibility-Check.
           </p>
           <a 
             href="#contact"
-            className="relative overflow-hidden inline-flex w-full md:w-auto px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] rounded-xl text-white font-bold text-base md:text-lg shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all duration-500 items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white backdrop-blur-sm border border-white/10"
+            className="relative overflow-hidden inline-flex w-full md:w-auto px-6 py-3 bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] rounded-xl text-white font-bold text-base shadow-[0_0_15px_rgba(47,128,255,0.3)] transition-all duration-500 items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white backdrop-blur-sm border border-white/10"
           >
             <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12"></div>
-            <span className="relative z-10">Jetzt testen</span>
+            <span className="relative z-10">Visibility prüfen</span>
           </a>
         </motion.div>
       </div>
