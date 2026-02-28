@@ -186,7 +186,7 @@ export const Navbar: React.FC = () => {
                 opacity: isOpen ? 1 : 0, 
                 x: isOpen ? 0 : -20 
               }}
-              transition={{ duration: 0.3, delay: isOpen ? i * 0.05 : 0 }}
+              transition={{ duration: 0.3, delay: isOpen ? i * 0.05 : 0, ease: "easeOut" }}
             >
               <a
                 href={`#${section.id}`}
@@ -209,7 +209,7 @@ export const Navbar: React.FC = () => {
               opacity: isOpen ? 1 : 0, 
               x: isOpen ? 0 : -20 
             }}
-            transition={{ duration: 0.3, delay: isOpen ? sections.length * 0.05 : 0 }}
+            transition={{ duration: 0.3, delay: isOpen ? sections.length * 0.05 : 0, ease: "easeOut" }}
             className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-1"
           >
             <button 

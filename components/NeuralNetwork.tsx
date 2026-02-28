@@ -27,32 +27,6 @@ export const NeuralNetwork: React.FC = () => {
     let lastWidth = 0;
     let lastHeight = 0;
 
-    const resize = () => {
-      const parent = canvas.parentElement;
-      if (!parent) return;
-
-      const newWidth = parent.clientWidth;
-      const newHeight = parent.clientHeight;
-
-      // Only resize if dimensions actually changed
-      if (newWidth === lastWidth && newHeight === lastHeight) return;
-
-      canvas.width = newWidth;
-      canvas.height = newHeight;
-
-      // Only re-initialize particles if width changed significantly or if it's the first time
-      // This prevents "jumping" on mobile scroll when the address bar hides/shows
-      const widthChangedSignificantly = Math.abs(newWidth - lastWidth) > 50;
-      const isFirstInit = lastWidth === 0;
-
-      if (widthChangedSignificantly || isFirstInit) {
-        initParticles();
-      }
-
-      lastWidth = newWidth;
-      lastHeight = newHeight;
-    };
-
     const initParticles = () => {
       particles = [];
       pulses = [];
@@ -182,16 +156,29 @@ export const NeuralNetwork: React.FC = () => {
       animationFrameId = requestAnimationFrame(draw);
     };
 
-    window.addEventListener('resize', resize);
-    resize();
-    
-    // Delay start to prioritize LCP
+    const resizeObserver = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect;
+        if (width === lastWidth && height === lastHeight) continue;
+        canvas.width = width;
+        canvas.height = height;
+        if (Math.abs(width - lastWidth) > 50 || lastWidth === 0) {
+          initParticles();
+        }
+        lastWidth = width;
+        lastHeight = height;
+      }
+    });
+
+    const parent = canvas.parentElement;
+    if (parent) resizeObserver.observe(parent);
+
     const timeoutId = setTimeout(() => {
       draw();
-    }, 800);
+    }, 1000);
 
     return () => {
-      window.removeEventListener('resize', resize);
+      resizeObserver.disconnect();
       clearTimeout(timeoutId);
       cancelAnimationFrame(animationFrameId);
     };

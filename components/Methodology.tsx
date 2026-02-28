@@ -35,7 +35,7 @@ export const Methodology: React.FC = () => {
               desc: "Wir strukturieren Ihre Inhalte so, dass sie in KI-Antworten und Google AI Overviews zitiert werden.",
               vorteil: "Sie erscheinen direkt in der Antwort – nicht nur als Link in der Trefferliste.",
               graphic: (
-                <div className="w-full h-32 bg-[#0a0f1a] rounded-xl border border-white/10 p-3 flex flex-col gap-2 relative overflow-hidden mt-4">
+                <div className="w-full h-48 bg-[#0a0f1a] rounded-xl border border-white/10 p-3 flex flex-col gap-2 relative overflow-hidden mt-4">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/5 to-transparent"></div>
                   {/* User Question */}
                   <div className="self-end bg-white/10 rounded-2xl rounded-tr-sm px-3 py-2 text-[10px] text-white/80 max-w-[80%] border border-white/5">
