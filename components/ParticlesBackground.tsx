@@ -81,6 +81,7 @@ export const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
     };
 
     const drawParticles = () => {
+      if (!canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       const scrollY = window.scrollY;
@@ -113,10 +114,15 @@ export const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
 
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
-    drawParticles();
+    
+    // Delay start to prioritize LCP
+    const timeoutId = setTimeout(() => {
+      drawParticles();
+    }, 500);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
+      clearTimeout(timeoutId);
       cancelAnimationFrame(animationFrameId);
     };
   }, [color, count, speed]);

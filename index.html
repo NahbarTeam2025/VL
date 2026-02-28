@@ -9,6 +9,12 @@
     <!-- Performance Optimization -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="dns-prefetch" href="https://fonts.bunny.net">
+    <link rel="preconnect" href="https://fastly.picsum.photos">
+    <link rel="dns-prefetch" href="https://fastly.picsum.photos">
+    
+    <!-- Preload critical font -->
+    <link rel="preload" href="https://fonts.bunny.net/inter/files/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.bunny.net/inter/files/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Comprehensive JSON-LD Schema.org -->
     <script type="application/ld+json">
@@ -169,8 +175,8 @@
     }
     </script>
     
-    <!-- Bunny Fonts (DSGVO-konform) -->
-    <link href="https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+    <!-- Bunny Fonts (DSGVO-konform) - Optimiert auf Latin-Subset & spezifische Zeichen -->
+    <link href="https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;700&family=Mrs+Saint+Delafield&text=Robert%20Erbach&display=swap&subset=latin" rel="stylesheet">
 </head>
   <body>
     <div id="root"></div>

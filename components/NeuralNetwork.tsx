@@ -184,10 +184,15 @@ export const NeuralNetwork: React.FC = () => {
 
     window.addEventListener('resize', resize);
     resize();
-    draw();
+    
+    // Delay start to prioritize LCP
+    const timeoutId = setTimeout(() => {
+      draw();
+    }, 800);
 
     return () => {
       window.removeEventListener('resize', resize);
+      clearTimeout(timeoutId);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

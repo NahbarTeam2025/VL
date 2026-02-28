@@ -36,9 +36,9 @@ export const Hero: React.FC = () => {
           
           {/* Left: Text Content F-Pattern */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0.5, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="flex-1 w-full text-left mt-4 lg:-mt-8"
           >
             <h1 className="text-[clamp(1.75rem,8vw,4.5rem)] font-extrabold tracking-tight leading-[1.15] mb-4 md:mb-6 text-white lg:whitespace-nowrap">

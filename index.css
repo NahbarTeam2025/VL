@@ -123,11 +123,11 @@ h1, h2, h3, h4, h5, h6 {
     #4B0082,
     #00FFFF
   );
-  background-size: 300% auto;
+  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: brand-flow 30s linear infinite;
+  animation: brand-flow 60s linear infinite;
 }
 
 @keyframes bounce-x {
@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes brand-flow {
   0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
+  100% { background-position: 200% 50%; }
 }
 
 @keyframes gradient-pan {
