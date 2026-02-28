@@ -31,7 +31,7 @@ export const USP: React.FC = () => {
           className="max-w-4xl mx-auto bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 backdrop-blur-xl rounded-3xl overflow-hidden border border-[#4FD1FF]/30 shadow-[0_8px_32px_rgba(79,209,255,0.1)]"
         >
           <div className="grid grid-cols-2 bg-[#000000]/50 border-b border-[#4FD1FF]/20">
-            <div className="p-3 md:p-6 text-center font-bold text-text-secondary text-sm md:text-base">Traditionelle SEO</div>
+            <div className="p-3 md:p-6 text-center font-bold text-text-secondary text-sm md:text-base">Traditionelles SEO</div>
             <div className="p-3 md:p-6 text-center font-bold text-[#4FD1FF] bg-[#4FD1FF]/5 text-sm md:text-base">VisibilityLab System</div>
           </div>
           
@@ -63,11 +63,11 @@ export const USP: React.FC = () => {
           className="mt-16 text-center"
         >
           <p className="text-text-secondary text-base md:text-lg mb-6">
-            Ob es wirklich was bringt, kannst du hier herausfinden:
+            Ob es wirklich was bringt, können Sie hier herausfinden:
           </p>
           <a 
             href="#contact"
-            className="relative overflow-hidden inline-flex w-full md:w-auto px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] rounded-xl text-white font-bold text-base md:text-lg shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all duration-500 items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white"
+            className="relative overflow-hidden inline-flex w-full md:w-auto px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] rounded-xl text-white font-bold text-base md:text-lg shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all duration-500 items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white backdrop-blur-sm border border-white/10"
           >
             <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12"></div>
             <span className="relative z-10">Jetzt testen</span>

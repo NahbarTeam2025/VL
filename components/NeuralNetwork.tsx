@@ -21,6 +21,7 @@ export const NeuralNetwork: React.FC = () => {
 
     let animationFrameId: number;
     let particles: Particle[] = [];
+    let pulses: { start: number; end: number; progress: number; speed: number }[] = [];
     
     // Resize handler
     const resize = () => {
@@ -34,6 +35,7 @@ export const NeuralNetwork: React.FC = () => {
 
     const initParticles = () => {
       particles = [];
+      pulses = [];
       const numParticles = Math.floor((canvas.width * canvas.height) / 10000); // Responsive particle count
       
       for (let i = 0; i < numParticles; i++) {
@@ -48,8 +50,47 @@ export const NeuralNetwork: React.FC = () => {
       }
     };
 
+    const createPulse = () => {
+      if (particles.length < 2) return;
+      const startIdx = Math.floor(Math.random() * particles.length);
+      // Find a nearby particle to pulse to
+      const nearby = [];
+      for (let i = 0; i < particles.length; i++) {
+        if (i === startIdx) continue;
+        const dx = particles[startIdx].x - particles[i].x;
+        const dy = particles[startIdx].y - particles[i].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 150) nearby.push(i);
+      }
+
+      if (nearby.length > 0) {
+        const endIdx = nearby[Math.floor(Math.random() * nearby.length)];
+        pulses.push({
+          start: startIdx,
+          end: endIdx,
+          progress: 0,
+          speed: 0.01 + Math.random() * 0.02
+        });
+      }
+    };
+
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw central glow core
+      const gradient = ctx.createRadialGradient(
+        canvas.width / 2, canvas.height / 2, 0,
+        canvas.width / 2, canvas.height / 2, canvas.width / 3
+      );
+      gradient.addColorStop(0, 'rgba(79, 209, 255, 0.05)');
+      gradient.addColorStop(1, 'transparent');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Randomly create pulses
+      if (Math.random() < 0.08 && pulses.length < 15) {
+        createPulse();
+      }
 
       // Update and draw particles
       particles.forEach((p, i) => {
@@ -76,9 +117,10 @@ export const NeuralNetwork: React.FC = () => {
           const p2 = particles[j];
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < 120) {
+          if (distSq < 14400) { // 120 * 120
+            const dist = Math.sqrt(distSq);
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
@@ -89,6 +131,38 @@ export const NeuralNetwork: React.FC = () => {
             ctx.stroke();
           }
         }
+      });
+
+      // Draw pulses
+      ctx.lineWidth = 2;
+      pulses = pulses.filter(pulse => {
+        const p1 = particles[pulse.start];
+        const p2 = particles[pulse.end];
+        if (!p1 || !p2) return false;
+
+        pulse.progress += pulse.speed;
+        if (pulse.progress >= 1) return false;
+
+        const x = p1.x + (p2.x - p1.x) * pulse.progress;
+        const y = p1.y + (p2.y - p1.y) * pulse.progress;
+
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = '#4FD1FF';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Draw a small line trail for the pulse
+        ctx.beginPath();
+        ctx.moveTo(p1.x + (p2.x - p1.x) * Math.max(0, pulse.progress - 0.1), p1.y + (p2.y - p1.y) * Math.max(0, pulse.progress - 0.1));
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = '#4FD1FF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        return true;
       });
 
       animationFrameId = requestAnimationFrame(draw);

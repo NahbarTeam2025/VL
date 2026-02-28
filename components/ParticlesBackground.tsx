@@ -30,6 +30,7 @@ export const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
       vy: number;
       size: number;
       alpha: number;
+      parallaxFactor: number;
     }> = [];
 
     const resizeCanvas = () => {
@@ -41,13 +42,17 @@ export const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
     const initParticles = () => {
       particles = [];
       for (let i = 0; i < count; i++) {
+        const vx = (Math.random() - 0.5) * speed;
+        const vy = (Math.random() - 0.5) * speed;
+        const speedMagnitude = Math.sqrt(vx * vx + vy * vy);
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * speed,
-          vy: (Math.random() - 0.5) * speed,
+          vx,
+          vy,
           size: Math.random() * 2 + 1,
-          alpha: Math.random() * 0.5 + 0.1
+          alpha: Math.random() * 0.5 + 0.1,
+          parallaxFactor: speedMagnitude // Pre-calculated for performance
         });
       }
     };
@@ -55,9 +60,18 @@ export const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
     const drawParticles = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
+      const scrollY = window.scrollY;
+      
       particles.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
+
+        // Parallax effect: faster particles move more with scroll
+        const offsetY = scrollY * p.parallaxFactor;
+
+        let drawX = p.x;
+        let drawY = (p.y - offsetY) % canvas.height;
+        if (drawY < 0) drawY += canvas.height;
 
         if (p.x < 0) p.x = canvas.width;
         if (p.x > canvas.width) p.x = 0;
@@ -65,7 +79,7 @@ export const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
         if (p.y > canvas.height) p.y = 0;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.arc(drawX, drawY, p.size, 0, Math.PI * 2);
         ctx.fillStyle = color;
         ctx.globalAlpha = p.alpha;
         ctx.fill();

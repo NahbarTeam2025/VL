@@ -32,6 +32,9 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [isGlossaryOpen, setIsGlossaryOpen] = useState(false);
+  const [isImpressumOpen, setIsImpressumOpen] = useState(false);
+  const [isDatenschutzOpen, setIsDatenschutzOpen] = useState(false);
+  const [isAgbOpen, setIsAgbOpen] = useState(false);
 
   const sections = [
     { id: 'usp', title: 'USP' },
@@ -43,7 +46,7 @@ export const Navbar: React.FC = () => {
     { id: 'about-me', title: 'Über Mich' },
     { id: 'faq', title: 'FAQ' },
     { id: 'contact', title: 'Kontakt' },
-    { id: 'agb-sitemap', title: 'AGB Sitemap' },
+    { id: 'agb', title: 'AGB' },
   ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -52,6 +55,12 @@ export const Navbar: React.FC = () => {
     
     if (targetId === 'glossary') {
       setIsGlossaryOpen(true);
+      setIsOpen(false);
+      return;
+    }
+
+    if (targetId === 'agb') {
+      setIsAgbOpen(true);
       setIsOpen(false);
       return;
     }
@@ -140,60 +149,89 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
         </div>
+      </motion.nav>
 
-        {/* Mobile Menu Overlay */}
-        <motion.div 
-          initial={false}
-          animate={{ 
-            opacity: isOpen ? 1 : 0,
-            pointerEvents: isOpen ? 'auto' : 'none'
-          }}
-          transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-40 bg-bg-primary/95 backdrop-blur-2xl flex flex-col justify-center items-center overflow-y-auto"
+      {/* Mobile Menu Overlay - Moved outside motion.nav to avoid transform clipping */}
+      <motion.div 
+        initial={false}
+        animate={{ 
+          opacity: isOpen ? 1 : 0,
+          pointerEvents: isOpen ? 'auto' : 'none',
+          visibility: isOpen ? 'visible' : 'hidden'
+        }}
+        transition={{ duration: 0.3 }}
+        className="fixed inset-0 z-[100] bg-bg-primary/98 backdrop-blur-2xl flex flex-col items-center overflow-y-auto"
+      >
+        {/* Close Button for Mobile Menu */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-6 right-6 p-2 text-text-secondary hover:text-white transition-colors"
+          aria-label="Menü schließen"
         >
-          <div className="w-full max-w-sm px-6 py-24 flex flex-col gap-4 min-h-screen justify-center">
-            {sections.map((section, i) => (
-              <motion.div
-                key={section.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: isOpen ? 1 : 0, 
-                  y: isOpen ? 0 : 20 
-                }}
-                transition={{ duration: 0.3, delay: isOpen ? i * 0.05 : 0 }}
-              >
-                <a
-                  href={`#${section.id}`}
-                  onClick={handleScroll}
-                  className={`block text-2xl font-bold text-center py-2 transition-colors ${
-                    activeSection === section.id 
-                      ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]' 
-                      : 'text-text-secondary hover:text-white'
-                  }`}
-                >
-                  {section.title}
-                </a>
-              </motion.div>
-            ))}
+          <div className="w-6 h-6 flex flex-col justify-center items-center relative">
+            <span className="block w-6 h-0.5 bg-current absolute rotate-45"></span>
+            <span className="block w-6 h-0.5 bg-current absolute -rotate-45"></span>
+          </div>
+        </button>
+
+        <div className="w-full max-w-sm px-6 pt-32 pb-12 flex flex-col gap-2">
+          {sections.map((section, i) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              key={section.id}
+              initial={{ opacity: 0, x: -20 }}
               animate={{ 
                 opacity: isOpen ? 1 : 0, 
-                y: isOpen ? 0 : 20 
+                x: isOpen ? 0 : -20 
               }}
-              transition={{ duration: 0.3, delay: isOpen ? sections.length * 0.05 : 0 }}
-              className="mt-4 pt-4 border-t border-white/10"
+              transition={{ duration: 0.3, delay: isOpen ? i * 0.05 : 0 }}
             >
-              <button 
-                onClick={() => { setIsGlossaryOpen(true); setIsOpen(false); }}
-                className="block w-full text-xl font-medium text-center py-2 text-text-muted hover:text-[#4FD1FF] transition-colors"
+              <a
+                href={`#${section.id}`}
+                onClick={handleScroll}
+                className={`block text-xl font-bold text-center py-3 transition-all duration-300 rounded-xl ${
+                  activeSection === section.id 
+                    ? 'text-white bg-white/5 shadow-[0_0_20px_rgba(79,209,255,0.1)] border border-[#4FD1FF]/20' 
+                    : 'text-text-secondary hover:text-white hover:bg-white/5'
+                }`}
               >
-                Glossar
-              </button>
+                <span className={activeSection === section.id ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]' : ''}>
+                  {section.title}
+                </span>
+              </a>
             </motion.div>
-          </div>
-        </motion.div>
-      </motion.nav>
+          ))}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ 
+              opacity: isOpen ? 1 : 0, 
+              x: isOpen ? 0 : -20 
+            }}
+            transition={{ duration: 0.3, delay: isOpen ? sections.length * 0.05 : 0 }}
+            className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-1"
+          >
+            <button 
+              onClick={() => { setIsGlossaryOpen(true); setIsOpen(false); }}
+              className="block w-full text-lg font-medium text-center py-3 text-text-muted hover:text-[#4FD1FF] transition-colors hover:bg-white/5 rounded-xl"
+            >
+              Glossar
+            </button>
+            <div className="flex justify-center gap-4 mt-2">
+              <button 
+                onClick={() => { setIsImpressumOpen(true); setIsOpen(false); }}
+                className="text-sm text-text-muted hover:text-white transition-colors py-2 px-3"
+              >
+                Impressum
+              </button>
+              <button 
+                onClick={() => { setIsDatenschutzOpen(true); setIsOpen(false); }}
+                className="text-sm text-text-muted hover:text-white transition-colors py-2 px-3"
+              >
+                Datenschutz
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
 
       {isGlossaryOpen && (
         <Modal title="Glossar" onClose={() => setIsGlossaryOpen(false)}>
@@ -214,6 +252,41 @@ export const Navbar: React.FC = () => {
               <h4 className="font-bold text-white">RAG Retrieval Augmented Generation</h4>
               <p className="text-sm">Eine Technik, die LLMs mit externen, aktuellen Datenquellen verbindet, um präzisere und faktenbasierte Antworten zu liefern.</p>
             </div>
+          </div>
+        </Modal>
+      )}
+
+      {isImpressumOpen && (
+        <Modal title="Impressum" onClose={() => setIsImpressumOpen(false)}>
+          <div className="space-y-4">
+            <p className="font-bold text-white">Angaben gemäß § 5 TMG</p>
+            <p>Robert Erbach<br />Musterstraße 1<br />12345 Musterstadt</p>
+            <p className="font-bold text-white mt-4">Kontakt</p>
+            <p>Telefon: +49 123 456789<br />E-Mail: info@visibilitylab.de</p>
+            <p className="text-xs text-text-muted mt-4">Dies ist ein Platzhalter-Impressum.</p>
+          </div>
+        </Modal>
+      )}
+
+      {isDatenschutzOpen && (
+        <Modal title="Datenschutz" onClose={() => setIsDatenschutzOpen(false)}>
+          <div className="space-y-4">
+            <h4 className="font-bold text-white">1. Datenschutz auf einen Blick</h4>
+            <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+            <h4 className="font-bold text-white">2. Datenerfassung auf unserer Website</h4>
+            <p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten beispielsweise Name, Anschrift oder E-Mail-Adressen erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</p>
+            <p className="text-xs text-text-muted mt-4">Dies ist eine Platzhalter-Datenschutzerklärung.</p>
+          </div>
+        </Modal>
+      )}
+
+      {isAgbOpen && (
+        <Modal title="AGB KI-Klauseln" onClose={() => setIsAgbOpen(false)}>
+          <div className="space-y-4">
+            <h4 className="font-bold text-white">Allgemeine Geschäftsbedingungen mit besonderen Klauseln für KI-Dienstleistungen</h4>
+            <p><span className="font-bold text-white">1. Geltungsbereich</span><br />Diese Bedingungen gelten für alle Verträge zwischen VisibilityLab und dem Auftraggeber.</p>
+            <p><span className="font-bold text-white">2. KI-Leistungen</span><br />Der Anbieter nutzt modernste KI-Technologien. Der Kunde ist sich bewusst, dass KI-generierte Inhalte einer Überprüfung bedürfen.</p>
+            <p className="text-xs text-text-muted mt-4">Dies sind Platzhalter-AGB.</p>
           </div>
         </Modal>
       )}

@@ -17,20 +17,55 @@
           "name": "VisibilityLab",
           "url": "https://visibilitylab.de",
           "logo": "https://visibilitylab.de/logo.png",
-          "description": "VisibilityLab ist ein KI-gestütztes System für SEO, GEO und AEO."
+          "description": "VisibilityLab ist ein KI-gestütztes System für SEO, GEO und AEO.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Musterstraße 1",
+            "addressLocality": "Musterstadt",
+            "postalCode": "12345",
+            "addressCountry": "DE"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+49-123-456789",
+            "contactType": "customer service",
+            "email": "info@visibilitylab.de"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/",
+            "https://www.youtube.com/",
+            "https://www.instagram.com/"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://visibilitylab.de/#person",
+          "name": "Robert Erbach",
+          "jobTitle": "Senior Frontend Engineer & KI-Strategist",
+          "description": "Experte für KI-Sichtbarkeit und Entwickler des VisibilityLab Frameworks mit über 3 Jahren Erfahrung.",
+          "image": "https://picsum.photos/seed/expert/800/1000.webp",
+          "worksFor": { "@id": "https://visibilitylab.de/#organization" }
         },
         {
           "@type": "WebSite",
           "@id": "https://visibilitylab.de/#website",
           "url": "https://visibilitylab.de",
           "name": "VisibilityLab",
-          "publisher": { "@id": "https://visibilitylab.de/#organization" }
+          "publisher": { "@id": "https://visibilitylab.de/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://visibilitylab.de/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://visibilitylab.de/" },
-            { "@type": "ListItem", "position": 2, "name": "System-Check", "item": "https://visibilitylab.de/#kontakt" }
+            { "@type": "ListItem", "position": 2, "name": "Leistungsspektrum", "item": "https://visibilitylab.de/#leistung" },
+            { "@type": "ListItem", "position": 3, "name": "Case Study", "item": "https://visibilitylab.de/#case-study" },
+            { "@type": "ListItem", "position": 4, "name": "Über Mich", "item": "https://visibilitylab.de/#about-me" },
+            { "@type": "ListItem", "position": 5, "name": "System-Check", "item": "https://visibilitylab.de/#kontakt" }
           ]
         },
         {
@@ -38,26 +73,79 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Was ist der Unterschied zwischen SEO und GEO?",
+              "name": "Was unterscheidet VisibilityLab von einer klassischen SEO-Agentur?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "SEO optimiert für klassische Suchmaschinen. GEO (Generative Engine Optimization) optimiert Inhalte für KI-Antwortmaschinen wie ChatGPT oder Gemini."
+                "text": "Wir setzen auf ein KI-gestütztes 3-Agenten-System. Statt manueller, oft subjektiver Arbeit liefern wir datengetriebene Präzision in Analyse, Strategie und Content – schneller und konsistenter als klassische Prozesse."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Für wen ist das System geeignet?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "VisibilityLab ist ideal für KMUs, Startups und ambitionierte Selbstständige, die ihre organische Sichtbarkeit skalieren wollen. Aber auch Agenturen nutzen unsere Technologie als White-Label-Lösung."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie schnell sehe ich Ergebnisse?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SEO ist ein Marathon. Durch unsere strukturelle Optimierung Hub & Spoke indexieren Suchmaschinen die Inhalte jedoch oft schneller und werten sie höher. Erste signifikante Trendänderungen sind oft nach 3-6 Monaten sichtbar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Ist das nur KI-Text oder echte Strategie?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Der Content-Agent nutzt KI für die Erstellung, aber die Basis ist rein strategisch. Der Strategie-Agent definiert die Leitplanken. Jeder Text wird zudem WDF*IDF-optimiert und geprüft."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie steht es um die DSGVO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wir arbeiten strikt nach DSGVO. Unsere Server stehen in sicheren Umgebungen, wir tracken keine unnötigen Nutzerdaten und geben keine sensiblen Kundendaten an Dritte weiter."
               }
             }
           ]
         },
         {
           "@type": "Article",
-          "headline": "Case Study: 1.800% mehr Sichtbarkeit am Kiebitz-See",
-          "author": { "@type": "Organization", "name": "VisibilityLab" },
+          "headline": "Case Study: 1.800% mehr Sichtbarkeit – Die Erfolgsstory der Stadt Falkenberg/Elster",
+          "author": { "@id": "https://visibilitylab.de/#person" },
           "publisher": { "@id": "https://visibilitylab.de/#organization" },
-          "description": "Wie wir durch Topical Authority die Sichtbarkeit für den Kiebitz-See massiv gesteigert haben."
+          "description": "Wie wir durch den systematischen Aufbau von Topical Authority die digitale Präsenz einer Stadtplattform transformiert haben.",
+          "image": "https://picsum.photos/seed/chart/600/400.webp",
+          "datePublished": "2024-01-01",
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://visibilitylab.de/#case-study" }
         },
         {
           "@type": "Service",
-          "name": "System-Check & Analyse",
+          "name": "Answer Engine Optimization (AEO)",
           "provider": { "@id": "https://visibilitylab.de/#organization" },
-          "description": "Kostenlose Analyse Ihrer aktuellen SEO und GEO Sichtbarkeit."
+          "description": "Optimierung von Inhalten für KI-Suchmaschinen wie Google AI Overviews, um als primäre Quelle zitiert zu werden."
+        },
+        {
+          "@type": "Service",
+          "name": "Generative Engine Optimization (GEO)",
+          "provider": { "@id": "https://visibilitylab.de/#organization" },
+          "description": "Strukturierung von Daten für Chatbots wie ChatGPT und Claude, um die Reichweite in KI-Modellen zu erhöhen."
+        },
+        {
+          "@type": "Service",
+          "name": "Skalierbare Content-Systeme",
+          "provider": { "@id": "https://visibilitylab.de/#organization" },
+          "description": "Aufbau von Topical Authority durch vernetzte Hub-and-Spoke Architekturen."
+        },
+        {
+          "@type": "Service",
+          "name": "Technical SEO & Performance",
+          "provider": { "@id": "https://visibilitylab.de/#organization" },
+          "description": "Technische Webseitenoptimierung für maximale Crawlbarkeit und perfekte Nutzererfahrung."
         }
       ]
     }
@@ -65,7 +153,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 </head>
   <body>
     <div id="root"></div>

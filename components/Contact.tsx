@@ -119,10 +119,11 @@ export const Contact: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-xl shadow-blue-500/20 transition-all flex items-center justify-center gap-3 group focus-visible:ring-4 focus-visible:ring-blue-500/50"
+                  className="relative overflow-hidden w-full bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] text-white font-bold py-4 rounded-xl shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all duration-500 flex items-center justify-center gap-3 group focus-visible:ring-4 focus-visible:ring-blue-500/50 backdrop-blur-sm border border-white/10"
                 >
-                  <span className="text-lg">Jetzt kostenlos analysieren</span>
-                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12"></div>
+                  <span className="text-lg relative z-10">Jetzt kostenlos analysieren</span>
+                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
                 </button>
               </form>
             )}

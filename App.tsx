@@ -34,7 +34,7 @@ const App: React.FC = () => {
         </Suspense>
       </main>
       <Suspense fallback={null}>
-        <Footer id="agb-sitemap" />
+        <Footer id="agb" />
       </Suspense>
     </div>
   );

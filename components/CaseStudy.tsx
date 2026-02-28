@@ -22,7 +22,7 @@ export const CaseStudy: React.FC = () => {
             className="text-center mb-16 relative"
           >
             <span className="absolute top-0 left-1/2 -translate-x-1/2 -mt-8 text-[10px] font-bold uppercase tracking-[0.2em] text-[#4FD1FF] bg-[#4FD1FF]/10 px-3 py-1 rounded-full border border-[#4FD1FF]/20">Case Study</span>
-            <h2 className="text-4xl md:text-5xl font-black mb-6 mt-4 text-white">1.800% mehr Sichtbarkeit – Die Erfolgsstory der Stadt Falkenberg Elster</h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-6 mt-4 text-white">1.800% mehr Sichtbarkeit – Die Erfolgsstory der Stadt <span className="whitespace-nowrap">Falkenberg/Elster</span></h2>
             <p className="text-text-secondary text-lg max-w-3xl mx-auto font-light">
               Wie wir durch den systematischen Aufbau von Topical Authority die digitale Präsenz einer Stadtplattform transformiert haben.
             </p>
@@ -32,17 +32,19 @@ export const CaseStudy: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-[#000000]/80 via-[#2F80FF]/10 to-[#000000]/80 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-border shadow-2xl text-text-primary node-glow"
+            className="bg-gradient-to-br from-[#000000]/80 via-[#2F80FF]/10 to-[#000000]/80 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-[#4FD1FF]/60 shadow-[0_0_40px_rgba(79,209,255,0.2)] text-text-primary node-glow"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-4">Status Quo</h3>
                 <p className="text-text-secondary mb-6 text-sm leading-relaxed">
-                  Die Stadt Falkenberg Elster hatte eine klassische Website ohne klare thematische Ausrichtung. Weder Suchmaschinen noch moderne KI-Systeme konnten die Relevanz für wichtige lokale Themen wie den Kiebitz-See oder touristische Angebote erkennen. Die digitale Sichtbarkeit war minimal, und wichtige Informationen erreichten die Bürger nicht effektiv.
+                  Die Stadt <span className="whitespace-nowrap">Falkenberg/Elster</span> hatte eine klassische Website ohne klare thematische Ausrichtung. Weder Suchmaschinen noch moderne KI-Systeme konnten die Relevanz für wichtige lokale Themen wie den Kiebitz-See oder touristische Angebote erkennen. Die digitale Sichtbarkeit war minimal, und wichtige Informationen erreichten die Bürger nicht effektiv.
                 </p>
                 <h3 className="text-2xl font-bold text-white mb-4">Unser Ergebnis</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
-                  Wir implementierten ein umfassendes Hub-and-Spoke Modells. Durch tiefe, semantisch verknüpfte Inhalte entstand echte Topical Authority. Wir strukturierten Daten neu, optimierten für Voice Search und KI-Antworten. Das Ergebnis: 1.800% mehr organische Sichtbarkeit in nur 6 Monaten und eine signifikante Steigerung der Bürgerinteraktion.
+                  Wir implementierten ein umfassendes Hub-and-Spoke Modell. Durch tiefe, semantisch verknüpfte Inhalte entstand echte Topical Authority. Wir strukturierten Daten neu, optimierten für Voice Search und KI-Antworten.
+                  <br /><br />
+                  <strong>Das Ergebnis:</strong> 1.800% mehr organische Sichtbarkeit in nur 6 Monaten und eine signifikante Steigerung der Bürgerinteraktion.
                 </p>
               </div>
               <div className="relative">
@@ -55,6 +57,7 @@ export const CaseStudy: React.FC = () => {
                   width="600"
                   height="400"
                   loading="lazy"
+                  decoding="async"
                   className="w-full rounded-2xl border border-border shadow-lg"
                   referrerPolicy="no-referrer"
                 />
@@ -69,15 +72,18 @@ export const CaseStudy: React.FC = () => {
                   </svg>
                 </div>
                 <p className="text-lg md:text-xl italic text-text-primary mb-6 relative z-10">
-                  "Dank des VisibilityLab Systems konnten wir unsere digitale Reichweite massiv steigern. Die KI-gestützte Strategie hat uns geholfen, genau die Themen zu besetzen, die für unsere Bürger und Touristen relevant sind. Ein echter Gamechanger für Falkenberg Elster."
+                  "Dank des VisibilityLab Systems konnten wir unsere digitale Reichweite massiv steigern. Die KI-gestützte Strategie hat uns geholfen, genau die Themen zu besetzen, die für unsere Bürger und Touristen relevant sind. Ein echter Gamechanger für <span className="whitespace-nowrap">Falkenberg/Elster</span>."
                 </p>
                 <footer className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4FD1FF] to-[#2F80FF] flex items-center justify-center text-white font-bold text-sm">
-                    FE
-                  </div>
+                  <img 
+                    src="https://picsum.photos/seed/person1/80/80" 
+                    alt="Stadtverwaltung Falkenberg/Elster" 
+                    className="w-10 h-10 rounded-full object-cover border border-[#4FD1FF]/30"
+                    referrerPolicy="no-referrer"
+                  />
                   <div>
                     <div className="font-bold text-white">Stadtverwaltung</div>
-                    <div className="text-sm text-text-secondary">Falkenberg Elster</div>
+                    <div className="text-sm text-text-secondary whitespace-nowrap">Falkenberg/Elster</div>
                   </div>
                 </footer>
               </blockquote>

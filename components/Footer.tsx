@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="agb-sitemap" className="bg-bg-secondary border-t border-border pt-8 pb-4 relative overflow-hidden">
+    <footer id="agb" className="bg-bg-secondary border-t border-border pt-8 pb-4 relative overflow-hidden">
       <ParticlesBackground color="#ffffff" count={20} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-8">
@@ -67,8 +67,10 @@ export const Footer: React.FC = () => {
             <button onClick={() => setIsImpressumOpen(true)} className="text-sm text-text-secondary hover:text-text-primary transition-colors">Impressum</button>
             <button onClick={() => setIsDatenschutzOpen(true)} className="text-sm text-text-secondary hover:text-text-primary transition-colors">Datenschutz</button>
             <button onClick={() => setIsAgbOpen(true)} className="text-sm text-text-secondary hover:text-text-primary transition-colors">AGB KI-Klauseln</button>
-            <a href="#" className="text-sm text-text-secondary hover:text-text-primary transition-colors">Sitemap</a>
           </div>
+        </div>
+        <div className="text-center text-[10px] text-text-secondary/30 mt-8 font-light tracking-widest uppercase">
+          by Robert
         </div>
       </div>
 

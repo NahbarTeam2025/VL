@@ -12,6 +12,7 @@
 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-signature: "Mrs Saint Delafield", cursive;
 
   --background-image-grid-pattern: linear-gradient(to right, #1f2937 1px, transparent 1px), linear-gradient(to bottom, #1f2937 1px, transparent 1px);
   --background-image-dot-pattern: radial-gradient(#1f2937 1px, transparent 1px);
