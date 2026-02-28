@@ -38,7 +38,7 @@ export const Benefits: React.FC = () => {
             <GradientCard className="h-full">
               <div className="p-6 flex flex-col h-full">
                 {/* Graphic */}
-                <div className="w-full h-32 bg-[#0a0f1a] rounded-xl border border-white/10 p-4 flex flex-col gap-3 relative overflow-hidden mb-6">
+                <div className="w-full h-40 bg-[#0a0f1a] rounded-xl border border-white/10 p-4 flex flex-col gap-3 relative overflow-hidden mb-6">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/5 to-transparent"></div>
                   {/* Search Query */}
                   <div className="self-end bg-white/10 rounded-2xl rounded-tr-sm px-3 py-2 text-[10px] text-white/80 max-w-[80%] border border-white/5 relative z-10">
