@@ -27,7 +27,7 @@ export const Modal: React.FC<ModalProps> = ({ children, onClose, title }) => {
         <ParticlesBackground color="#ffffff" count={30} />
       </div>
       <div 
-        className="relative z-10 bg-gradient-to-br from-[#15305b]/90 via-[#0d1f3d]/90 to-[#050b14]/90 backdrop-blur-2xl w-full max-w-2xl max-h-[90vh] rounded-2xl border border-[#4FD1FF]/30 shadow-[0_8px_32px_rgba(79,209,255,0.15)] flex flex-col overflow-hidden"
+        className="relative z-10 bg-gradient-to-br from-[#15305b] via-[#0d1f3d] to-[#050b14] backdrop-blur-2xl w-full max-w-2xl max-h-[90vh] rounded-2xl border border-[#4FD1FF]/30 shadow-[0_8px_32px_rgba(79,209,255,0.15)] flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between p-6 border-b border-[#4FD1FF]/20 bg-black/20 backdrop-blur-sm">

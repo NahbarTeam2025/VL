@@ -22,7 +22,8 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-24 bg-bg-primary border-t border-border relative overflow-hidden" aria-labelledby="contact-title">
+    <section id="contact" className="py-20 md:py-24 bg-bg-primary relative overflow-hidden" aria-labelledby="contact-title">
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4FD1FF]/50 to-transparent"></div>
       <ParticlesBackground color="#3b82f6" count={30} />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

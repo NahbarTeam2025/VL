@@ -107,7 +107,7 @@ export const Navbar: React.FC = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/80 backdrop-blur-xl border-b border-white/5 shadow-2xl"
+        className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/95 backdrop-blur-xl border-b border-white/5 shadow-2xl"
       >
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4FD1FF]/50 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,7 +163,7 @@ export const Navbar: React.FC = () => {
           visibility: isOpen ? 'visible' : 'hidden'
         }}
         transition={{ duration: 0.3 }}
-        className="fixed inset-0 z-[100] bg-bg-primary/98 backdrop-blur-2xl flex flex-col items-center overflow-y-auto"
+        className="fixed inset-0 z-[100] bg-bg-primary flex flex-col items-center overflow-y-auto"
       >
         {/* Close Button for Mobile Menu */}
         <button

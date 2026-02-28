@@ -111,18 +111,18 @@ export const Methodology: React.FC = () => {
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,209,255,0.1)_0%,transparent_70%)]"></div>
                   
                   {/* Hub and Spoke */}
-                  <div className="relative w-20 h-20">
+                  <div className="relative w-16 h-16">
                     {/* Center Hub */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#15305b] border-2 border-[#4FD1FF] flex items-center justify-center shadow-[0_0_20px_rgba(79,209,255,0.3)] z-20">
-                      <Database className="w-5 h-5 text-[#4FD1FF]" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#15305b] border-2 border-[#4FD1FF] flex items-center justify-center shadow-[0_0_20px_rgba(79,209,255,0.3)] z-20">
+                      <Database className="w-4 h-4 text-[#4FD1FF]" />
                     </div>
                     
                     {/* Spokes */}
                     {[0, 60, 120, 180, 240, 300].map((angle, i) => (
                       <div key={i} className="absolute top-1/2 left-1/2 w-full h-[1px] -translate-y-1/2 origin-left z-10" style={{ transform: `rotate(${angle}deg)` }}>
                         <div className="w-full h-full bg-gradient-to-r from-[#4FD1FF]/40 to-transparent"></div>
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/5 border border-white/20 flex items-center justify-center" style={{ transform: `rotate(-${angle}deg)` }}>
-                          <FileText className="w-3 h-3 text-white/60" />
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white/5 border border-white/20 flex items-center justify-center" style={{ transform: `rotate(-${angle}deg)` }}>
+                          <FileText className="w-2.5 h-2.5 text-white/60" />
                         </div>
                       </div>
                     ))}

@@ -35,7 +35,8 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="agb" className="bg-bg-secondary border-t border-border pt-6 pb-4 relative overflow-hidden">
+    <footer id="agb" className="bg-bg-secondary pt-6 pb-4 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4FD1FF]/50 to-transparent"></div>
       <ParticlesBackground color="#ffffff" count={20} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
