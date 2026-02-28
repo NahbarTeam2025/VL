@@ -41,7 +41,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="flex-1 w-full text-left mt-0 lg:-mt-8"
           >
-            <h1 className="text-[clamp(1.75rem,6vw,4.5rem)] font-extrabold tracking-tight leading-[1.15] mb-4 md:mb-6 text-white">
+            <h1 className="text-[clamp(1.75rem,5vw,4.5rem)] font-extrabold tracking-tight leading-[1.15] mb-4 md:mb-6 text-white lg:whitespace-nowrap">
               Was macht ein gutes <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]">SEO KI System</span> aus?
             </h1>

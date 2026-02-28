@@ -97,16 +97,6 @@ export const NeuralNetwork: React.FC = () => {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw central glow core
-      const gradient = ctx.createRadialGradient(
-        canvas.width / 2, canvas.height / 2, 0,
-        canvas.width / 2, canvas.height / 2, canvas.width / 3
-      );
-      gradient.addColorStop(0, 'rgba(79, 209, 255, 0.05)');
-      gradient.addColorStop(1, 'transparent');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
       // Randomly create pulses
       if (Math.random() < 0.08 && pulses.length < 15) {
         createPulse();
