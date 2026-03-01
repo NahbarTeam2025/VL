@@ -11,7 +11,8 @@
     <meta name="publisher" content="VisibilityLab" />
     <link rel="canonical" href="https://visibilitylab.de/" />
     
-    <!-- GDPR: External resources removed from initial load -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=Inter:wght@300;400;500;600;700;900&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet" />
 
     <!-- Comprehensive JSON-LD Schema.org -->
     <script type="application/ld+json">
@@ -168,50 +169,7 @@
     <!-- GDPR: Font link will be injected by JS -->
 </head>
   <body>
-    <div id="gdpr-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(10px);">
-      <div style="background: #111; border: 1px solid #333; padding: 40px; border-radius: 24px; max-width: 500px; text-align: center; color: white; font-family: sans-serif;">
-        <h2 style="margin-top: 0; font-size: 24px; margin-bottom: 20px;">Datenschutz-Einwilligung</h2>
-        <p style="color: #999; line-height: 1.6; margin-bottom: 30px;">Wir nutzen externe Schriften und Bilder von Drittanbietern (Bunny Fonts, Picsum/Fastly). Mit Klick auf "Akzeptieren" stimmst du der Übertragung deiner IP-Adresse an diese Anbieter zu.</p>
-        <button id="accept-gdpr" style="background: #4FD1FF; color: black; border: none; padding: 14px 32px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px; transition: transform 0.2s;">Alles akzeptieren</button>
-      </div>
-    </div>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
-    <script>
-      (function() {
-        const overlay = document.getElementById('gdpr-overlay');
-        const acceptBtn = document.getElementById('accept-gdpr');
-
-        function activateSite() {
-          overlay.style.display = 'none';
-          
-          // Inject Fonts
-          const fontLink = document.createElement('link');
-          fontLink.rel = 'stylesheet';
-          fontLink.href = 'https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;900&family=Mrs+Saint+Delafield&text=Robert%20Erbach&display=swap&subset=latin';
-          document.head.appendChild(fontLink);
-
-          // Swap data-src for images
-          document.querySelectorAll('img[data-src]').forEach(img => {
-            img.src = img.getAttribute('data-src');
-          });
-
-          // Dispatch event for React to mount
-          window.dispatchEvent(new Event('GDPR_CONSENT_GIVEN'));
-        }
-
-        if (localStorage.getItem('gdpr_accepted') === 'true') {
-          // If already accepted, we still need to inject fonts/images, 
-          // but we might run before React or after. 
-          // React will check localStorage itself, but we need to handle the non-React parts.
-          activateSite();
-        } else {
-          acceptBtn.addEventListener('click', () => {
-            localStorage.setItem('gdpr_accepted', 'true');
-            activateSite();
-          });
-        }
-      })();
-    </script>
   </body>
 </html>
