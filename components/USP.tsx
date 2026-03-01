@@ -17,12 +17,23 @@ export const USP: React.FC = () => {
           className="mb-10 text-center"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-white leading-tight">
-            Verlieren Sie Sichtbarkeit an KI-Systeme?
+            Warum klassisches SEO allein nicht mehr ausreicht.
           </h2>
           <p className="text-text-secondary text-base max-w-3xl mx-auto leading-relaxed space-y-3 flex flex-col">
-            <span>KI-Suchsysteme wie GPT, Gemini oder Perplexity verändern gerade, wie Informationen gefunden werden. Unternehmen, die ihre Inhalte nicht strukturiert und KI-lesbar aufbauen, verlieren schrittweise digitale Reichweite.</span>
-            <span>Während klassische SEO allein nicht mehr ausreicht, kombinieren wir strategische Themenarchitektur, strukturierte Daten und KI-Optimierung zu einem ganzheitlichen SEO KI System.</span>
-            <strong className="text-white font-medium">So sichern Sie sich nachhaltige Sichtbarkeit – in Suchmaschinen und in KI-Antworten.</strong>
+            <span>KI-Suchsysteme wie GPT, Gemini oder Perplexity verändern gerade, wie Informationen gefunden werden. Unternehmen, die ihre Inhalte nicht strukturiert und KI-lesbar aufbauen, verlieren schrittweise digitale Reichweite. Viele Unternehmen bemerken diesen Verlust erst, wenn Anfragen stagnieren oder Wettbewerber deutlich präsenter erscheinen.</span>
+            <span>Während klassisches SEO allein nicht mehr ausreicht, kombinieren wir strategische Themenarchitektur, strukturierte Daten und KI-Optimierung zu einem ganzheitlichen SEO KI System.</span>
+            <strong className="text-white font-medium">So sicherst du dir nachhaltige Sichtbarkeit – in Suchmaschinen und in KI-Antworten.</strong>
+          </p>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-6"
+        >
+          <p className="text-white font-medium text-lg">
+            Der Unterschied liegt nicht in einzelnen Maßnahmen – sondern im strukturellen Ansatz.
           </p>
         </motion.div>
 
@@ -41,7 +52,7 @@ export const USP: React.FC = () => {
             { old: "Fokus auf einzelne Keywords", new: "Aufbau von Topical Authority" },
             { old: "Manuelle Texterstellung", new: "KI-gestützte Content-Skalierung" },
             { old: "Optimierung für 10 blaue Links", new: "Optimierung für GEO und AEO" },
-            { old: "Bauchgefühl bei der Themenwahl", new: "Datenbasierte WDF*IDF Analysen" },
+            { old: "Reaktive Themenwahl", new: "Datenbasierte Themenanalyse" },
             { old: "Isolierte Blogbeiträge", new: "Vernetztes Hub-and-Spoke Modell" }
           ].map((row, idx) => (
             <div key={idx} className="grid grid-cols-2 border-b border-border/50 last:border-0 hover:bg-white/[0.02] transition-colors relative group">
@@ -65,7 +76,7 @@ export const USP: React.FC = () => {
           className="mt-10 text-center"
         >
           <p className="text-text-secondary text-sm md:text-base mb-4">
-            Ob Ihr Unternehmen bereits KI-ready ist, zeigt unser kurzer Visibility-Check.
+            Ob dein Unternehmen bereits KI-ready ist, zeigt unser kurzer Visibility-Check.
           </p>
           <a 
             href="#contact"

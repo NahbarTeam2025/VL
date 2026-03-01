@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle, ArrowUpRight } from 'lucide-react';
 import { ParticlesBackground } from './ParticlesBackground';
+import { Modal } from './Modal';
+import { DatenschutzContent } from './DatenschutzContent';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +12,7 @@ export const Contact: React.FC = () => {
     message: '',
     agreement: false
   });
+  const [isDatenschutzOpen, setIsDatenschutzOpen] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success'>('idle');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -30,36 +33,36 @@ export const Contact: React.FC = () => {
         <div className="max-w-3xl mx-auto text-center mb-10">
           <h2 id="contact-title" className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-white leading-tight">Bereit für den <br /> <span className="text-blue-500">nächsten Schritt?</span></h2>
           <p className="text-base md:text-lg text-text-secondary font-light">
-            <span className="lg:whitespace-nowrap block">Wir analysieren Ihre bestehende Struktur und zeigen Ihnen konkret, wo Optimierung möglich ist.</span>
+            <span className="lg:whitespace-nowrap block">Wir analysieren deine bestehende Struktur und zeigen dir konkret, wo Optimierung möglich ist.</span>
             <span className="block mt-2">Die Erst-Analyse ist kostenfrei und unverbindlich.</span>
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <div className="relative group rounded-[2.5rem] p-[2px] bg-gradient-to-br from-blue-500 via-purple-500 to-blue-500 animate-gradient-pan">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-            <div className="relative bg-white p-5 md:p-8 rounded-[2.4rem] shadow-2xl overflow-hidden">
+          <div className="relative group rounded-[2.5rem] p-[1px] bg-gradient-to-br from-[#4FD1FF]/30 via-[#2F80FF]/30 to-[#4FD1FF]/30 animate-gradient-pan">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF] to-[#2F80FF] blur-xl opacity-5 group-hover:opacity-10 transition-opacity duration-500"></div>
+            <div className="relative bg-[#050b14]/95 backdrop-blur-xl p-5 md:p-8 rounded-[2.4rem] shadow-2xl overflow-hidden border border-white/5">
               {status === 'success' ? (
               <div className="text-center py-12 animate-fadeInUp relative z-10">
-                <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
+                <div className="w-16 h-16 bg-[#4FD1FF]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#4FD1FF]">
                   <CheckCircle className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-bold text-black mb-2">Anfrage gesendet</h3>
-                <p className="text-black text-sm mb-6">Wir haben Ihren E-Mail-Client vorbereitet. Bitte senden Sie die Nachricht ab.</p>
-                <button onClick={() => setStatus('idle')} className="text-blue-600 font-bold uppercase tracking-widest text-xs hover:text-blue-800 transition-colors focus-visible:outline-blue-600">Formular zurücksetzen</button>
+                <h3 className="text-xl font-bold text-white mb-2">Anfrage gesendet</h3>
+                <p className="text-text-secondary text-sm mb-6">Wir haben deinen E-Mail-Client vorbereitet. Bitte sende die Nachricht ab.</p>
+                <button onClick={() => setStatus('idle')} className="text-[#4FD1FF] font-bold uppercase tracking-widest text-xs hover:text-white transition-colors focus-visible:outline-[#4FD1FF]">Formular zurücksetzen</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="group/field">
-                    <label htmlFor="name" className="block text-[10px] font-black text-black uppercase mb-1.5 tracking-[0.2em] group-focus-within/field:text-blue-600 transition-colors">Vollständiger Name</label>
+                    <label htmlFor="name" className="block text-[10px] font-black text-text-secondary uppercase mb-1.5 tracking-[0.2em] group-focus-within/field:text-[#4FD1FF] transition-colors">Vollständiger Name</label>
                     <input
                       type="text"
                       id="name"
                       name="name"
                       required
                       autoComplete="name"
-                      className="w-full bg-blue-50 border border-blue-100 rounded-xl px-4 py-2.5 text-sm text-black placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#4FD1FF] focus:ring-4 focus:ring-[#4FD1FF]/10 transition-all"
                       placeholder="Max Mustermann"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -67,14 +70,14 @@ export const Contact: React.FC = () => {
                   </div>
                   
                   <div className="group/field">
-                    <label htmlFor="email" className="block text-[10px] font-black text-black uppercase mb-1.5 tracking-[0.2em] group-focus-within/field:text-blue-600 transition-colors">E-Mail Adresse</label>
+                    <label htmlFor="email" className="block text-[10px] font-black text-text-secondary uppercase mb-1.5 tracking-[0.2em] group-focus-within/field:text-[#4FD1FF] transition-colors">E-Mail Adresse</label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       required
                       autoComplete="email"
-                      className="w-full bg-blue-50 border border-blue-100 rounded-xl px-4 py-2.5 text-sm text-black placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#4FD1FF] focus:ring-4 focus:ring-[#4FD1FF]/10 transition-all"
                       placeholder="maxmustermann@web.de"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -83,36 +86,37 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div className="group/field">
-                  <label htmlFor="status" className="block text-[10px] font-black text-black uppercase mb-1.5 tracking-[0.2em] group-focus-within/field:text-blue-600 transition-colors">Status Quo / Herausforderung</label>
+                  <label htmlFor="status" className="block text-[10px] font-black text-text-secondary uppercase mb-1.5 tracking-[0.2em] group-focus-within/field:text-[#4FD1FF] transition-colors">Status Quo / Herausforderung</label>
                   <textarea
                     id="status"
                     name="status"
                     required
                     rows={3}
-                    className="w-full bg-blue-50 border border-blue-100 rounded-xl px-4 py-2.5 text-sm text-black placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all resize-none"
-                    placeholder="Beschreiben Sie kurz Ihre aktuelle Situation und Ihr Ziel..."
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#4FD1FF] focus:ring-4 focus:ring-[#4FD1FF]/10 transition-all resize-none"
+                    placeholder="Beschreibe kurz deine aktuelle Situation und dein Ziel..."
                     value={formData.status}
                     onChange={(e) => setFormData({...formData, status: e.target.value})}
                   ></textarea>
                 </div>
 
-                <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10">
                   <div className="flex items-center h-6">
                     <input
                       id="agreement"
                       name="agreement"
                       type="checkbox"
                       required
-                      className="w-6 h-6 rounded border-blue-300 bg-white text-blue-600 focus:ring-blue-500 cursor-pointer"
+                      className="w-6 h-6 rounded border-white/20 bg-white/10 text-[#4FD1FF] focus:ring-[#4FD1FF] cursor-pointer"
                       checked={formData.agreement}
                       onChange={(e) => setFormData({...formData, agreement: e.target.checked})}
                     />
                   </div>
-                  <label htmlFor="agreement" className="text-sm text-black leading-relaxed cursor-pointer select-none">
+                  <label htmlFor="agreement" className="text-sm text-text-secondary leading-relaxed cursor-pointer select-none">
                     Ich willige ein, dass meine Angaben zur Kontaktaufnahme gespeichert werden.{" "}
                     <button 
                       type="button" 
-                      className="text-blue-600 underline font-bold bg-transparent border-none p-0 cursor-pointer hover:text-blue-800 transition-colors focus-visible:outline-blue-600"
+                      onClick={() => setIsDatenschutzOpen(true)}
+                      className="text-[#4FD1FF] underline font-bold bg-transparent border-none p-0 cursor-pointer hover:text-white transition-colors focus-visible:outline-[#4FD1FF]"
                     >
                       Datenschutz
                     </button>
@@ -122,18 +126,25 @@ export const Contact: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="relative overflow-hidden w-full bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] text-white font-bold py-4 rounded-xl shadow-[0_0_15px_rgba(47,128,255,0.3)] transition-all duration-500 flex items-center justify-center gap-3 group focus-visible:ring-4 focus-visible:ring-blue-500/50 backdrop-blur-sm border border-white/10"
+                  className="relative overflow-hidden w-full bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] text-white font-bold py-4 rounded-xl shadow-[0_0_15px_rgba(47,128,255,0.3)] transition-all duration-500 flex items-center justify-center gap-3 group focus-visible:ring-4 focus-visible:ring-[#4FD1FF]/50 backdrop-blur-sm border border-white/10"
                 >
                   <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12"></div>
                   <span className="text-lg relative z-10">Jetzt kostenlos analysieren</span>
                   <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
                 </button>
+                <p className="text-center text-xs text-text-secondary mt-2">Antwort innerhalb von 24 Stunden.</p>
               </form>
             )}
             </div>
           </div>
         </div>
       </div>
+      
+      {isDatenschutzOpen && (
+        <Modal title="Datenschutz" onClose={() => setIsDatenschutzOpen(false)}>
+          <DatenschutzContent />
+        </Modal>
+      )}
     </section>
   );
 };

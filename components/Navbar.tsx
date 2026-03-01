@@ -107,7 +107,7 @@ export const Navbar: React.FC = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/95 backdrop-blur-xl border-b border-white/5 shadow-2xl"
+        className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/25 backdrop-blur-xl border-b border-white/5 shadow-2xl"
       >
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4FD1FF]/50 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,7 +163,7 @@ export const Navbar: React.FC = () => {
           visibility: isOpen ? 'visible' : 'hidden'
         }}
         transition={{ duration: 0.3 }}
-        className="fixed inset-0 z-[100] bg-bg-primary flex flex-col items-center overflow-y-auto"
+        className="fixed inset-0 z-[100] bg-[#050b14] flex flex-col items-center overflow-y-auto"
       >
         {/* Close Button for Mobile Menu */}
         <button
@@ -218,7 +218,13 @@ export const Navbar: React.FC = () => {
             >
               Glossar
             </button>
-            <div className="flex justify-center gap-4 mt-2">
+            <div className="flex justify-center gap-4 mt-2 items-center">
+              <button 
+                onClick={() => { setIsAgbOpen(true); setIsOpen(false); }}
+                className="text-sm text-text-muted hover:text-white transition-colors py-2 px-3"
+              >
+                AGB
+              </button>
               <button 
                 onClick={() => { setIsImpressumOpen(true); setIsOpen(false); }}
                 className="text-sm text-text-muted hover:text-white transition-colors py-2 px-3"
@@ -248,12 +254,24 @@ export const Navbar: React.FC = () => {
               <p className="text-sm">Optimierung von Inhalten speziell für KI-gestützte Suchmaschinen und Antwortmaschinen wie ChatGPT oder Google Gemini.</p>
             </div>
             <div>
+              <h4 className="font-bold text-white">AEO Answer Engine Optimization</h4>
+              <p className="text-sm">Strategien, um als direkte Antwort in KI-gestützten Suchergebnissen (z.B. Google AI Overviews) zu erscheinen.</p>
+            </div>
+            <div>
               <h4 className="font-bold text-white">LLM Large Language Model</h4>
               <p className="text-sm">Große Sprachmodelle, die auf riesigen Datenmengen trainiert wurden, um menschenähnlichen Text zu verstehen und zu generieren.</p>
             </div>
             <div>
               <h4 className="font-bold text-white">RAG Retrieval Augmented Generation</h4>
               <p className="text-sm">Eine Technik, die LLMs mit externen, aktuellen Datenquellen verbindet, um präzisere und faktenbasierte Antworten zu liefern.</p>
+            </div>
+            <div>
+              <h4 className="font-bold text-white">Topical Authority</h4>
+              <p className="text-sm">Der Status einer Website als vertrauenswürdige Expertenquelle für ein bestimmtes Themengebiet, basierend auf Tiefe und Qualität der Inhalte.</p>
+            </div>
+            <div>
+              <h4 className="font-bold text-white">Hub & Spoke</h4>
+              <p className="text-sm">Eine Content-Struktur, bei der eine zentrale Hauptseite (Hub) auf mehrere detaillierte Unterseiten (Spokes) verweist, um Themenautorität aufzubauen.</p>
             </div>
           </div>
         </Modal>

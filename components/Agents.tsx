@@ -7,7 +7,7 @@ export const Agents: React.FC = () => {
     {
       label: "ANALYSE-AGENT",
       title: "Auditor",
-      text: "Identifiziert relevante Themenräume, Wettbewerbslücken und strukturelle Schwächen Ihrer aktuellen Sichtbarkeit.",
+      text: "Identifiziert relevante Themenräume, Wettbewerbslücken und strukturelle Schwächen deiner aktuellen Sichtbarkeit.",
       icon: Search,
       color: "text-blue-400",
       features: [

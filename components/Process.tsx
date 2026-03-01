@@ -4,10 +4,10 @@ import { ParticlesBackground } from './ParticlesBackground';
 
 export const Process: React.FC = () => {
   const steps = [
-    { num: "01", title: "Audit & Analyse", desc: "Unser Analyse-Agent scannt Ihre Seite und den Markt.", icon: ScanSearch },
+    { num: "01", title: "Audit & Analyse", desc: "Unser Analyse-Agent scannt deine Seite und den Markt.", icon: ScanSearch },
     { num: "02", title: "Strategie-Entwicklung", desc: "Erstellung der Hub & Spoke Cluster und Keyword-Sets.", icon: DraftingCompass },
     { num: "03", title: "Content Creation", desc: "Produktion der optimierten Inhalte durch den Content-Agent.", icon: FileSignature },
-    { num: "04", title: "Implementation", desc: "Integration der Inhalte und Verlinkungen auf Ihrer Plattform.", icon: Rocket }
+    { num: "04", title: "Implementation", desc: "Integration der Inhalte und Verlinkungen auf deiner Plattform.", icon: Rocket }
   ];
 
   return (

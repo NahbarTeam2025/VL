@@ -45,8 +45,8 @@ export const FAQ: React.FC = () => {
               key={idx} 
               className={`relative group rounded-2xl p-[1px] transition-all duration-500 ${openIndex === idx ? 'bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]' : 'bg-gradient-to-r from-white/10 to-white/5 hover:from-[#4FD1FF]/50 hover:to-[#2F80FF]/50'}`}
             >
-              <div className={`absolute inset-0 bg-gradient-to-r from-[#4FD1FF]/20 to-[#2F80FF]/20 blur-xl transition-opacity duration-500 ${openIndex === idx ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'}`}></div>
-              <div className={`relative bg-bg-primary rounded-2xl overflow-hidden transition-all duration-500 ${openIndex === idx ? 'bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 backdrop-blur-xl border border-[#4FD1FF]/30 shadow-[0_8px_32px_rgba(79,209,255,0.1)]' : ''}`}>
+              <div className={`absolute inset-0 bg-gradient-to-r from-[#4FD1FF]/10 to-[#2F80FF]/10 blur-md transition-opacity duration-500 ${openIndex === idx ? 'opacity-50' : 'opacity-0 group-hover:opacity-20'}`}></div>
+              <div className={`relative bg-bg-primary rounded-2xl overflow-hidden transition-all duration-500 ${openIndex === idx ? 'bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 backdrop-blur-xl border border-[#4FD1FF]/15 shadow-[0_2px_10px_rgba(79,209,255,0.05)]' : ''}`}>
                 <button 
                   onClick={() => handleToggle(idx)}
                   className="w-full flex items-start justify-between p-5 md:p-8 text-left gap-4 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4FD1FF] rounded-2xl"

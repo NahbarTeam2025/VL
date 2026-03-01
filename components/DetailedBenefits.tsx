@@ -21,7 +21,7 @@ export const DetailedBenefits: React.FC = () => {
       icon: Users,
       color: "text-accent-secondary",
       benefits: [
-        "Expertenstatus und Thought Leadership in Ihrer Nische",
+        "Expertenstatus und Thought Leadership in deiner Nische",
         "Zeitersparnis durch strategischen Fokus auf High-Impact Content",
         "Nachhaltige Sichtbarkeit statt Social Media 'Hamsterrad'",
         "Qualifizierte Anfragen statt Kaltakquise",

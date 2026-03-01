@@ -36,12 +36,12 @@ export const Solution: React.FC = () => {
             Algorithmische Präzision trifft auf kreative Exzellenz.
           </p>
           <p className="text-text-secondary text-base md:text-xl mb-8 md:mb-10 leading-relaxed font-light">
-            Wir ersetzen isolierte Optimierung durch ein <span className="text-white font-medium">ganzheitliches Ökosystem</span>. VisibilityLab verwandelt Ihre Website in einen Magneten für qualifizierten Traffic, indem es semantische Netze knüpft, die KI-Modelle und klassische Algorithmen gleichermaßen verstehen.
+            Wir ersetzen isolierte Optimierung durch ein <span className="text-white font-medium">ganzheitliches Ökosystem</span>. VisibilityLab verwandelt deine Website in einen Magneten für qualifizierten Traffic, indem es semantische Netze knüpft, die KI-Modelle und klassische Algorithmen gleichermaßen verstehen.
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              { t: "Topical Mapping", d: "Mathematische Erfassung Ihrer Nische." },
+              { t: "Topical Mapping", d: "Mathematische Erfassung deiner Nische." },
               { t: "AI Integration", d: "Optimiert für Perplexity & SearchGPT." },
               { t: "Cluster Engines", d: "Skalierbare Content-Architekturen." },
               { t: "Semantic Depth", d: "Nachgewiesene Relevanz durch WDF*IDF." },
@@ -93,7 +93,7 @@ export const Solution: React.FC = () => {
                                     <Info className="w-3 h-3 opacity-50 group-hover:opacity-100" />
                                 </span>
                             }
-                            content="Relevance Score: Misst, wie vollständig Ihre Website einen Themenraum abdeckt. Skala von 0 bis 100."
+                            content="Relevance Score: Misst, wie vollständig deine Website einen Themenraum abdeckt. Skala von 0 bis 100."
                         />
                         <span className="text-white">84 %</span>
                     </div>

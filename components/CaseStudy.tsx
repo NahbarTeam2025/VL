@@ -22,7 +22,7 @@ export const CaseStudy: React.FC = () => {
             className="text-center mb-10 relative"
           >
             <span className="absolute top-0 left-1/2 -translate-x-1/2 -mt-6 text-[10px] font-bold uppercase tracking-[0.2em] text-[#4FD1FF] bg-[#4FD1FF]/10 px-3 py-1 rounded-full border border-[#4FD1FF]/20">Case Study</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 mt-6 text-white leading-tight">1.800% mehr Sichtbarkeit in 6 Monaten: Der Case <span className="whitespace-nowrap">Falkenberg/Elster</span></h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 mt-6 text-white leading-tight">Vom digitalen Schatten zur regionalen Instanz: Der Falkenberg-Blueprint.</h2>
             <p className="text-text-secondary text-base md:text-lg max-w-3xl mx-auto font-light">
               Wie das VisibilityLab System durch Topical Authority und KI-optimierte Datenstrukturen eine Stadtplattform zur regionalen Instanz skaliert.
             </p>
@@ -89,6 +89,7 @@ export const CaseStudy: React.FC = () => {
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Das messbare Ergebnis</h3>
                   <p className="text-text-secondary text-sm leading-relaxed space-y-2">
                     <strong className="block text-lg text-[#4FD1FF]">1.800 % mehr organische Sichtbarkeit in nur 6 Monaten.</strong>
+                    <span className="block mt-2">Basierend auf der messbaren Entwicklung des Sichtbarkeitsindex im Analysezeitraum.</span>
                     <span className="block mt-2">Deutlich bessere Rankings für zentrale lokale Suchanfragen. Spürbar höhere Interaktion von Bürgern und Besuchern.</span>
                     <span className="block mt-2">Die Stadt wurde digital als thematische Autorität wahrgenommen.</span>
                   </p>
@@ -127,6 +128,12 @@ export const CaseStudy: React.FC = () => {
                   </div>
                 </footer>
               </blockquote>
+            </div>
+
+            <div className="mt-10 text-center">
+              <p className="text-text-secondary text-sm md:text-base font-medium">
+                Die Methodik lässt sich auf andere Branchen und Märkte übertragen.
+              </p>
             </div>
           </motion.div>
 

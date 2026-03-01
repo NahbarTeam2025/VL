@@ -16,17 +16,17 @@ export const DownloadCTA: React.FC = () => {
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#4FD1FF] to-transparent opacity-50"></div>
         
         <div className="text-center mb-10">
-          <h2 id="download-title" className="text-[clamp(8px,2.5vw,24px)] md:text-[clamp(14px,2vw,24px)] font-black mb-6 text-white leading-tight whitespace-nowrap tracking-tight">
-            Der VisibilityLab Blueprint: Die Vorlage für dein Team-Meeting
+          <h2 id="download-title" className="text-2xl md:text-3xl lg:text-4xl font-black mb-6 text-white leading-tight tracking-tight">
+            Das VisibilityLab Strategie-Briefing: Die Entscheidungsgrundlage für dein Team-Meeting.
           </h2>
           
           <p className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed">
-            Eine kompakte Entscheidungsgrundlage für Geschäftsführer und Marketingverantwortliche: Aufbau, Logik und strategischer Nutzen unseres KI-SEO-Systems.
+            Eine kompakte Entscheidungsgrundlage für Geschäftsführer und Marketingverantwortliche: Aufbau, Logik und strategischer Nutzen unseres KI-SEO-Systems. Ideal zur internen Diskussion auf Geschäftsführungs- oder Marketingleitungsebene.
           </p>
         </div>
 
         <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 mb-10 max-w-2xl mx-auto">
-          <h3 className="text-xl font-bold text-white mb-6 text-center">Was Sie in der PDF erwartet</h3>
+          <h3 className="text-xl font-bold text-white mb-6 text-center">Was Dich in der PDF erwartet</h3>
           <ul className="space-y-4">
             {[
               "Wie sich KI-Sichtbarkeit von klassischem SEO unterscheidet",
@@ -57,10 +57,6 @@ export const DownloadCTA: React.FC = () => {
             <FileDown className="w-5 h-5 group-hover:-translate-y-1 transition-transform relative z-10" />
             <span className="relative z-10">System-PDF anfordern</span>
           </a>
-          
-          <p className="text-text-secondary/60 text-xs max-w-md mx-auto">
-            Die PDF richtet sich ausschließlich an Unternehmer und Entscheider. Kein Newsletter. Keine automatisierte Vertriebssequenz.
-          </p>
         </div>
       </motion.div>
     </section>

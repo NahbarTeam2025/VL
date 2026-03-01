@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Award, Zap } from 'lucide-react';
 import { ParticlesBackground } from './ParticlesBackground';
-import { NeuralNetwork } from './NeuralNetwork';
+import { DataFlow } from './DataFlow';
 import { motion } from 'framer-motion';
 
 export const Hero: React.FC = () => {
@@ -31,8 +31,13 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#000000_100%)] opacity-80"></div>
       </div>
 
+      {/* Data Flow Background */}
+      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[60%] pointer-events-none z-0 overflow-hidden opacity-100">
+         <DataFlow />
+      </div>
+
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-32">
           
           {/* Left: Text Content F-Pattern */}
           <motion.div 
@@ -42,26 +47,26 @@ export const Hero: React.FC = () => {
             className="flex-1 w-full text-left mt-4 lg:-mt-8"
           >
             <h1 className="text-[clamp(1.75rem,8vw,4.5rem)] font-extrabold tracking-tight leading-[1.15] mb-4 md:mb-6 text-white lg:whitespace-nowrap">
-              Was macht ein gutes <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]">SEO KI System</span> aus?
+              Beherrsche die Antwort. <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]">In Google und KI.</span>
             </h1>
             
             <p className="text-[#E6ECFF] text-base md:text-xl max-w-2xl font-light leading-relaxed mb-6 md:mb-8">
-              Ein gutes SEO KI System verbindet klare Themenstruktur, echte Daten und automatische Lernprozesse.
+              Das VisibilityLab System schafft die Daten-Infrastruktur für deine Antwort-Hoheit. Wir verbinden klassische Spitzen-Rankings mit technologischer Dominanz in KI-Systemen – damit dein Unternehmen zur primären Quelle wird.
             </p>
 
             <ul className="flex flex-col gap-2 md:gap-3 mb-6 md:mb-10 text-text-secondary text-sm md:text-base">
               <li className="flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-[#4FD1FF]" />
-                <span><strong>Effizienzsteigerung:</strong> Automatisierte Prozesse sparen wertvolle Zeit.</span>
+                <ShieldCheck className="w-5 h-5 text-[#4FD1FF] shrink-0" />
+                <span>Topical Authority & Entity Mapping statt isolierter Einzelmaßnahmen.</span>
               </li>
               <li className="flex items-center gap-2">
-                <Zap className="w-5 h-5 text-[#4FD1FF]" />
-                <span><strong>Kosten senken:</strong> Weniger manueller Aufwand, mehr Output.</span>
+                <Zap className="w-5 h-5 text-[#4FD1FF] shrink-0" />
+                <span>Strukturierte Daten-Graphen für maximale maschinelle Lesbarkeit.</span>
               </li>
               <li className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-[#4FD1FF]" />
-                <span><strong>Sichtbarkeit:</strong> Dominieren Sie Suchmaschinen und KI-Antworten.</span>
+                <Award className="w-5 h-5 text-[#4FD1FF] shrink-0" />
+                <span>Kontinuierliche Analyse der KI-Antwort-Logik auf Basis realer Such-Szenarien.</span>
               </li>
             </ul>
             
@@ -113,23 +118,7 @@ export const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right: Image / Animation */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-1 w-full max-w-lg lg:max-w-none relative aspect-square md:aspect-[4/3] pointer-events-none"
-          >
-            <div 
-              className="absolute -inset-[50%] w-[200%] h-[200%]"
-              style={{
-                maskImage: 'radial-gradient(circle closest-side at center, black 20%, transparent 90%)',
-                WebkitMaskImage: 'radial-gradient(circle closest-side at center, black 20%, transparent 90%)'
-              }}
-            >
-              <NeuralNetwork />
-            </div>
-          </motion.div>
+          {/* Right: Image / Animation - Moved to background */}
           
         </div>
       </div>

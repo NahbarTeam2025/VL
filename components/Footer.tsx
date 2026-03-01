@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap gap-4">
             <button onClick={() => setIsImpressumOpen(true)} className="text-xs text-slate-300 hover:text-white transition-colors">Impressum</button>
             <button onClick={() => setIsDatenschutzOpen(true)} className="text-xs text-slate-300 hover:text-white transition-colors">Datenschutz</button>
-            <button onClick={() => setIsAgbOpen(true)} className="text-xs text-slate-300 hover:text-white transition-colors">AGB KI-Klauseln</button>
+            <button onClick={() => setIsAgbOpen(true)} className="text-xs text-slate-300 hover:text-white transition-colors">AGB</button>
           </div>
         </div>
         <div className="text-center text-[10px] text-slate-500 mt-6 font-light tracking-widest uppercase">

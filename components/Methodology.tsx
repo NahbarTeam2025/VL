@@ -23,7 +23,7 @@ export const Methodology: React.FC = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-white">Das VisibilityLab System im Detail</h2>
           <p className="text-text-secondary text-base md:text-lg max-w-3xl mx-auto space-y-1 flex flex-col">
             <span>Ganzheitliche Optimierung für Suchmaschinen und KI-Systeme.</span>
-            <span>Wir sorgen dafür, dass Ihr Unternehmen dort sichtbar wird, wo heute Antworten entstehen.</span>
+            <span>Wir sorgen dafür, dass dein Unternehmen dort sichtbar wird, wo heute Antworten entstehen.</span>
           </p>
         </motion.div>
 
@@ -31,9 +31,9 @@ export const Methodology: React.FC = () => {
           {[
             {
               title: "Optimierung für KI-Antworten",
-              subtitle: "Answer Engine Optimization (AEO)",
-              desc: "Wir strukturieren Ihre Inhalte so, dass sie in KI-Antworten und Google AI Overviews zitiert werden.",
-              vorteil: "Sie erscheinen direkt in der Antwort – nicht nur als Link in der Trefferliste.",
+              subtitle: "Answer Engine Optimization (AEO) – Optimierung für direkte Antwortsysteme wie Google AI Overviews",
+              desc: "Wir strukturieren deine Inhalte so, dass sie in KI-Antworten und Google AI Overviews zitiert werden.",
+              vorteil: "Du erscheinst direkt in der Antwort – nicht nur als Link in der Trefferliste.",
               graphic: (
                 <div className="w-full h-48 bg-[#0a0f1a] rounded-xl border border-white/10 p-3 flex flex-col gap-2 relative overflow-hidden mt-4">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/5 to-transparent"></div>
@@ -55,7 +55,7 @@ export const Methodology: React.FC = () => {
                     {/* Source Highlight */}
                     <div className="inline-flex items-center gap-1 bg-[#4FD1FF]/20 border border-[#4FD1FF]/40 rounded px-1.5 py-0.5 mt-1">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#4FD1FF] animate-pulse"></div>
-                      <span className="text-[8px] text-[#4FD1FF] font-bold">Quelle: Ihr Unternehmen</span>
+                      <span className="text-[8px] text-[#4FD1FF] font-bold">Quelle: dein Unternehmen</span>
                     </div>
                   </div>
                 </div>
@@ -63,9 +63,9 @@ export const Methodology: React.FC = () => {
             },
             {
               title: "Optimierung für generative KI-Systeme",
-              subtitle: "Generative Engine Optimization (GEO)",
-              desc: "Wir machen Ihre Inhalte für Systeme wie ChatGPT, Gemini und Claude maschinenlesbar und verständlich.",
-              vorteil: "Ihre Marke wird Teil von KI-generierten Empfehlungen.",
+              subtitle: "Generative Engine Optimization (GEO) – Strukturierung von Inhalten für KI-Modelle wie ChatGPT, Gemini oder Claude",
+              desc: "Wir machen deine Inhalte für Systeme wie ChatGPT, Gemini und Claude maschinenlesbar und verständlich.",
+              vorteil: "Deine Marke wird Teil von KI-generierten Empfehlungen.",
               graphic: (
                 <div className="w-full h-32 bg-[#0a0f1a] rounded-xl border border-white/10 p-3 flex items-center justify-between relative overflow-hidden mt-4">
                   <div className="absolute inset-0 bg-grid-subtle opacity-20"></div>
@@ -105,7 +105,7 @@ export const Methodology: React.FC = () => {
               title: "Strategische Content-Architektur",
               subtitle: "Skalierbare Content-Systeme",
               desc: "Wir bauen eine klare Themenstruktur mit logisch verknüpften Inhalten. So entsteht thematische Autorität.",
-              vorteil: "Sie werden als Experte für Ihr Kernthema wahrgenommen.",
+              vorteil: "Du wirst als Experte für dein Kernthema wahrgenommen.",
               graphic: (
                 <div className="w-full h-32 bg-[#0a0f1a] rounded-xl border border-white/10 relative overflow-hidden flex items-center justify-center mt-4">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,209,255,0.1)_0%,transparent_70%)]"></div>
@@ -134,7 +134,7 @@ export const Methodology: React.FC = () => {
               title: "Technische SEO & Performance",
               subtitle: "Technische Optimierung",
               desc: "Wir verbessern Struktur, Ladezeit, interne Verlinkung und strukturierte Daten (JSON-LD).",
-              vorteil: "Suchmaschinen verstehen Ihre Website eindeutig und bewerten sie stabil.",
+              vorteil: "Suchmaschinen verstehen deine Website eindeutig und bewerten sie stabil.",
               graphic: (
                 <div className="w-full h-32 bg-[#0a0f1a] rounded-xl border border-white/10 p-3 flex flex-col relative overflow-hidden mt-4">
                   <div className="absolute inset-0 bg-grid-subtle opacity-20"></div>
@@ -208,7 +208,7 @@ export const Methodology: React.FC = () => {
                 </div>
                 <div className="mt-auto">
                   <div className="text-xs border-l-2 border-[#4FD1FF] pl-2.5 py-1 bg-[#4FD1FF]/5 rounded-r">
-                    <strong className="text-white block mb-0.5">Ihr Vorteil:</strong>
+                    <strong className="text-white block mb-0.5">Dein Vorteil:</strong>
                     <span className="text-text-secondary">{item.vorteil}</span>
                   </div>
                   {item.graphic}

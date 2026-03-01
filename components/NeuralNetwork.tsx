@@ -5,8 +5,18 @@ interface Particle {
   y: number;
   vx: number;
   vy: number;
-  radius: number;
+  size: number;
   color: string;
+  baseX: number;
+  baseY: number;
+  density: number;
+}
+
+interface Signal {
+  start: Particle;
+  end: Particle;
+  progress: number;
+  speed: number;
 }
 
 export const NeuralNetwork: React.FC = () => {
@@ -21,165 +31,187 @@ export const NeuralNetwork: React.FC = () => {
 
     let animationFrameId: number;
     let particles: Particle[] = [];
-    let pulses: { start: number; end: number; progress: number; speed: number }[] = [];
-    
-    // Resize handler with debounce and stability check
-    let lastWidth = 0;
-    let lastHeight = 0;
+    let signals: Signal[] = [];
+    let width = 0;
+    let height = 0;
+    let mouseX = 0;
+    let mouseY = 0;
+    let isMouseOver = false;
+
+    // Configuration
+    const PARTICLE_COUNT_FACTOR = 0.00008; // Increased density slightly
+    const CONNECTION_DISTANCE = 200;
+    const MOUSE_RADIUS = 300;
+    const PARTICLE_SPEED = 0.005; // Extremely slow, almost static
+    const COLORS = ['#4FD1FF', '#2F80FF', '#ffffff'];
+    const SIGNAL_CHANCE = 0.008; // More frequent signals
+
+    const resize = () => {
+      const parent = canvas.parentElement;
+      if (parent) {
+        width = parent.clientWidth;
+        height = parent.clientHeight;
+        canvas.width = width;
+        canvas.height = height;
+        initParticles();
+      }
+    };
 
     const initParticles = () => {
       particles = [];
-      pulses = [];
-      const numParticles = Math.floor((canvas.width * canvas.height) / 7000); // Slightly more particles
+      // Ensure a minimum but don't force too many if the area is small
+      const numParticles = Math.max(20, Math.floor(width * height * PARTICLE_COUNT_FACTOR));
       
       for (let i = 0; i < numParticles; i++) {
+        const x = Math.random() * width;
+        const y = Math.random() * height;
         particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          radius: Math.random() * 2.5 + 1.2, // Slightly larger particles
-          color: Math.random() > 0.5 ? '#4FD1FF' : '#2F80FF'
+          x,
+          y,
+          vx: (Math.random() - 0.5) * PARTICLE_SPEED,
+          vy: (Math.random() - 0.5) * PARTICLE_SPEED,
+          size: Math.random() * 1.5 + 0.5,
+          color: COLORS[Math.floor(Math.random() * COLORS.length)],
+          baseX: x,
+          baseY: y,
+          density: (Math.random() * 20) + 1,
         });
       }
     };
 
-    const createPulse = () => {
-      if (particles.length < 2) return;
-      const startIdx = Math.floor(Math.random() * particles.length);
-      // Find a nearby particle to pulse to
-      const nearby = [];
-      for (let i = 0; i < particles.length; i++) {
-        if (i === startIdx) continue;
-        const dx = particles[startIdx].x - particles[i].x;
-        const dy = particles[startIdx].y - particles[i].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 150) nearby.push(i);
-      }
-
-      if (nearby.length > 0) {
-        const endIdx = nearby[Math.floor(Math.random() * nearby.length)];
-        pulses.push({
-          start: startIdx,
-          end: endIdx,
-          progress: 0,
-          speed: 0.01 + Math.random() * 0.02
-        });
-      }
-    };
+    let time = 0;
 
     const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Randomly create pulses
-      if (Math.random() < 0.1 && pulses.length < 20) { // More frequent pulses
-        createPulse();
-      }
-
-      // Update and draw particles
-      particles.forEach((p, i) => {
+      ctx.clearRect(0, 0, width, height);
+      time += 0.02; // Speed of the twinkling effect
+      
+      // Update particles
+      particles.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
 
-        // Wrap around instead of bouncing
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
+        // Bounce
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        
-        // Add glow
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = p.color;
-        ctx.fill();
-        ctx.shadowBlur = 0; // Reset
-
-        // Draw connections
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const distSq = dx * dx + dy * dy;
-          const maxDist = 130;
-          const maxDistSq = maxDist * maxDist;
-
-          if (distSq < maxDistSq) {
-            const dist = Math.sqrt(distSq);
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            // Opacity based on distance
-            const opacity = 1 - dist / maxDist;
-            ctx.strokeStyle = `rgba(79, 209, 255, ${opacity * 0.4})`; // Slightly more visible
-            ctx.lineWidth = 1;
-            ctx.stroke();
+        // Mouse interaction (gentle repulsion/attraction)
+        if (isMouseOver) {
+          const dx = mouseX - p.x;
+          const dy = mouseY - p.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < MOUSE_RADIUS) {
+            const forceDirectionX = dx / distance;
+            const forceDirectionY = dy / distance;
+            const force = (MOUSE_RADIUS - distance) / MOUSE_RADIUS;
+            
+            // Push away slightly
+            const directionX = forceDirectionX * force * p.density * 0.3; // Reduced force
+            const directionY = forceDirectionY * force * p.density * 0.3;
+            
+            p.x -= directionX;
+            p.y -= directionY;
           }
         }
       });
 
-      // Draw pulses
-      ctx.lineWidth = 2;
-      pulses = pulses.filter(pulse => {
-        const p1 = particles[pulse.start];
-        const p2 = particles[pulse.end];
-        if (!p1 || !p2) return false;
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const p1 = particles[i];
+          const p2 = particles[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
 
-        pulse.progress += pulse.speed;
-        if (pulse.progress >= 1) return false;
+          if (distance < CONNECTION_DISTANCE) {
+            // Individual breathing for each connection
+            // Use indices to create a unique offset for each pair so they fade independently
+            const pairOffset = i * 43 + j * 17; 
+            const breathing = (Math.sin(time + pairOffset) + 1) / 2;
+            
+            const distOpacity = 1 - (distance / CONNECTION_DISTANCE);
+            const opacity = distOpacity * breathing * 0.4; // Base opacity
 
-        const x = p1.x + (p2.x - p1.x) * pulse.progress;
-        const y = p1.y + (p2.y - p1.y) * pulse.progress;
+            if (opacity > 0.02) {
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(79, 209, 255, ${opacity})`;
+                ctx.lineWidth = 0.6;
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
+            }
+
+            // Randomly spawn signal only when visible
+            if (Math.random() < SIGNAL_CHANCE && opacity > 0.15) {
+              signals.push({
+                start: p1,
+                end: p2,
+                progress: 0,
+                speed: 0.01 + Math.random() * 0.02 // Slower signals
+              });
+            }
+          }
+        }
+      }
+
+      // Draw and update signals
+      for (let i = signals.length - 1; i >= 0; i--) {
+        const s = signals[i];
+        s.progress += s.speed;
+        
+        if (s.progress >= 1) {
+          signals.splice(i, 1);
+          continue;
+        }
+
+        const curX = s.start.x + (s.end.x - s.start.x) * s.progress;
+        const curY = s.start.y + (s.end.y - s.start.y) * s.progress;
 
         ctx.beginPath();
-        ctx.arc(x, y, 3, 0, Math.PI * 2);
-        ctx.fillStyle = '#FFFFFF';
-        ctx.shadowBlur = 20;
+        ctx.arc(curX, curY, 1.5, 0, Math.PI * 2); // Smaller signal dots
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)'; // Less bright
+        ctx.shadowBlur = 4;
         ctx.shadowColor = '#4FD1FF';
         ctx.fill();
-        ctx.shadowBlur = 0;
+        ctx.shadowBlur = 0; // Reset shadow
+      }
 
-        // Draw a small line trail for the pulse
+      // Draw nodes
+      particles.forEach(p => {
         ctx.beginPath();
-        ctx.moveTo(p1.x + (p2.x - p1.x) * Math.max(0, pulse.progress - 0.1), p1.y + (p2.y - p1.y) * Math.max(0, pulse.progress - 0.1));
-        ctx.lineTo(x, y);
-        ctx.strokeStyle = '#4FD1FF';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        return true;
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = 0.8; // Increased opacity
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
       });
 
       animationFrameId = requestAnimationFrame(draw);
     };
 
-    const resizeObserver = new ResizeObserver(entries => {
-      for (const entry of entries) {
-        const { width, height } = entry.contentRect;
-        if (width === lastWidth && height === lastHeight) continue;
-        canvas.width = width;
-        canvas.height = height;
-        if (Math.abs(width - lastWidth) > 50 || lastWidth === 0) {
-          initParticles();
-        }
-        lastWidth = width;
-        lastHeight = height;
-      }
-    });
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+      isMouseOver = true;
+    };
 
-    const parent = canvas.parentElement;
-    if (parent) resizeObserver.observe(parent);
+    const handleMouseLeave = () => {
+      isMouseOver = false;
+    };
 
-    const timeoutId = setTimeout(() => {
-      draw();
-    }, 1000);
+    window.addEventListener('resize', resize);
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
+    
+    resize();
+    draw();
 
     return () => {
-      resizeObserver.disconnect();
-      clearTimeout(timeoutId);
+      window.removeEventListener('resize', resize);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -187,8 +219,9 @@ export const NeuralNetwork: React.FC = () => {
   return (
     <canvas 
       ref={canvasRef} 
-      className="w-full h-full"
-      style={{ display: 'block' }}
+      className="w-full h-full block"
+      style={{ background: 'transparent' }}
     />
   );
 };
+
