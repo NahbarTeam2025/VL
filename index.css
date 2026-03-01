@@ -18,6 +18,7 @@
   --animate-gradient-pan: gradient-pan 3s ease-in-out infinite;
   --animate-fadeInUp: fadeInUp 0.8s ease-out forwards;
   --animate-glow: glow 2s infinite;
+  --animate-text-pulse: text-pulse 2s ease-in-out infinite;
 
   @keyframes brand-flow {
     0% { background-position: 0% 50%; }
@@ -36,6 +37,10 @@
     0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.2); }
     50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
     100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.2); }
+  }
+  @keyframes text-pulse {
+    0%, 100% { opacity: 0.8; text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
+    50% { opacity: 1; text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.4); }
   }
 }
 
@@ -113,11 +118,6 @@ h1, h2, h3, h4, h5, h6 {
 .text-glow {
   text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
   animation: text-pulse 2s ease-in-out infinite;
-}
-
-@keyframes text-pulse {
-  0%, 100% { opacity: 0.8; text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
-  50% { opacity: 1; text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.4); }
 }
 
 @media (min-width: 1024px) {
