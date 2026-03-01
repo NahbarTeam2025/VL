@@ -47,12 +47,12 @@ export const Hero: React.FC = () => {
             className="flex-1 w-full text-left mt-4 lg:-mt-8"
           >
             <h1 className="text-[clamp(1.75rem,8vw,4.5rem)] font-extrabold tracking-tight leading-[1.15] mb-4 md:mb-6 text-white lg:whitespace-nowrap">
-              Beherrsche die Antwort. <br className="hidden sm:block" />
+              Werde zur relevanten Quelle. <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]">In Google und KI.</span>
             </h1>
             
             <p className="text-[#E6ECFF] text-base md:text-xl max-w-2xl font-light leading-relaxed mb-6 md:mb-8">
-              Das VisibilityLab System schafft die Daten-Infrastruktur für deine Antwort-Hoheit. Wir verbinden klassische Spitzen-Rankings mit technologischer Dominanz in KI-Systemen – damit dein Unternehmen zur primären Quelle wird.
+              Das VisibilityLab System schafft die strukturelle Grundlage für nachhaltige Sichtbarkeit. Wir verbinden stabile Google-Rankings mit systematischer KI-Optimierung – damit dein Unternehmen als verlässliche Quelle wahrgenommen wird.
             </p>
 
             <ul className="flex flex-col gap-2 md:gap-3 mb-6 md:mb-10 text-text-secondary text-sm md:text-base">
@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Award className="w-5 h-5 text-[#4FD1FF] shrink-0" />
-                <span>Kontinuierliche Analyse der KI-Antwort-Logik auf Basis realer Such-Szenarien.</span>
+                <span>Kontinuierliche Analyse von Such- und KI-Antwortmustern auf Basis realer Szenarien.</span>
               </li>
             </ul>
             

@@ -39,15 +39,15 @@ export const AboutMe: React.FC = () => {
         <div className="flex-1 flex flex-col justify-center py-2 lg:py-0">
           <div>
             <h2 id="about-title" className="text-2xl md:text-3xl lg:text-4xl font-black mb-4 leading-tight">
-              Leidenschaft ist mein <span className="text-accentBlue">Betriebssystem.</span>
+              Strategisches Denken ist mein <span className="text-accentBlue">Fundament.</span>
             </h2>
             
             <div className="text-text-secondary text-sm md:text-base mb-6 leading-relaxed font-light space-y-3">
               <p>
-                Für mich ist KI kein Projekt, das man abschließt – es ist ein Spielplatz, der jeden Tag größer wird. Ich bin Robert, 36, und ich verbringe meine Zeit am liebsten damit, die Grenzen von Systemen wie GPT, Gemini oder Claude auszuloten. Nicht, weil ich muss, sondern weil ich es will.
+                Für mich ist KI kein kurzfristiger Trend, sondern ein dynamisches System, das sich kontinuierlich weiterentwickelt. Ich bin Robert, 36, und ich verbringe meine Zeit am liebsten damit, die Grenzen von Systemen wie GPT, Gemini oder Claude auszuloten. Nicht, weil ich muss, sondern weil ich es will.
               </p>
               <p>
-                Ich bin ein ewiger Lerner. Wenn eine Datenstruktur hakt oder ein Prompt halluziniert, lässt mich das nicht los. Da werden aus geplanten zehn Minuten Analyse schnell mal drei Uhr morgens, weil ich verstehen muss, warum das System so reagiert. Diese Besessenheit für Details ist mein Antrieb. Ich teile nicht nur glatte Ergebnisse, sondern den oft harten Prozess des Entdeckens. Wer mit mir arbeitet, bekommt das Ergebnis von echtem Testing – von jemandem, der Systeme erst kaputt macht, um sie besser wieder aufzubauen.
+                Mich treibt der Anspruch an Präzision und Verständnis. Wenn eine Datenstruktur nicht sauber greift, analysiere ich sie so lange, bis Ursache und Wirkung klar sind. Wer mit mir arbeitet, erhält keine theoretischen Konzepte, sondern Strategien, die auf realem Testing und strukturiertem Vorgehen basieren.
               </p>
               <p>
                 Um den Kopf nach solchen Nächten wieder freizubekommen, brauche ich den Kontrast: Die Natur hier in Falkenberg oder einfach Zeit mit den Menschen, die mir wichtig sind. Das ist mein Anker, bevor ich am nächsten Morgen wieder tief in den Maschinenraum abtauche. Für mich gibt es keinen Stillstand – nur den nächsten Test, das nächste Modell und die nächste Erkenntnis.

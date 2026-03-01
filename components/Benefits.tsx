@@ -25,10 +25,10 @@ export const Benefits: React.FC = () => {
           className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-white leading-tight">
-            Vom passiven Suchergebnis zur aktiven Antwort-Hoheit.
+            Vom Suchergebnis zur relevanten Quelle.
           </h2>
           <p className="text-text-secondary text-base max-w-2xl mx-auto">
-            Werde zur primären Quelle, während andere noch auf Klicks hoffen.
+            Positioniere dein Unternehmen dort, wo Entscheidungen vorbereitet werden.
           </p>
         </motion.div>
 
@@ -61,7 +61,7 @@ export const Benefits: React.FC = () => {
                   
                   <h3 className="text-xl font-bold text-white mb-4">Strategische Resilienz</h3>
                   <div className="text-text-secondary text-sm leading-relaxed space-y-3 flex-1">
-                    <p>Schluss mit dem Blindflug bei Google-Updates. Durch den Aufbau von Topical Authority und tiefen Datenstrukturen bleibt deine Sichtbarkeit auch dann bestehen, wenn KI-Modelle ihr Ranking-Schema ändern.</p>
+                    <p>Keine strategischen Überraschungen bei Google-Updates. Durch den Aufbau von Topical Authority und tiefen Datenstrukturen bleibt deine Sichtbarkeit auch dann bestehen, wenn KI-Modelle ihr Ranking-Schema ändern.</p>
                     <p className="text-white/90 font-medium">Du baust kein Kartenhaus, sondern ein Fundament.</p>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ export const Benefits: React.FC = () => {
                         <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 whitespace-nowrap">Keyword-Fokus</div>
                       </div>
                       <div className="w-8 bg-[#15305b] rounded-t-sm h-[80%] border-t border-x border-[#4FD1FF]/40 relative group shadow-[0_0_15px_rgba(79,209,255,0.1)]">
-                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-[#4FD1FF] font-bold whitespace-nowrap">Antwort-Hoheit</div>
+                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-[#4FD1FF] font-bold whitespace-nowrap">Antwort-Relevanz</div>
                       </div>
                     </div>
                   </div>
@@ -91,7 +91,7 @@ export const Benefits: React.FC = () => {
                   <h3 className="text-xl font-bold text-white mb-4">Zero-Waste Content</h3>
                   <div className="text-text-secondary text-sm leading-relaxed space-y-3 flex-1">
                     <p>Content ohne Maschinenlesbarkeit ist 2026 eine Fehlinvestition. Wir sorgen dafür, dass jeder Euro doppelt einzahlt: In den klassischen Index für menschliche Besucher und in den Knowledge Graph für KI-Agents.</p>
-                    <p className="text-white/90 font-medium">Wer heute noch isolierte Blogbeiträge schreibt, verbrennt Kapital.</p>
+                    <p className="text-white/90 font-medium">Isolierte Inhalte ohne strategische Struktur verlieren zunehmend an Wirkung.</p>
                   </div>
                 </div>
               </div>
@@ -123,10 +123,10 @@ export const Benefits: React.FC = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-4">Informationshoheit</h3>
+                  <h3 className="text-xl font-bold text-white mb-4">Informationsführerschaft</h3>
                   <div className="text-text-secondary text-sm leading-relaxed space-y-3 flex-1">
-                    <p>Besetze die Logik deiner Branche. Wer als Primärquelle in ChatGPT oder Gemini zitiert wird, gewinnt den Markt, bevor der Kunde überhaupt eine Suchergebnisliste sieht.</p>
-                    <p className="text-white/90 font-medium">Es geht nicht um Ranking #1, sondern um die einzige Antwort.</p>
+                    <p>Präge die Informationsstruktur deiner Branche. Wer in Systemen wie ChatGPT oder Gemini als Quelle erscheint, wird frühzeitig in Entscheidungsprozesse eingebunden.</p>
+                    <p className="text-white/90 font-medium">Es geht nicht nur um Ranking #1, sondern um nachhaltige Relevanz.</p>
                   </div>
                 </div>
               </div>
