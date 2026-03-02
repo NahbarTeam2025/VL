@@ -92,11 +92,13 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(11, 16, 32, 0.4);
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  will-change: transform, opacity;
 }
 
 .node-glow {
   box-shadow: 0 0 30px rgba(79, 209, 255, 0.1);
   transition: all 0.3s ease;
+  will-change: transform, box-shadow;
 }
 
 .node-glow:hover {
@@ -106,14 +108,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-gradient {
-  background: linear-gradient(to right, var(--color-accentCyan), var(--color-accentBlue));
+  background: linear-gradient(to right, var(--color-accentCyan), var(--color-accentBlue), var(--color-accentCyan));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% auto;
-  animation: brand-flow 60s linear infinite;
+  animation: brand-flow 8s linear infinite;
   will-change: background-position;
 }
+
 
 .text-glow {
   text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
