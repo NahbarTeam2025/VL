@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
               <span className="font-bold text-lg brand-gradient">VisibilityLab</span>
             </div>
             <p className="text-slate-300 text-xs leading-relaxed max-w-sm">
-              KI-gestütztes System für moderne SEO-, GEO- und Content-Strategien.
+              Integriertes SEO-, GEO- und AEO-System für moderne Such- und KI-Strategien.
             </p>
             <div className="flex gap-3 mt-1">
               <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-accentBlue hover:text-text-primary transition-all duration-300">

@@ -20,9 +20,9 @@ export const Methodology: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-white">Das VisibilityLab System im Detail</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-white">Das VisibilityLab SEO-, GEO- und AEO-System im Detail</h2>
           <p className="text-text-secondary text-base md:text-lg max-w-3xl mx-auto space-y-1 flex flex-col">
-            <span>Ganzheitliche Optimierung für Suchmaschinen und KI-Systeme.</span>
+            <span>Ganzheitliche Optimierung für klassische Suchmaschinen und KI-Antwortsysteme.</span>
             <span>Wir sorgen dafür, dass dein Unternehmen dort sichtbar wird, wo heute Antworten entstehen.</span>
           </p>
         </motion.div>

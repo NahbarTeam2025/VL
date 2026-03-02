@@ -52,7 +52,7 @@ export const Hero: React.FC = () => {
             </h1>
             
             <p className="text-[#E6ECFF] text-base md:text-xl max-w-2xl font-light leading-relaxed mb-6 md:mb-8">
-              Das VisibilityLab System schafft die strukturelle Grundlage für nachhaltige Sichtbarkeit. Wir verbinden stabile Google-Rankings mit systematischer KI-Optimierung – damit dein Unternehmen als verlässliche Quelle wahrgenommen wird.
+              Das VisibilityLab System ist ein integriertes SEO-, GEO- und AEO-System für nachhaltige Sichtbarkeit. Wir verbinden stabile Google-Rankings mit strukturierter KI-Optimierung – damit dein Unternehmen als verlässliche Quelle in Suchmaschinen und Antwortsystemen wahrgenommen wird.
             </p>
 
             <ul className="flex flex-col gap-2 md:gap-3 mb-6 md:mb-10 text-text-secondary text-sm md:text-base">

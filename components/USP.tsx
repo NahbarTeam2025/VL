@@ -21,7 +21,7 @@ export const USP: React.FC = () => {
           </h2>
           <p className="text-text-secondary text-base max-w-3xl mx-auto leading-relaxed space-y-3 flex flex-col">
             <span>KI-Suchsysteme wie GPT, Gemini oder Perplexity verändern gerade, wie Informationen gefunden werden. Unternehmen, die ihre Inhalte nicht strukturiert und KI-lesbar aufbauen, verlieren schrittweise digitale Reichweite. Viele Unternehmen bemerken diesen Verlust erst, wenn Anfragen stagnieren oder Wettbewerber deutlich präsenter erscheinen.</span>
-            <span>Klassisches SEO bleibt wichtig – reicht jedoch allein nicht mehr aus. Deshalb kombinieren wir strategische Themenarchitektur, strukturierte Daten und KI-Optimierung zu einem ganzheitlichen System.</span>
+            <span>Klassisches SEO bleibt wichtig – reicht jedoch allein nicht mehr aus. Deshalb verbinden wir SEO, Generative Engine Optimization (GEO) und Answer Engine Optimization (AEO) zu einem strukturell integrierten System.</span>
             <strong className="text-white font-medium">So sicherst du dir nachhaltige Sichtbarkeit – in Suchmaschinen und in KI-Antworten.</strong>
           </p>
         </motion.div>
