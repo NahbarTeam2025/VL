@@ -7,9 +7,19 @@ import React, { useEffect, useRef } from 'react';
     export const DataFlow: React.FC<DataFlowProps> = ({ shape = 'sphere' }) => {
       const canvasRef = useRef<HTMLCanvasElement>(null);
     
-      useEffect(() => {
+      const isVisibleRef = useRef(true);
+
+    useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+      },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -19,11 +29,11 @@ import React, { useEffect, useRef } from 'react';
     let animationFrameId: number;
 
     // Configuration
-    const PARTICLE_COUNT = 60;
-    const CONNECTION_DISTANCE = 120;
+    const PARTICLE_COUNT = 40; // Reduced from 60
+    const CONNECTION_DISTANCE = 110; // Slightly reduced
     const ROTATION_SPEED = 0.001;
     const PERSPECTIVE = 800;
-    const SPHERE_RADIUS = 350; // Increased radius for larger network
+    const SPHERE_RADIUS = 350;
     
     // Color Palette for Accents
     const COLORS = [
@@ -152,6 +162,14 @@ import React, { useEffect, useRef } from 'react';
     };
 
     const draw = () => {
+      if (!canvas) return;
+      
+      // Stop animation loop if not visible
+      if (!isVisibleRef.current) {
+        animationFrameId = requestAnimationFrame(draw);
+        return;
+      }
+
       ctx.clearRect(0, 0, width, height);
       
       // Center of the canvas
@@ -332,6 +350,7 @@ import React, { useEffect, useRef } from 'react';
     return () => {
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
     };
   }, [shape]);
 

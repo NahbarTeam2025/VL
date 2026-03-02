@@ -9,15 +9,24 @@ interface ParticlesBackgroundProps {
 
 export const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ 
   color = '#ffffff', 
-  count = 50, 
+  count = 30, // Reduced default from 50
   className = '',
   speed = 0.5 
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const isVisibleRef = useRef(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+      },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -79,6 +88,12 @@ export const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
 
     const drawParticles = () => {
       if (!canvas) return;
+      
+      if (!isVisibleRef.current) {
+        animationFrameId = requestAnimationFrame(drawParticles);
+        return;
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach(p => {
@@ -113,6 +128,7 @@ export const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
       window.removeEventListener('resize', resizeCanvas);
       clearTimeout(timeoutId);
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
     };
   }, [color, count, speed]);
 
