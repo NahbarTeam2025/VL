@@ -3,8 +3,11 @@ import { ShieldCheck, Award, Zap } from 'lucide-react';
 import { ParticlesBackground } from './ParticlesBackground';
 import { DataFlow } from './DataFlow';
 import { motion } from 'framer-motion';
+import { useTheme } from './ThemeContext';
 
 export const Hero: React.FC = () => {
+  const { theme } = useTheme();
+
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
     const targetId = e.currentTarget.getAttribute('href')?.substring(1);
@@ -26,14 +29,14 @@ export const Hero: React.FC = () => {
 
       {/* Background Elements for Wow Factor */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-grid-subtle opacity-[0.03]"></div>
+        <div className="absolute inset-0 bg-grid-subtle opacity-[0.03] [.light_&]:opacity-[0.05]"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/50 via-transparent to-bg-primary"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#000000_100%)] opacity-80"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#000000_100%)] [.light_&]:bg-[radial-gradient(ellipse_at_center,transparent_0%,#ffffff_100%)] opacity-80"></div>
       </div>
 
       {/* Data Flow Background */}
       <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[60%] pointer-events-none z-0 overflow-hidden opacity-100">
-         <DataFlow />
+         <DataFlow theme={theme} />
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -46,12 +49,12 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="flex-1 w-full text-left mt-4 lg:-mt-8"
           >
-            <h1 className="text-[clamp(1.75rem,8vw,4.5rem)] font-extrabold tracking-tight leading-[1.15] mb-4 md:mb-6 text-white lg:whitespace-nowrap">
+            <h1 className="text-[clamp(1.75rem,8vw,4.5rem)] font-extrabold tracking-tight leading-[1.15] mb-4 md:mb-6 text-text-head lg:whitespace-nowrap">
               Werde zur relevanten Quelle. <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]">In Google und KI.</span>
             </h1>
             
-            <p className="text-[#E6ECFF] text-base md:text-xl max-w-2xl font-light leading-relaxed mb-6 md:mb-8">
+            <p className="text-text-primary text-base md:text-xl max-w-2xl font-light leading-relaxed mb-6 md:mb-8">
               Das VisibilityLab System ist ein integriertes SEO-, GEO- und AEO-System für nachhaltige Sichtbarkeit. Wir verbinden stabile Google-Rankings mit strukturierter KI-Optimierung – damit dein Unternehmen als verlässliche Quelle in Suchmaschinen und Antwortsystemen wahrgenommen wird.
             </p>
 
@@ -86,34 +89,34 @@ export const Hero: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.6 }}
-                className="flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] rounded-full border border-[#4FD1FF]/30 shadow-[0_0_15px_rgba(79,209,255,0.15)]"
+                className="flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] [.light_&]:from-blue-50 [.light_&]:to-white rounded-full border border-[#4FD1FF]/30 [.light_&]:border-blue-200 shadow-[0_0_15px_rgba(79,209,255,0.15)] [.light_&]:shadow-md"
               >
                 <div className="w-4 h-4 md:w-8 md:h-8 rounded-full bg-[#4FD1FF]/10 flex items-center justify-center border border-[#4FD1FF]/20">
                   <ShieldCheck className="w-2.5 h-2.5 md:w-4 md:h-4 text-[#4FD1FF]" />
                 </div>
-                <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">DSGVO Konform</span>
+                <span className="text-[10px] md:text-xs font-bold text-white [.light_&]:text-blue-900 uppercase tracking-wider">DSGVO Konform</span>
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.7 }}
-                className="flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] rounded-full border border-[#10B981]/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+                className="flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] [.light_&]:from-emerald-50 [.light_&]:to-white rounded-full border border-[#10B981]/30 [.light_&]:border-emerald-200 shadow-[0_0_15px_rgba(16,185,129,0.15)] [.light_&]:shadow-md"
               >
                 <div className="w-4 h-4 md:w-8 md:h-8 rounded-full bg-[#10B981]/10 flex items-center justify-center border border-[#10B981]/20">
                   <Zap className="w-2.5 h-2.5 md:w-4 md:h-4 text-[#10B981]" />
                 </div>
-                <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">High-Performance</span>
+                <span className="text-[10px] md:text-xs font-bold text-white [.light_&]:text-emerald-900 uppercase tracking-wider">High-Performance</span>
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.8 }}
-                className="flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] rounded-full border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                className="flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-br from-[#000000] to-[#111111] [.light_&]:from-slate-50 [.light_&]:to-white rounded-full border border-white/20 [.light_&]:border-slate-200 shadow-[0_0_15px_rgba(255,255,255,0.05)] [.light_&]:shadow-md"
               >
-                <div className="w-4 h-4 md:w-8 md:h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                  <ShieldCheck className="w-2.5 h-2.5 md:w-4 md:h-4 text-white" />
+                <div className="w-4 h-4 md:w-8 md:h-8 rounded-full bg-white/5 [.light_&]:bg-slate-100 flex items-center justify-center border border-white/10 [.light_&]:border-slate-200">
+                  <ShieldCheck className="w-2.5 h-2.5 md:w-4 md:h-4 text-white [.light_&]:text-slate-600" />
                 </div>
-                <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Lokal gehostet</span>
+                <span className="text-[10px] md:text-xs font-bold text-white [.light_&]:text-slate-900 uppercase tracking-wider">Lokal gehostet</span>
               </motion.div>
             </div>
           </motion.div>

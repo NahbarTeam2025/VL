@@ -10,6 +10,22 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         host: '0.0.0.0',
       },
+      build: {
+        target: 'esnext',
+        minify: 'esbuild',
+        cssMinify: true,
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'vendor-react': ['react', 'react-dom'],
+              'vendor-motion': ['framer-motion'],
+              'vendor-icons': ['lucide-react'],
+            },
+          },
+        },
+        reportCompressedSize: false,
+        chunkSizeWarningLimit: 1000,
+      },
       plugins: [
         react(),
         tailwindcss(),

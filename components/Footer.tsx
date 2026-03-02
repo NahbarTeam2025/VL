@@ -5,8 +5,11 @@ import { Modal } from './Modal';
 import { ImpressumContent } from './ImpressumContent';
 import { DatenschutzContent } from './DatenschutzContent';
 import { AgbContent } from './AgbContent';
+import { useTheme } from './ThemeContext';
 
 export const Footer: React.FC = () => {
+  const { theme } = useTheme();
+  
   const links = [
     { title: 'USP', href: '#usp' },
     { title: 'Benefits', href: '#benefit' },
@@ -37,7 +40,7 @@ export const Footer: React.FC = () => {
   return (
     <footer id="agb" className="bg-bg-secondary pt-6 pb-4 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4FD1FF]/50 to-transparent"></div>
-      <ParticlesBackground color="#ffffff" count={20} />
+      <ParticlesBackground color={theme === 'light' ? '#2F80FF' : '#ffffff'} count={20} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
           {/* Left: Logo and description */}
@@ -50,17 +53,17 @@ export const Footer: React.FC = () => {
                </svg>
               <span className="font-bold text-lg brand-gradient">VisibilityLab</span>
             </div>
-            <p className="text-slate-300 text-xs leading-relaxed max-w-sm">
+            <p className="text-text-secondary text-xs leading-relaxed max-w-sm">
               Integriertes SEO-, GEO- und AEO-System für moderne Such- und KI-Strategien.
             </p>
             <div className="flex gap-3 mt-1">
-              <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-accentBlue hover:text-text-primary transition-all duration-300">
+              <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-full bg-white/5 [.light_&]:bg-black/5 flex items-center justify-center text-text-secondary hover:bg-accentBlue hover:text-text-primary transition-all duration-300">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="#" aria-label="YouTube" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-red-600 hover:text-text-primary transition-all duration-300">
+              <a href="#" aria-label="YouTube" className="w-8 h-8 rounded-full bg-white/5 [.light_&]:bg-black/5 flex items-center justify-center text-text-secondary hover:bg-red-600 hover:text-text-primary transition-all duration-300">
                 <Youtube className="w-4 h-4" />
               </a>
-              <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-pink-600 hover:text-text-primary transition-all duration-300">
+              <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full bg-white/5 [.light_&]:bg-black/5 flex items-center justify-center text-text-secondary hover:bg-pink-600 hover:text-text-primary transition-all duration-300">
                 <Instagram className="w-4 h-4" />
               </a>
             </div>
@@ -68,9 +71,9 @@ export const Footer: React.FC = () => {
 
           {/* Right: Legals */}
           <div className="flex flex-wrap gap-4">
-            <button onClick={() => setIsImpressumOpen(true)} className="text-xs text-slate-300 hover:text-white transition-colors">Impressum</button>
-            <button onClick={() => setIsDatenschutzOpen(true)} className="text-xs text-slate-300 hover:text-white transition-colors">Datenschutz</button>
-            <button onClick={() => setIsAgbOpen(true)} className="text-xs text-slate-300 hover:text-white transition-colors">AGB</button>
+            <button onClick={() => setIsImpressumOpen(true)} className="text-xs text-text-secondary hover:text-text-primary transition-colors">Impressum</button>
+            <button onClick={() => setIsDatenschutzOpen(true)} className="text-xs text-text-secondary hover:text-text-primary transition-colors">Datenschutz</button>
+            <button onClick={() => setIsAgbOpen(true)} className="text-xs text-text-secondary hover:text-text-primary transition-colors">AGB</button>
           </div>
         </div>
         <div className="text-center text-[10px] text-slate-500 mt-6 font-light tracking-widest uppercase">

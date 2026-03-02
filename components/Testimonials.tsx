@@ -34,7 +34,7 @@ export const Testimonials: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-black mb-6 text-white">Das sagen unsere Kunden</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-6 text-text-head">Das sagen unsere Kunden</h2>
           <p className="text-text-secondary text-lg max-w-3xl mx-auto">
             Messbare Ergebnisse und nachhaltiges Wachstum.
           </p>
@@ -48,7 +48,7 @@ export const Testimonials: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="glass-morphism p-8 rounded-2xl border border-border hover:border-[#4FD1FF]/30 transition-colors relative overflow-hidden group"
+              className="bg-white/5 [.light_&]:bg-white backdrop-blur-xl p-8 rounded-2xl border border-white/10 [.light_&]:border-slate-200 hover:border-[#4FD1FF]/30 transition-colors relative overflow-hidden group [.light_&]:shadow-xl"
             >
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
@@ -64,8 +64,8 @@ export const Testimonials: React.FC = () => {
                 </div>
                 <p className="text-text-secondary italic mb-6">"{testimonial.text}"</p>
                 <div>
-                  <p className="text-white font-bold">{testimonial.name}</p>
-                  <p className="text-text-muted text-sm">{testimonial.role}</p>
+                  <p className="text-white [.light_&]:text-text-head font-bold">{testimonial.name}</p>
+                  <p className="text-text-muted [.light_&]:text-text-secondary text-sm">{testimonial.role}</p>
                 </div>
               </div>
             </motion.div>

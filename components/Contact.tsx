@@ -31,7 +31,7 @@ export const Contact: React.FC = () => {
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-10">
-          <h2 id="contact-title" className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-white leading-tight">Bereit für den <br /> <span className="text-blue-500">nächsten Schritt?</span></h2>
+          <h2 id="contact-title" className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-text-head leading-tight">Bereit für den <br /> <span className="text-blue-500">nächsten Schritt?</span></h2>
           <p className="text-base md:text-lg text-text-secondary font-light">
             <span className="lg:whitespace-nowrap block">Wir analysieren deine bestehende Struktur und zeigen dir konkret, wo Optimierung möglich ist.</span>
             <span className="block mt-2">Die Erst-Analyse ist kostenfrei und unverbindlich.</span>
@@ -41,15 +41,15 @@ export const Contact: React.FC = () => {
         <div className="max-w-2xl mx-auto">
           <div className="relative group rounded-[2.5rem] p-[1px] bg-gradient-to-br from-[#4FD1FF]/30 via-[#2F80FF]/30 to-[#4FD1FF]/30 animate-gradient-pan">
             <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF] to-[#2F80FF] blur-xl opacity-5 group-hover:opacity-10 transition-opacity duration-500"></div>
-            <div className="relative bg-[#050b14]/95 backdrop-blur-xl p-5 md:p-8 rounded-[2.4rem] shadow-2xl overflow-hidden border border-white/5">
+            <div className="relative bg-[#050b14]/95 [.light_&]:bg-white backdrop-blur-xl p-5 md:p-8 rounded-[2.4rem] shadow-2xl [.light_&]:shadow-xl overflow-hidden border border-white/5 [.light_&]:border-blue-100">
               {status === 'success' ? (
               <div className="text-center py-12 animate-fadeInUp relative z-10">
                 <div className="w-16 h-16 bg-[#4FD1FF]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#4FD1FF]">
                   <CheckCircle className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Anfrage gesendet</h3>
+                <h3 className="text-xl font-bold text-text-head mb-2">Anfrage gesendet</h3>
                 <p className="text-text-secondary text-sm mb-6">Wir haben deinen E-Mail-Client vorbereitet. Bitte sende die Nachricht ab.</p>
-                <button onClick={() => setStatus('idle')} className="text-[#4FD1FF] font-bold uppercase tracking-widest text-xs hover:text-white transition-colors focus-visible:outline-[#4FD1FF]">Formular zurücksetzen</button>
+                <button onClick={() => setStatus('idle')} className="text-[#4FD1FF] font-bold uppercase tracking-widest text-xs hover:text-text-head transition-colors focus-visible:outline-[#4FD1FF]">Formular zurücksetzen</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
@@ -62,7 +62,7 @@ export const Contact: React.FC = () => {
                       name="name"
                       required
                       autoComplete="name"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#4FD1FF] focus:ring-4 focus:ring-[#4FD1FF]/10 transition-all"
+                      className="w-full bg-white/5 [.light_&]:bg-slate-50 border border-white/10 [.light_&]:border-slate-200 rounded-xl px-4 py-2.5 text-sm text-white [.light_&]:text-text-primary placeholder:text-white/20 [.light_&]:placeholder:text-slate-400 focus:outline-none focus:border-[#4FD1FF] focus:ring-4 focus:ring-[#4FD1FF]/10 transition-all"
                       placeholder="Max Mustermann"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -77,7 +77,7 @@ export const Contact: React.FC = () => {
                       name="email"
                       required
                       autoComplete="email"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#4FD1FF] focus:ring-4 focus:ring-[#4FD1FF]/10 transition-all"
+                      className="w-full bg-white/5 [.light_&]:bg-slate-50 border border-white/10 [.light_&]:border-slate-200 rounded-xl px-4 py-2.5 text-sm text-white [.light_&]:text-text-primary placeholder:text-white/20 [.light_&]:placeholder:text-slate-400 focus:outline-none focus:border-[#4FD1FF] focus:ring-4 focus:ring-[#4FD1FF]/10 transition-all"
                       placeholder="maxmustermann@web.de"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -92,21 +92,21 @@ export const Contact: React.FC = () => {
                     name="status"
                     required
                     rows={3}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#4FD1FF] focus:ring-4 focus:ring-[#4FD1FF]/10 transition-all resize-none"
+                    className="w-full bg-white/5 [.light_&]:bg-slate-50 border border-white/10 [.light_&]:border-slate-200 rounded-xl px-4 py-2.5 text-sm text-white [.light_&]:text-text-primary placeholder:text-white/20 [.light_&]:placeholder:text-slate-400 focus:outline-none focus:border-[#4FD1FF] focus:ring-4 focus:ring-[#4FD1FF]/10 transition-all resize-none"
                     placeholder="Beschreibe kurz deine aktuelle Situation und dein Ziel..."
                     value={formData.status}
                     onChange={(e) => setFormData({...formData, status: e.target.value})}
                   ></textarea>
                 </div>
 
-                <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10">
+                <div className="flex items-start gap-3 p-4 bg-white/5 [.light_&]:bg-slate-50 rounded-xl border border-white/10 [.light_&]:border-slate-200">
                   <div className="flex items-center h-6">
                     <input
                       id="agreement"
                       name="agreement"
                       type="checkbox"
                       required
-                      className="w-6 h-6 rounded border-white/20 bg-white/10 text-[#4FD1FF] focus:ring-[#4FD1FF] cursor-pointer"
+                      className="w-6 h-6 rounded border-white/20 [.light_&]:border-slate-300 bg-white/10 [.light_&]:bg-white text-[#4FD1FF] focus:ring-[#4FD1FF] cursor-pointer"
                       checked={formData.agreement}
                       onChange={(e) => setFormData({...formData, agreement: e.target.checked})}
                     />
@@ -116,7 +116,7 @@ export const Contact: React.FC = () => {
                     <button 
                       type="button" 
                       onClick={() => setIsDatenschutzOpen(true)}
-                      className="text-[#4FD1FF] underline font-bold bg-transparent border-none p-0 cursor-pointer hover:text-white transition-colors focus-visible:outline-[#4FD1FF]"
+                      className="text-[#4FD1FF] underline font-bold bg-transparent border-none p-0 cursor-pointer hover:text-text-head transition-colors focus-visible:outline-[#4FD1FF]"
                     >
                       Datenschutz
                     </button>

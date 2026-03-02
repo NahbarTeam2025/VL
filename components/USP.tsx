@@ -16,13 +16,13 @@ export const USP: React.FC = () => {
           viewport={{ once: true }}
           className="mb-10 text-center"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-white leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-text-head leading-tight">
             Warum klassisches SEO allein nicht mehr ausreicht.
           </h2>
           <p className="text-text-secondary text-base max-w-3xl mx-auto leading-relaxed space-y-3 flex flex-col">
             <span>KI-Suchsysteme wie GPT, Gemini oder Perplexity verändern gerade, wie Informationen gefunden werden. Unternehmen, die ihre Inhalte nicht strukturiert und KI-lesbar aufbauen, verlieren schrittweise digitale Reichweite. Viele Unternehmen bemerken diesen Verlust erst, wenn Anfragen stagnieren oder Wettbewerber deutlich präsenter erscheinen.</span>
             <span>Klassisches SEO bleibt wichtig – reicht jedoch allein nicht mehr aus. Deshalb verbinden wir SEO, Generative Engine Optimization (GEO) und Answer Engine Optimization (AEO) zu einem strukturell integrierten System.</span>
-            <strong className="text-white font-medium">So sicherst du dir nachhaltige Sichtbarkeit – in Suchmaschinen und in KI-Antworten.</strong>
+            <strong className="text-text-head font-medium">So sicherst du dir nachhaltige Sichtbarkeit – in Suchmaschinen und in KI-Antworten.</strong>
           </p>
         </motion.div>
 
@@ -32,7 +32,7 @@ export const USP: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-6"
         >
-          <p className="text-white font-medium text-lg">
+          <p className="text-text-head font-medium text-lg">
             Der Unterschied liegt nicht in einzelnen Maßnahmen – sondern im strukturellen Ansatz.
           </p>
         </motion.div>
@@ -41,11 +41,11 @@ export const USP: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 backdrop-blur-xl rounded-3xl overflow-hidden border border-[#4FD1FF]/30 shadow-[0_8px_32px_rgba(79,209,255,0.1)]"
+          className="max-w-4xl mx-auto bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 [.light_&]:from-white [.light_&]:via-[#f0f9ff] [.light_&]:to-white backdrop-blur-xl rounded-3xl overflow-hidden border border-[#4FD1FF]/30 [.light_&]:border-blue-200 shadow-[0_8px_32px_rgba(79,209,255,0.1)] [.light_&]:shadow-xl"
         >
-          <div className="grid grid-cols-2 bg-[#000000]/50 border-b border-[#4FD1FF]/20">
+          <div className="grid grid-cols-2 bg-[#000000]/50 [.light_&]:bg-blue-100/50 border-b border-[#4FD1FF]/20">
             <div className="p-3 md:p-6 text-center font-bold text-text-secondary text-sm md:text-base">Traditionelles SEO</div>
-            <div className="p-3 md:p-6 text-center font-bold text-[#4FD1FF] bg-[#4FD1FF]/5 text-sm md:text-base">VisibilityLab System</div>
+            <div className="p-3 md:p-6 text-center font-bold text-[#4FD1FF] [.light_&]:text-blue-600 bg-[#4FD1FF]/5 [.light_&]:bg-blue-600/5 text-sm md:text-base">VisibilityLab System</div>
           </div>
           
           {[
@@ -57,12 +57,12 @@ export const USP: React.FC = () => {
           ].map((row, idx) => (
             <div key={idx} className="grid grid-cols-2 border-b border-border/50 last:border-0 hover:bg-white/[0.02] transition-colors relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#4FD1FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-              <div className="p-3 md:p-6 flex items-center gap-2 md:gap-3 text-text-secondary group-hover:text-white transition-colors relative z-10">
+              <div className="p-3 md:p-6 flex items-center gap-2 md:gap-3 text-text-secondary group-hover:text-text-head transition-colors relative z-10">
                 <X className="w-4 h-4 md:w-5 md:h-5 text-red-400 shrink-0" />
                 <span className="text-xs md:text-base">{row.old}</span>
               </div>
-              <div className="p-3 md:p-6 flex items-center gap-2 md:gap-3 text-white bg-[#4FD1FF]/5 node-glow group-hover:bg-[#4FD1FF]/10 transition-colors relative z-10">
-                <Check className="w-4 h-4 md:w-5 md:h-5 text-[#4FD1FF] shrink-0" />
+              <div className="p-3 md:p-6 flex items-center gap-2 md:gap-3 text-white [.light_&]:text-blue-900 bg-[#4FD1FF]/5 [.light_&]:bg-blue-600/5 node-glow group-hover:bg-[#4FD1FF]/10 [.light_&]:group-hover:bg-blue-600/10 transition-colors relative z-10">
+                <Check className="w-4 h-4 md:w-5 md:h-5 text-[#4FD1FF] [.light_&]:text-blue-600 shrink-0" />
                 <span className="text-xs md:text-base font-medium">{row.new}</span>
               </div>
             </div>

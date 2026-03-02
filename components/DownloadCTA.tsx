@@ -11,12 +11,12 @@ export const DownloadCTA: React.FC = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto bg-gradient-to-br from-[#000000]/80 via-[#4FD1FF]/10 to-[#000000]/80 backdrop-blur-xl border border-[#4FD1FF]/60 shadow-[0_0_50px_rgba(79,209,255,0.2)] p-6 sm:p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden z-10 node-glow"
+        className="max-w-4xl mx-auto bg-gradient-to-br from-[#000000]/80 via-[#4FD1FF]/10 to-[#000000]/80 [.light_&]:from-white [.light_&]:via-blue-50 [.light_&]:to-white backdrop-blur-xl border border-[#4FD1FF]/60 [.light_&]:border-blue-200 shadow-[0_0_50px_rgba(79,209,255,0.2)] [.light_&]:shadow-xl p-6 sm:p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden z-10 node-glow"
       >
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#4FD1FF] to-transparent opacity-50"></div>
         
         <div className="text-center mb-10">
-          <h2 id="download-title" className="text-2xl md:text-3xl lg:text-4xl font-black mb-6 text-white leading-tight tracking-tight">
+          <h2 id="download-title" className="text-2xl md:text-3xl lg:text-4xl font-black mb-6 text-text-head leading-tight tracking-tight">
             Das VisibilityLab Strategie-Briefing: Die Entscheidungsgrundlage für dein Team-Meeting.
           </h2>
           
@@ -25,8 +25,8 @@ export const DownloadCTA: React.FC = () => {
           </p>
         </div>
 
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 mb-10 max-w-2xl mx-auto">
-          <h3 className="text-xl font-bold text-white mb-6 text-center">Was Dich in der PDF erwartet</h3>
+        <div className="bg-white/5 [.light_&]:bg-blue-50/50 border border-white/10 [.light_&]:border-blue-100 rounded-2xl p-6 md:p-8 mb-10 max-w-2xl mx-auto">
+          <h3 className="text-xl font-bold text-text-head mb-6 text-center">Was Dich in der PDF erwartet</h3>
           <ul className="space-y-4">
             {[
               "Wie sich KI-Sichtbarkeit von klassischem SEO unterscheidet",

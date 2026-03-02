@@ -59,21 +59,21 @@ export const DetailedBenefits: React.FC = () => {
           {groups.map((group, idx) => (
             <div key={idx} className="relative group rounded-2xl p-[1px] bg-gradient-to-br from-white/10 to-white/5 hover:from-blue-500 hover:to-purple-500 transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative h-full bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 backdrop-blur-xl rounded-2xl p-6 md:p-8 overflow-hidden border border-[#4FD1FF]/30 shadow-[0_8px_32px_rgba(79,209,255,0.1)]">
+              <div className="relative h-full bg-gradient-to-br from-[#15305b]/80 via-[#0d1f3d]/80 to-[#050b14]/80 [.light_&]:from-white [.light_&]:via-[#f0f9ff] [.light_&]:to-white backdrop-blur-xl rounded-2xl p-6 md:p-8 overflow-hidden border border-[#4FD1FF]/30 [.light_&]:border-blue-200 shadow-[0_8px_32px_rgba(79,209,255,0.1)] [.light_&]:shadow-xl">
                 <div className={`flex items-center gap-3 mb-6 ${group.color}`}>
-                  <div className="p-3 bg-white/5 rounded-lg group-hover:bg-white/10 transition-colors">
+                  <div className="p-3 bg-white/5 [.light_&]:bg-blue-600/5 rounded-lg group-hover:bg-white/10 transition-colors">
                       <group.icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">{group.title}</h3>
+                  <h3 className="text-2xl font-bold text-white [.light_&]:text-text-head">{group.title}</h3>
                 </div>
                 <ul className="space-y-4">
                   {group.benefits.map((benefit, i) => (
                     <li key={i}>
                       <div className="flex items-start gap-3">
-                        <div className="mt-1 w-5 h-5 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/5 group-hover:border-white/20 transition-colors">
+                        <div className="mt-1 w-5 h-5 rounded-full bg-white/5 [.light_&]:bg-blue-600/5 flex items-center justify-center shrink-0 border border-white/5 [.light_&]:border-blue-200 group-hover:border-white/20 transition-colors">
                           <Check className={`w-3 h-3 ${group.color}`} />
                         </div>
-                        <span className="text-text-secondary text-sm leading-relaxed">{benefit}</span>
+                        <span className="text-text-secondary [.light_&]:text-slate-700 text-sm leading-relaxed">{benefit}</span>
                       </div>
                     </li>
                   ))}

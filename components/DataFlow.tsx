@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from 'react';
 
     interface DataFlowProps {
         shape?: 'sphere' | 'head';
+        theme?: 'dark' | 'light';
     }
 
-    export const DataFlow: React.FC<DataFlowProps> = ({ shape = 'sphere' }) => {
+    export const DataFlow: React.FC<DataFlowProps> = ({ shape = 'sphere', theme = 'dark' }) => {
       const canvasRef = useRef<HTMLCanvasElement>(null);
     
       const isVisibleRef = useRef(true);
@@ -31,12 +32,17 @@ import React, { useEffect, useRef } from 'react';
     // Configuration
     const PARTICLE_COUNT = 40; // Reduced from 60
     const CONNECTION_DISTANCE = 110; // Slightly reduced
-    const ROTATION_SPEED = 0.001;
+    const ROTATION_SPEED = 0.0005;
     const PERSPECTIVE = 800;
     const SPHERE_RADIUS = 350;
     
     // Color Palette for Accents
-    const COLORS = [
+    const COLORS = theme === 'light' ? [
+        '#2F80FF', // Deep Blue (Primary in light)
+        '#1E40AF', // Darker Blue
+        '#7C3AED', // Purple Accent
+        '#0f172a'  // Slate-900 for highlights
+    ] : [
         '#4FD1FF', // Primary Cyan
         '#2F80FF', // Deep Blue
         '#A855F7', // Purple Accent
@@ -142,9 +148,9 @@ import React, { useEffect, useRef } from 'react';
         points.push({
           x, y, z,
           baseX: x, baseY: y, baseZ: z,
-          vx: (Math.random() - 0.5) * 0.2, // Random slow velocity
-          vy: (Math.random() - 0.5) * 0.2,
-          vz: (Math.random() - 0.5) * 0.2,
+          vx: (Math.random() - 0.5) * 0.1, // Random slow velocity
+          vy: (Math.random() - 0.5) * 0.1,
+          vz: (Math.random() - 0.5) * 0.1,
           size: Math.random() * 1.5 + 0.5,
           color: color
         });
@@ -247,14 +253,20 @@ import React, { useEffect, useRef } from 'react';
                 const c2 = hexToRgb(p2.color);
 
                 const grad = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
-                // Increased opacity from 0.3 to 0.6 for brighter connections
-                grad.addColorStop(0, `rgba(${c1.r}, ${c1.g}, ${c1.b}, ${depthAlpha * distAlpha * 0.6})`);
-                grad.addColorStop(1, `rgba(${c2.r}, ${c2.g}, ${c2.b}, ${depthAlpha * distAlpha * 0.6})`);
+                // Significantly increased opacity and line width for light mode
+                const baseOpacity = theme === 'light' ? 0.95 : 0.6;
+                const lineWidth = theme === 'light' ? 1.5 : 0.8;
+                
+                grad.addColorStop(0, `rgba(${c1.r}, ${c1.g}, ${c1.b}, ${depthAlpha * distAlpha * baseOpacity})`);
+                grad.addColorStop(1, `rgba(${c2.r}, ${c2.g}, ${c2.b}, ${depthAlpha * distAlpha * baseOpacity})`);
 
                 ctx.strokeStyle = grad;
+                ctx.lineWidth = lineWidth;
+                ctx.beginPath();
                 ctx.moveTo(p1.x, p1.y);
                 ctx.lineTo(p2.x, p2.y);
                 ctx.stroke();
+                ctx.lineWidth = 1; // Reset
             }
           }
         }
@@ -266,9 +278,9 @@ import React, { useEffect, useRef } from 'react';
           const pair = connectedPairs[Math.floor(Math.random() * connectedPairs.length)];
           // Random direction
           if (Math.random() > 0.5) {
-              signals.push({ startIndex: pair[0], endIndex: pair[1], progress: 0, speed: 0.02 + Math.random() * 0.03 });
+              signals.push({ startIndex: pair[0], endIndex: pair[1], progress: 0, speed: 0.01 + Math.random() * 0.015 });
           } else {
-              signals.push({ startIndex: pair[1], endIndex: pair[0], progress: 0, speed: 0.02 + Math.random() * 0.03 });
+              signals.push({ startIndex: pair[1], endIndex: pair[0], progress: 0, speed: 0.01 + Math.random() * 0.015 });
           }
       }
 
@@ -300,10 +312,11 @@ import React, { useEffect, useRef } from 'react';
           const alpha = (pStart.alpha + pEnd.alpha) / 2;
           if (alpha > 0.2) {
               ctx.beginPath();
-              ctx.arc(curX, curY, 1.5, 0, Math.PI * 2);
-              ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-              ctx.shadowBlur = 4;
-              ctx.shadowColor = '#ffffff';
+              const signalSize = theme === 'light' ? 3 : 2;
+              ctx.arc(curX, curY, signalSize, 0, Math.PI * 2);
+              ctx.fillStyle = theme === 'light' ? '#1E40AF' : '#ffffff';
+              ctx.shadowBlur = theme === 'light' ? 2 : 4;
+              ctx.shadowColor = theme === 'light' ? '#1E40AF' : '#ffffff';
               ctx.fill();
               ctx.shadowBlur = 0;
           }
@@ -313,16 +326,17 @@ import React, { useEffect, useRef } from 'react';
       projectedPoints.forEach(p => {
         if (p.alpha > 0.1) {
             ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size * p.scale, 0, Math.PI * 2);
+            // Larger points in light mode
+            const pointSize = theme === 'light' ? p.size * p.scale * 1.5 : p.size * p.scale;
+            ctx.arc(p.x, p.y, pointSize, 0, Math.PI * 2);
             
             const rgb = hexToRgb(p.color);
-            // Increased point opacity from 0.8 to 1.0
-            ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${p.alpha})`;
+            ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${p.alpha * (theme === 'light' ? 1 : 0.8)})`;
             ctx.fill();
             
             // Glow effect for closer points
-            if (p.alpha > 0.6) { // Lowered threshold for glow
-                ctx.shadowBlur = 15; // Increased glow radius
+            if (p.alpha > 0.5) { // Lowered threshold for glow
+                ctx.shadowBlur = theme === 'light' ? 10 : 15;
                 ctx.shadowColor = p.color;
                 ctx.fill();
                 ctx.shadowBlur = 0;
@@ -332,8 +346,13 @@ import React, { useEffect, useRef } from 'react';
 
       // Gradient Mask to fade out left side completely (protect text)
       const gradient = ctx.createLinearGradient(0, 0, width * 0.4, 0);
-      gradient.addColorStop(0, 'rgba(0,0,0,1)'); // Destination-out uses alpha
-      gradient.addColorStop(1, 'rgba(0,0,0,0)');
+      if (theme === 'light') {
+        gradient.addColorStop(0, 'rgba(255,255,255,1)'); // Fade to white
+        gradient.addColorStop(1, 'rgba(255,255,255,0)');
+      } else {
+        gradient.addColorStop(0, 'rgba(0,0,0,1)'); // Fade to black
+        gradient.addColorStop(1, 'rgba(0,0,0,0)');
+      }
       
       ctx.globalCompositeOperation = 'destination-out';
       ctx.fillStyle = gradient;
@@ -352,7 +371,7 @@ import React, { useEffect, useRef } from 'react';
       cancelAnimationFrame(animationFrameId);
       observer.disconnect();
     };
-  }, [shape]);
+  }, [shape, theme]);
 
   return (
     <canvas 

@@ -4,6 +4,8 @@ import { Modal } from './Modal';
 import { ImpressumContent } from './ImpressumContent';
 import { DatenschutzContent } from './DatenschutzContent';
 import { AgbContent } from './AgbContent';
+import { useTheme } from './ThemeContext';
+import { Sun, Moon } from 'lucide-react';
 
 interface NavLinkProps {
   href: string;
@@ -38,6 +40,7 @@ export const Navbar: React.FC = () => {
   const [isImpressumOpen, setIsImpressumOpen] = useState(false);
   const [isDatenschutzOpen, setIsDatenschutzOpen] = useState(false);
   const [isAgbOpen, setIsAgbOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const sections = [
     { id: 'usp', title: 'USP' },
@@ -134,7 +137,14 @@ export const Navbar: React.FC = () => {
                 </span>
               </a>
             </div>
-            <div className="flex">
+            <div className="flex items-center gap-4">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-full text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors focus:outline-none"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </button>
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -163,12 +173,12 @@ export const Navbar: React.FC = () => {
           visibility: isOpen ? 'visible' : 'hidden'
         }}
         transition={{ duration: 0.3 }}
-        className="fixed inset-0 z-[100] bg-[#050b14] flex flex-col items-center overflow-y-auto"
+        className="fixed inset-0 z-[100] bg-[#050b14] [.light_&]:bg-white flex flex-col items-center overflow-y-auto"
       >
         {/* Close Button for Mobile Menu */}
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-6 right-6 p-2 text-text-secondary hover:text-white transition-colors"
+          className="absolute top-6 right-6 p-2 text-text-secondary hover:text-white [.light_&]:hover:text-black transition-colors"
           aria-label="Menü schließen"
         >
           <div className="w-6 h-6 flex flex-col justify-center items-center relative">
@@ -193,8 +203,8 @@ export const Navbar: React.FC = () => {
                 onClick={handleScroll}
                 className={`block text-xl font-bold text-center py-3 transition-all duration-300 rounded-xl ${
                   activeSection === section.id 
-                    ? 'text-white bg-white/5 shadow-[0_0_20px_rgba(79,209,255,0.1)] border border-[#4FD1FF]/20' 
-                    : 'text-text-secondary hover:text-white hover:bg-white/5'
+                    ? 'text-white [.light_&]:text-black bg-white/5 [.light_&]:bg-black/5 shadow-[0_0_20px_rgba(79,209,255,0.1)] border border-[#4FD1FF]/20' 
+                    : 'text-text-secondary hover:text-white [.light_&]:hover:text-black hover:bg-white/5 [.light_&]:hover:bg-black/5'
                 }`}
               >
                 <span className={activeSection === section.id ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1FF] to-[#2F80FF]' : ''}>
@@ -214,26 +224,26 @@ export const Navbar: React.FC = () => {
           >
             <button 
               onClick={() => { setIsGlossaryOpen(true); setIsOpen(false); }}
-              className="block w-full text-lg font-medium text-center py-3 text-text-muted hover:text-[#4FD1FF] transition-colors hover:bg-white/5 rounded-xl"
+              className="block w-full text-lg font-medium text-center py-3 text-text-muted hover:text-[#4FD1FF] transition-colors hover:bg-white/5 [.light_&]:hover:bg-black/5 rounded-xl"
             >
               Glossar
             </button>
             <div className="flex justify-center gap-4 mt-2 items-center">
               <button 
                 onClick={() => { setIsAgbOpen(true); setIsOpen(false); }}
-                className="text-sm text-text-muted hover:text-white transition-colors py-2 px-3"
+                className="text-sm text-text-muted hover:text-white [.light_&]:hover:text-black transition-colors py-2 px-3"
               >
                 AGB
               </button>
               <button 
                 onClick={() => { setIsImpressumOpen(true); setIsOpen(false); }}
-                className="text-sm text-text-muted hover:text-white transition-colors py-2 px-3"
+                className="text-sm text-text-muted hover:text-white [.light_&]:hover:text-black transition-colors py-2 px-3"
               >
                 Impressum
               </button>
               <button 
                 onClick={() => { setIsDatenschutzOpen(true); setIsOpen(false); }}
-                className="text-sm text-text-muted hover:text-white transition-colors py-2 px-3"
+                className="text-sm text-text-muted hover:text-white [.light_&]:hover:text-black transition-colors py-2 px-3"
               >
                 Datenschutz
               </button>
@@ -246,31 +256,31 @@ export const Navbar: React.FC = () => {
         <Modal title="Glossar" onClose={() => setIsGlossaryOpen(false)}>
           <div className="space-y-4">
             <div>
-              <h4 className="font-bold text-white">SEO Search Engine Optimization</h4>
+              <h4 className="font-bold text-text-head">SEO Search Engine Optimization</h4>
               <p className="text-sm">Optimierung von Webseiten für Suchmaschinen wie Google, um in den organischen Suchergebnissen höher gerankt zu werden.</p>
             </div>
             <div>
-              <h4 className="font-bold text-white">GEO Generative Engine Optimization</h4>
+              <h4 className="font-bold text-text-head">GEO Generative Engine Optimization</h4>
               <p className="text-sm">Optimierung von Inhalten speziell für KI-gestützte Suchmaschinen und Antwortmaschinen wie ChatGPT oder Google Gemini.</p>
             </div>
             <div>
-              <h4 className="font-bold text-white">AEO Answer Engine Optimization</h4>
+              <h4 className="font-bold text-text-head">AEO Answer Engine Optimization</h4>
               <p className="text-sm">Strategien, um als direkte Antwort in KI-gestützten Suchergebnissen (z.B. Google AI Overviews) zu erscheinen.</p>
             </div>
             <div>
-              <h4 className="font-bold text-white">LLM Large Language Model</h4>
+              <h4 className="font-bold text-text-head">LLM Large Language Model</h4>
               <p className="text-sm">Große Sprachmodelle, die auf riesigen Datenmengen trainiert wurden, um menschenähnlichen Text zu verstehen und zu generieren.</p>
             </div>
             <div>
-              <h4 className="font-bold text-white">RAG Retrieval Augmented Generation</h4>
+              <h4 className="font-bold text-text-head">RAG Retrieval Augmented Generation</h4>
               <p className="text-sm">Eine Technik, die LLMs mit externen, aktuellen Datenquellen verbindet, um präzisere und faktenbasierte Antworten zu liefern.</p>
             </div>
             <div>
-              <h4 className="font-bold text-white">Topical Authority</h4>
+              <h4 className="font-bold text-text-head">Topical Authority</h4>
               <p className="text-sm">Der Status einer Website als vertrauenswürdige Expertenquelle für ein bestimmtes Themengebiet, basierend auf Tiefe und Qualität der Inhalte.</p>
             </div>
             <div>
-              <h4 className="font-bold text-white">Hub & Spoke</h4>
+              <h4 className="font-bold text-text-head">Hub & Spoke</h4>
               <p className="text-sm">Eine Content-Struktur, bei der eine zentrale Hauptseite (Hub) auf mehrere detaillierte Unterseiten (Spokes) verweist, um Themenautorität aufzubauen.</p>
             </div>
           </div>

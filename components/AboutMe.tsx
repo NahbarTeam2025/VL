@@ -2,8 +2,11 @@ import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { ParticlesBackground } from './ParticlesBackground';
 import { DataFlow } from './DataFlow';
+import { useTheme } from './ThemeContext';
 
 export const AboutMe: React.FC = () => {
+  const { theme } = useTheme();
+
   return (
     <section id="about-me" className="py-12 md:py-16 px-6 max-w-6xl mx-auto relative min-h-screen flex items-center" aria-labelledby="about-title">
       <ParticlesBackground color="#14b8a6" count={25} />
@@ -13,22 +16,22 @@ export const AboutMe: React.FC = () => {
         <div className="flex-[1.2] w-full lg:mx-0">
           <div className="relative h-full">
             {/* Background veil removed as requested */}
-            <div className="relative glass-morphism rounded-[2.5rem] overflow-hidden h-full min-h-[500px] lg:min-h-[600px] bg-[#050b14]/30 border border-white/5 shadow-2xl">
-              <DataFlow shape="head" />
+            <div className="relative glass-morphism [.light_&]:bg-slate-50 [.light_&]:border-slate-200 rounded-[2.5rem] overflow-hidden h-full min-h-[500px] lg:min-h-[600px] bg-[#050b14]/30 border border-white/5 shadow-2xl [.light_&]:shadow-xl">
+              <DataFlow shape="head" theme={theme} />
               
               {/* Technical Label */}
               <div className="absolute top-8 right-8 flex flex-col items-end pointer-events-none">
-                <span className="text-[10px] font-mono text-[#4FD1FF]/60 uppercase tracking-widest">Visibility_Engine_v2.5</span>
+                <span className="text-[10px] font-mono text-[#4FD1FF]/60 [.light_&]:text-blue-600/60 uppercase tracking-widest">Visibility_Engine_v2.5</span>
                 <div className="flex gap-1 mt-1">
-                  <div className="w-1 h-1 bg-[#4FD1FF] rounded-full animate-ping"></div>
-                  <div className="w-1 h-1 bg-[#4FD1FF]/40 rounded-full"></div>
-                  <div className="w-1 h-1 bg-[#4FD1FF]/40 rounded-full"></div>
+                  <div className="w-1 h-1 bg-[#4FD1FF] [.light_&]:bg-blue-600 rounded-full animate-ping"></div>
+                  <div className="w-1 h-1 bg-[#4FD1FF]/40 [.light_&]:bg-blue-600/40 rounded-full"></div>
+                  <div className="w-1 h-1 bg-[#4FD1FF]/40 [.light_&]:bg-blue-600/40 rounded-full"></div>
                 </div>
               </div>
 
               {/* Bottom Status Bar */}
-              <div className="absolute bottom-6 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-[8px] font-mono text-white/20 uppercase tracking-[0.3em] pointer-events-none">
+              <div className="absolute bottom-6 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/10 [.light_&]:via-blue-600/10 to-transparent pointer-events-none"></div>
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-[8px] font-mono text-white/20 [.light_&]:text-slate-400 uppercase tracking-[0.3em] pointer-events-none">
                 Neural Architecture // Robert Erbach
               </div>
             </div>
@@ -57,7 +60,7 @@ export const AboutMe: React.FC = () => {
           
           <div>
             <div className="mb-4">
-              <span className="font-signature text-xl text-white select-none">Robert Erbach</span>
+              <span className="font-signature text-xl text-text-head select-none">Robert Erbach</span>
             </div>
             
             <ul className="space-y-2" role="list">
