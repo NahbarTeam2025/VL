@@ -179,7 +179,8 @@ import React, { useEffect, useRef } from 'react';
       ctx.clearRect(0, 0, width, height);
       
       // Center of the canvas
-      const cx = width * 0.6; // Shift slightly right
+      const isMobile = width < 1024;
+      const cx = isMobile ? width * 0.85 : width * 0.6; // Shift further right on mobile
       const cy = height * 0.5;
 
       // Constant rotation
@@ -345,7 +346,8 @@ import React, { useEffect, useRef } from 'react';
       });
 
       // Gradient Mask to fade out left side completely (protect text)
-      const gradient = ctx.createLinearGradient(0, 0, width * 0.4, 0);
+      const maskWidth = isMobile ? width * 0.7 : width * 0.4;
+      const gradient = ctx.createLinearGradient(0, 0, maskWidth, 0);
       if (theme === 'light') {
         gradient.addColorStop(0, 'rgba(255,255,255,1)'); // Fade to white
         gradient.addColorStop(1, 'rgba(255,255,255,0)');
@@ -356,7 +358,7 @@ import React, { useEffect, useRef } from 'react';
       
       ctx.globalCompositeOperation = 'destination-out';
       ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, width * 0.4, height);
+      ctx.fillRect(0, 0, maskWidth, height);
       ctx.globalCompositeOperation = 'source-over';
 
       animationFrameId = requestAnimationFrame(draw);

@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Data Flow Background */}
-      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[60%] pointer-events-none z-0 overflow-hidden opacity-100">
+      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[60%] pointer-events-none z-0 overflow-hidden opacity-30 lg:opacity-100 [.light_&]:opacity-15 [.light_&]:lg:opacity-100">
          <DataFlow theme={theme} />
       </div>
 
