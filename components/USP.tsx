@@ -4,6 +4,17 @@ import { ParticlesBackground } from './ParticlesBackground';
 import { motion } from 'framer-motion';
 
 export const USP: React.FC = () => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute('href')?.substring(1);
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <section id="usp" className="py-20 md:py-24 bg-bg-secondary relative overflow-hidden">
       <ParticlesBackground color="#4FD1FF" count={30} />
@@ -79,7 +90,8 @@ export const USP: React.FC = () => {
             Ob dein Unternehmen bereits KI-ready ist, zeigt unser kurzer Visibility-Check.
           </p>
           <a 
-            href="#contact"
+            href="#kontakt"
+            onClick={handleScroll}
             className="relative overflow-hidden inline-flex w-full md:w-auto px-6 py-3 bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] rounded-xl text-white font-bold text-base shadow-[0_0_15px_rgba(47,128,255,0.3)] transition-all duration-500 items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white backdrop-blur-sm border border-white/10"
           >
             <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12"></div>
