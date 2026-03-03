@@ -15,13 +15,28 @@ export const Contact: React.FC = () => {
   const [isDatenschutzOpen, setIsDatenschutzOpen] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.agreement) return;
-    const subject = `Inquiry VisibilityLab: ${formData.name}`;
-    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0AStatus Quo / Herausforderung: ${formData.status}`;
-    window.location.href = `mailto:roberterbach@web.de?subject=${subject}&body=${body}`;
-    setStatus('success');
+
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data as any).toString(),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
@@ -48,11 +63,26 @@ export const Contact: React.FC = () => {
                   <CheckCircle className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-text-head mb-2">Anfrage gesendet</h3>
-                <p className="text-text-secondary text-sm mb-6">Wir haben deinen E-Mail-Client vorbereitet. Bitte sende die Nachricht ab.</p>
+                <p className="text-text-secondary text-sm mb-6">Vielen Dank für deine Nachricht! Wir werden uns in Kürze bei dir melden.</p>
                 <button onClick={() => setStatus('idle')} className="text-[#4FD1FF] font-bold uppercase tracking-widest text-xs hover:text-text-head transition-colors focus-visible:outline-[#4FD1FF]">Formular zurücksetzen</button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
+              <form 
+                onSubmit={handleSubmit} 
+                className="space-y-4 relative z-10"
+                name="kontaktformular"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+              >
+                {/* Netlify Hidden Fields */}
+                <input type="hidden" name="form-name" value="kontaktformular" />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </p>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="group/field">
                     <label htmlFor="name" className="block text-[10px] font-black text-text-secondary uppercase mb-1.5 tracking-[0.2em] group-focus-within/field:text-[#4FD1FF] transition-colors">Vollständiger Name</label>
@@ -89,7 +119,7 @@ export const Contact: React.FC = () => {
                   <label htmlFor="status" className="block text-[10px] font-black text-text-secondary uppercase mb-1.5 tracking-[0.2em] group-focus-within/field:text-[#4FD1FF] transition-colors">Status Quo / Herausforderung</label>
                   <textarea
                     id="status"
-                    name="status"
+                    name="nachricht"
                     required
                     rows={3}
                     className="w-full bg-white/5 [.light_&]:bg-slate-50 border border-white/10 [.light_&]:border-slate-200 rounded-xl px-4 py-2.5 text-sm text-white [.light_&]:text-text-primary placeholder:text-white/20 [.light_&]:placeholder:text-slate-400 focus:outline-none focus:border-[#4FD1FF] focus:ring-4 focus:ring-[#4FD1FF]/10 transition-all resize-none"
@@ -103,7 +133,7 @@ export const Contact: React.FC = () => {
                   <div className="flex items-center h-6">
                     <input
                       id="agreement"
-                      name="agreement"
+                      name="datenschutz"
                       type="checkbox"
                       required
                       className="w-6 h-6 rounded border-white/20 [.light_&]:border-slate-300 bg-white/10 [.light_&]:bg-white text-[#4FD1FF] focus:ring-[#4FD1FF] cursor-pointer"
