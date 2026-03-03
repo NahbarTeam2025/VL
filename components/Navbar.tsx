@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
     { id: 'download', title: 'PDF' },
     { id: 'about-me', title: 'Über Mich' },
     { id: 'faq', title: 'FAQ' },
-    { id: 'contact', title: 'Kontakt' },
+    { id: 'kontakt', title: 'Kontakt' },
     { id: 'agb', title: 'AGB' },
   ];
 

@@ -75,7 +75,7 @@ export const Hero: React.FC = () => {
             
             <div className="flex flex-col gap-2 mb-6 md:mb-10 w-fit">
               <a 
-                href="#contact"
+                href="#kontakt"
                 onClick={handleScroll}
                 className="relative overflow-hidden w-full px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#4FD1FF] via-[#2F80FF] to-[#4FD1FF] bg-[length:200%_auto] hover:bg-[position:right_center] rounded-xl text-white font-bold text-base md:text-lg shadow-[0_0_15px_rgba(47,128,255,0.3)] transition-all duration-500 inline-flex items-center justify-center group active:scale-95 whitespace-nowrap focus-visible:outline-white backdrop-blur-sm border border-white/10"
               >

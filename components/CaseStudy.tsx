@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 export const CaseStudy: React.FC = () => {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
-    document.querySelector('#kontakt')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
